@@ -8,11 +8,11 @@
 /* ********************************************* */
 /*       load iclink                             */
 /* ********************************************* */
-libname chars '/scratch/cityuhk/xinhe/eqchars';
+libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
 data iclink; set chars.iclink; run;
 
 proc export data = iclink
-outfile='/scratch/cityuhk/xinhe/eqchars/iclink.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe_mandy/eqchars/iclink.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*  Merging IBES and CRSP using ICLINK table     */
@@ -48,7 +48,7 @@ quit;
 data ic; set IBES_CRSP; run;  /* a short name */
 
 proc export data = ic
-outfile='/scratch/cityuhk/xinhe/eqchars/ic.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe_mandy/eqchars/ic.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*  Merging last month forecast                  */
@@ -73,7 +73,7 @@ quit;
 proc sort data=ic1 nodupkey; by ticker fpedats statpers; run;
 
 proc export data = ic1
-outfile='/scratch/cityuhk/xinhe/eqchars/ic1.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe_mandy/eqchars/ic1.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*  Drop empty "last month"                      */
@@ -91,7 +91,7 @@ monthly_revision = (meanest - meanest_last_month)/prc_adj;
 run;
 
 proc export data = ic2
-outfile='/scratch/cityuhk/xinhe/eqchars/ic2.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe_mandy/eqchars/ic2.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*  Count the number of obs for each rdq         */
@@ -112,7 +112,7 @@ order by
 quit;
 
 proc export data = ic3
-outfile='/scratch/cityuhk/xinhe/eqchars/ic3.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe_mandy/eqchars/ic3.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /* retain one obs for each ticker-fpedats        */
@@ -127,7 +127,7 @@ run;
 proc sort data=ic4 nodupkey; by ticker fpedats; run;
 
 proc export data = ic4
-outfile='/scratch/cityuhk/xinhe/eqchars/ic4.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe_mandy/eqchars/ic4.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*       populate the quarterly re to monthly   */
@@ -148,15 +148,15 @@ proc sql;
 quit;
 
 proc export data = re(where=(year(fpedats)>=2017))
-outfile='/scratch/cityuhk/xinhe/eqchars/v7_1_re_dup.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe_mandy/eqchars/v7_1_re_dup.csv' dbms=csv replace; run;
 
 proc sort data=re nodupkey; by permno date; run;
 /* ********************************************* */
 /*  save re                                      */
 /* ********************************************* */
 
-libname chars '/scratch/cityuhk/xinhe/eqchars';
+libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
 data chars.v7_1_re; set re; run;
 
 proc export data = re(where=(year(fpedats)>=2017))
-outfile='/scratch/cityuhk/xinhe/eqchars/v7_1_re.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe_mandy/eqchars/v7_1_re.csv' dbms=csv replace; run;
