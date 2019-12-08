@@ -2,6 +2,7 @@
 /* ********************************************* */
 /* Calculate HXZ Replicating Anormalies          */
 /* Revision in analyst forecast                  */
+/* Chan Jegadeesh Lakonishok 1996 Momentum Strategy */
 /* ********************************************* */
 /* ********************************************* */
 
@@ -36,10 +37,8 @@ where
   not missing(a.fpedats) and
   (a.fpedats-a.statpers)>=0 and
   a.CURCODE='USD' and
-  a.CURR_ACT='USD' and
-  a.FISCALP = 'QTR' and
-  a.fpi in ('6','7','8') /* and */
-  /* a.ticker in ('AAPL','BABA','GOOG','AMZN') */
+  ( a.CURR_ACT='USD' or missing(a.CURR_ACT) ) and
+  a.fpi in ('1','2')
 order by
   a.ticker, a.fpedats, a.statpers
 ;
@@ -49,6 +48,7 @@ data ic; set IBES_CRSP; run;  /* a short name */
 
 proc export data = ic
 outfile='/scratch/cityuhk/xinhe_mandy/eqchars/ic.csv' dbms=csv replace; run;
+
 
 /* ********************************************* */
 /*  Merging last month forecast                  */
@@ -64,6 +64,7 @@ from
 on
   a.ticker=b.ticker and
   a.permno=b.permno and
+  a.fpedats=b.fpedats and
   intnx('month',a.statpers,0,'E') = intnx('month',b.statpers,1,'E')
 order by
   a.ticker, a.permno, a.fpedats, a.statpers
@@ -77,86 +78,74 @@ outfile='/scratch/cityuhk/xinhe_mandy/eqchars/ic1.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*  Drop empty "last month"                      */
-/*  Drop tow far forecasts (larger than 6 month ago) */
 /*  calculate HXZ RE                             */
 /* ********************************************* */
 data ic2; set ic1;
 if missing(statpers_last_month) then delete;
-/* atmost 6 months */
-if intnx('month',statpers,7,'E') <= fpedats then delete;
-/* remove the most recent month */
-if intnx('month',statpers,0,'E') = intnx('month',fpedats,0,'E') then delete;
 prc_adj = prc/cfacpr;
+if prc_adj<=0 then delete;
 monthly_revision = (meanest - meanest_last_month)/prc_adj;
+permno_fpedats = catx('-', permno, fpedats);
+run;
+
+proc sort data=ic2 nodupkey; by permno_fpedats statpers; run;
+
+data ic2; set ic2;
+retain count;
+by permno_fpedats statpers;
+if first.permno_fpedats then count=1;
+else count+1;
 run;
 
 proc export data = ic2
 outfile='/scratch/cityuhk/xinhe_mandy/eqchars/ic2.csv' dbms=csv replace; run;
 
 /* ********************************************* */
-/*  Count the number of obs for each rdq         */
+/*  calc RE  (CJL)                     */
 /* ********************************************* */
-/*Count number of estimates reported on primary/diluted basis */
-proc sql;
-create table ic3 as select
-  a.*,
-  sum(curr_act='USD') as n_count,
-  mean(monthly_revision) as hxz_re
-from
-  ic2 a
-group by
-  ticker, fpedats
-order by
-  ticker,fpedats,statpers
-;
-quit;
+
+data ic3;
+set ic2;
+hxz_re=.;
+if count=4 then hxz_re = ( lag1(monthly_revision) + lag2(monthly_revision) + lag3(monthly_revision) + lag4(monthly_revision) )/4;
+if count=5 then hxz_re = ( lag1(monthly_revision) + lag2(monthly_revision) + lag3(monthly_revision) + lag4(monthly_revision) + lag5(monthly_revision))/5;
+if count>=6 then hxz_re = ( lag1(monthly_revision) + lag2(monthly_revision) + lag3(monthly_revision) + lag4(monthly_revision) + lag5(monthly_revision) + lag6(monthly_revision))/6;
+run;
 
 proc export data = ic3
 outfile='/scratch/cityuhk/xinhe_mandy/eqchars/ic3.csv' dbms=csv replace; run;
 
 /* ********************************************* */
-/* retain one obs for each ticker-fpedats        */
+/* retain one obs for each ticker-statpers        */
 /* ********************************************* */
 
 data ic4;
-set ic3(drop=STATPERS CURR_ACT FPI DATE PRC CFACPR MEANEST
-statpers_last_month	meanest_last_month monthly_revision);
-if n_count<4 then delete;
+set ic3(drop=DATE	PRC	CFACPR	statpers_last_month	meanest_last_month	prc_adj	monthly_revision	permno_fpedats);
+if count<4 then delete;
 run;
 
-proc sort data=ic4 nodupkey; by ticker fpedats; run;
+proc sort data=ic4; by ticker statpers fpedats; run;
+proc sort data=ic4 nodupkey; by ticker statpers; run;
 
 proc export data = ic4
 outfile='/scratch/cityuhk/xinhe_mandy/eqchars/ic4.csv' dbms=csv replace; run;
 
-/* ********************************************* */
-/*       populate the quarterly re to monthly   */
-/* ********************************************* */
-proc sql;
-  create
-    table re as
-  select
-    a.*, b.date format=date9.
-  from
-    ic4 a left join (select distinct date from crsp.msf) b
-  on
-    a.fpedats<=b.date and
-    intnx('month',a.fpedats,12,'E')>=b.date
-  order by
-    a.permno, b.date, a.fpedats desc
-  ;
-quit;
 
-proc export data = re(where=(year(fpedats)>=2017))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/v7_1_re_dup.csv' dbms=csv replace; run;
-
-proc sort data=re nodupkey; by permno date; run;
 /* ********************************************* */
 /*  save re                                      */
 /* ********************************************* */
 
+data ic5;
+set ic4;
+rename statpers=date;
+run;
+
+data re;
+set ic5(drop=	MEANEST	FPI	count);
+run;
+
 libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
 data chars.v7_1_re; set re; run;
 
-proc export data = re(where=(year(fpedats)>=2017))
+proc export data = re(where=(year(date)>=2017))
 outfile='/scratch/cityuhk/xinhe_mandy/eqchars/v7_1_re.csv' dbms=csv replace; run;
