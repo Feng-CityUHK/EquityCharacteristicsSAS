@@ -5,9 +5,9 @@ The main file is in SAS.
 
 To use this preoject, you need access to WRDS (CRSP, COMPUSTAT, IBES). As for compusting system, I use WRDS cloud server.
 
-### Details
+## Details
 
-##### chars folder
+### chars folder
 
 This folder is to calculate equity characteristics in individual level.
 
@@ -22,7 +22,7 @@ You may run the sas files in the following order:
 3. output
 4. rank
 
-##### sortport
+### sortport
 
 This folder is to calculate equity characteristics in portfolio level.
 
@@ -34,7 +34,7 @@ We provide 3 kinds of portfolios:
 
 We assign the portfolio labels to each equity in each month, then calculate the portfolio characteristics as the value-weighted (equal-weight) mean (median) of the underlying equities.
 
-### Reference
+## Reference
 
 **Dissecting Anomalies with a Five-Factor Model** by [Fama and French 2015 RFS](https://doi.org/10.1093/rfs/hhv043)
 
@@ -42,9 +42,7 @@ We assign the portfolio labels to each equity in each month, then calculate the 
 
 **Replicating Anormalies** by [Hou Xue Zhang 2018 RFS](https://doi.org/10.1093/rfs/hhy131)
 
-
-
-### Related
+## Related
 
 A python version is [here](https://feng-cityuhk.github.io/EquityCharacteristics/)
 
