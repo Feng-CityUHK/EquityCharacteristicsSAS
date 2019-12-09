@@ -1,4 +1,9 @@
+- All in SAS
+
+- A python version is [here](https://feng-cityuhk.github.io/EquityCharacteristics/)
+
 # EquityCharacteristicsSAS
+
 Calculate US equity (portfolio) characteristics.
 
 The main file is in SAS. 
@@ -41,8 +46,3 @@ We assign the portfolio labels to each equity in each month, then calculate the 
 **The Characteristics that Provide Independent Information about Average U.S. Monthly Stock Returns** by [Green Hand Zhang 2017 RFS](https://doi.org/10.1093/rfs/hhx019)
 
 **Replicating Anormalies** by [Hou Xue Zhang 2018 RFS](https://doi.org/10.1093/rfs/hhy131)
-
-## Related
-
-A python version is [here](https://feng-cityuhk.github.io/EquityCharacteristics/)
-
