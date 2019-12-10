@@ -24,6 +24,7 @@ proc means data=ratios noprint;
   where not missing(&indclass);
     by public_date; class &indclass;
      var &allvars;
+     weight me;                       /* value-weight */
     output out=indratios &avr=/autoname;
 run;
 proc sort data=indratios; by public_date &indclass;run;
@@ -64,7 +65,6 @@ proc means data=ratios noprint;
   where not missing(permno);
     by public_date;
      var &allvars;
-     weight me;                       /* value-weight */
     output out=indratios &avr=/autoname;
 run;
 proc sort data=indratios; by public_date;run;

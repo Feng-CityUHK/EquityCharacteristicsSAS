@@ -8,7 +8,7 @@ Calculate US equity (portfolio) characteristics.
 
 The main file is in SAS. 
 
-To use this preoject, you need access to WRDS (CRSP, COMPUSTAT, IBES). As for compusting system, I use WRDS cloud server.
+To use this preoject, you need access to WRDS (CRSP, COMPUSTAT, IBES). As for computing system, I use WRDS cloud server.
 
 ## Details
 

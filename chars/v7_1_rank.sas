@@ -39,14 +39,14 @@ run;
    /*  Get ranks                      */
    /* ********************************************* */
 
-   proc rank data=da out=darank ties=mean descending;
+   proc rank data=da out=darank ties=mean;
       by public_date;
       var &next_name;
       ranks rk_&next_name;
    run;
 
    /* ********************************************* */
-   /*  get no. of obs. in each date-var                      */
+   /*  get no. of obs. in each date-var             */
    /* ********************************************* */
    proc sql;
    create table

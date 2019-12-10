@@ -1,4 +1,4 @@
-
+%include 'sort10_size_XX.sas';
 %include 'portfolio_chars.sas';
 
 %let uni_begdt = 01JAN1976;
@@ -40,6 +40,15 @@ run;
 
 /* ********************************************************************************* */
 
-%FINRATIO_ind  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, NIND=49, AVR=mean, Input=eqchars, IndRatios=ind_output_ff49, vars=&rank_vars);
-proc export data=ind_output_ff49 outfile="/scratch/cityuhk/xinhe_mandy/sortport/ind_output_ff49.csv"
-dbms=csv replace;
+data dgtw;
+set chars.dgtw;
+rename dgtw_port=myind25;
+mdate = INTNX('month',date,-1,'end');
+run;
+
+proc print data=dgtw(obs=100);run;
+
+%FINRATIO_firm_add_ind_25 (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, in=eqchars, portfolio_label=dgtw, OUT=firm_output_dgtw);
+%FINRATIO_ind  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, NIND=25, AVR=mean, Input=firm_output_dgtw, IndRatios=ind_output_ff25, vars=&rank_vars);
+proc export data=ind_output_ff25 outfile="/scratch/cityuhk/xinhe_mandy/sortport/ind_output_dgtw.csv" dbms=csv replace; run;
+proc sql; drop table dgtw, firm_output_dgtw, ind_output_ff25;quit;
