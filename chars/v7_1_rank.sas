@@ -81,7 +81,25 @@ run;
    order by public_date, permno;
    quit;
 
-   data chars.v7_1_rank;
+   /* ********************************************* */
+   /*  assign bucket label                      */
+   /* ********************************************* */
+   data da;
+   set da;
+   port_&next_name=.;
+   if      rank_&next_name<=-0.8 then port_&next_name=0;
+   if -0.8<rank_&next_name<=-0.6 then port_&next_name=1;
+   if -0.6<rank_&next_name<=-0.4 then port_&next_name=2;
+   if -0.4<rank_&next_name<=-0.2 then port_&next_name=3;
+   if -0.2<rank_&next_name<=   0 then port_&next_name=4;
+   if    0<rank_&next_name<= 0.2 then port_&next_name=5;
+   if  0.2<rank_&next_name<= 0.4 then port_&next_name=6;
+   if  0.4<rank_&next_name<= 0.6 then port_&next_name=7;
+   if  0.6<rank_&next_name<= 0.8 then port_&next_name=8;
+   if  0.8<rank_&next_name       then port_&next_name=9;
+   run;
+
+   data chars.v7_1_rank_label;
    set da;
    run;
 
@@ -95,7 +113,7 @@ run;
 /* ********************************************* */
 
 data da;
-set chars.v7_1_rank;
+set chars.v7_1_rank_label;
 run;
 
 proc export data=da

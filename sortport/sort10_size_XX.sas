@@ -3632,7 +3632,7 @@ data june ; set ccm3_june;
  else if ni60 < ni <= ni70 then niport = 'NI6' ;
  else if ni70 < ni <= ni80 then niport = 'NI7' ;
  else if ni80 < ni <= ni90 then niport = 'NI8' ;
- else if ni  > ni90 then          niport = 'NI9' ;
+ else if ni  > ni90 then        niport = 'NI9' ;
  else niport='';
 end;
 else positivebeme=0;
