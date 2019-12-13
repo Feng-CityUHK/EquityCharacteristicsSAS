@@ -295,12 +295,17 @@ data data2;
 	if count=1 then za_inv=.;
 	/**/
 	za_BM = za_BE/mve_f;
+	za_bm_n = za_BE;
 	/**/
 	za_CFP=(IB+DP)/mve_f;
 	if missing(DP) then za_CFP=(IB+0)/mve_f;
 	if missing(IB) then za_CFP=.;
+	za_cfp_n = IB+DP;
+	if missing(DP) then za_CFP_n=(IB+0);
+	if missing(IB) then za_CFP_n=.;
 	/**/
 	za_EP = IB/mve_f;
+	za_ep_n = ib;
 	/**/
 	LAT = lag(AT);
 	if count=1 then LAT=.;
@@ -334,13 +339,16 @@ data data2;
 	za_lev = lev;
 	sp=sale/mve_f;
 	za_sp = sp;
+	za_sp_n=sale;
 	roic=(ebit-nopi)/(ceq+lt-che);
 	rd_sale=xrd/sale;
 	za_rd_sale = rd_sale;
 	rd_mve=xrd/mve_f;
 	za_rd_mve = rd_mve;
 	za_rdm = za_rd_mve; /* hxz rdm */
+	za_rdm_n = xrd;
 	za_adm = xad/mve_f; /* hxz adm */
+	za_adm_n = xad;
 	agr= (at/lag(at)) - 1;
 	gma=(revt-cogs)/lag(at);
 	za_gma = gma;
@@ -470,8 +478,11 @@ data data2;
 				za_ac
 				za_inv
 				za_bm
+				za_bm_n
 				za_cfp
+				za_cfp_n
 				za_ep
+				za_ep_n
 				za_ni
 				za_op
 				za_rsup
@@ -485,9 +496,12 @@ data data2;
 				za_lev
 				za_rd_mve
 				za_rdm
+				za_rdm_n
 				za_adm
+				za_adm_n
 				za_sgr
 				za_sp
+				za_sp_n
 					za_invest
 					za_rd_sale
 					za_ps
@@ -715,8 +729,11 @@ data temp;
 	za_ac
 	za_inv
 	za_bm
+	za_bm_n
 	za_cfp
+	za_cfp_n
 	za_ep
+	za_ep_n
 	za_ni
 	za_op
 	za_rsup
@@ -730,9 +747,12 @@ data temp;
 	 za_lev
 	 za_rd_mve
 	 za_rdm
+	 za_rdm_n
 	 za_adm
+	 za_adm_n
 	 za_sgr
 	 za_sp
+	 za_sp_n
 	 	za_invest
 		za_rd_sale
 		za_ps
@@ -946,17 +966,20 @@ if missing(NPq) then z_ac=((ACTq-LCTq)-(lag4(ACTq)-lag4(LCTq)))/(10*BEq);
 if missing(ACTq) or missing(LCTq) then z_ac=.;
 /* BM */
 z_bm = BEq/mveq;                                                            /* the denominator ME is quarterly*/
+z_bm_n = beq;
 /* CFP */
 z_cfp = (%ttm4(IBq)+%ttm4(DPq))/mveq;                     						                      /* HXZ formula */
 if missing(DPq) then z_cfp = (%ttm4(IBq))/mveq;
 if lag3(gvkey) ne gvkey then do;
 z_cfp =.;
 end;
+z_cfp_n = z_cfp*mveq;
 /* EP */
 z_ep = %ttm4(IBq)/mveq;                                                              /* yuhe's formula */
 if lag3(gvkey) ne gvkey then do;
 z_ep =.;
 end;
+z_ep_n = z_ep*mveq;
 /* INV */
 z_inv = -(lag4(atq)-atq)/lag4(atq);                                           /* yuhe's formula */
 if lag4(gvkey) ne gvkey then z_inv=.;
@@ -1009,6 +1032,7 @@ if gvkey ne lag3(gvkey) then saleq4=saley;
 z_sgr = (saleq4 / lag4(saleq4))-1;
 /*sp*/
 z_sp = saleq4/mveq;
+z_sp_n = saleq4;
 /*invest*/
 z_invest = ( 	(ppegtq-lag4(ppegtq)) +  (invtq-lag4(invtq))	)	/ atq4;
 if missing(ppegtq) then z_invest=( 	(ppentq-lag4(ppentq)) +  (invtq-lag4(invtq))	)	/ atq4;
@@ -1200,6 +1224,7 @@ data data6;
 	aeavol ear	m7 m8 prccq roeq
 	z_ac z_bm z_cfp z_ep /* v3 Xin He add variables */
 	z_inv z_ni z_op
+	z_bm_n z_ep_n z_cfp_n z_sp_n
 	z_cash
 			 z_chcsho
 			 z_rd
@@ -1693,6 +1718,6 @@ z_rdm = z_rd_mve;
 run;
 
 libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
-data chars.temp7; set temp7; run;
+data chars.temp7_monthupdate; set temp7; run;
 proc export data = temp7(where=(year(date)=2018))
 outfile='/scratch/cityuhk/xinhe_mandy/eqchars/temp7.csv' dbms=csv replace; run;

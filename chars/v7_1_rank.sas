@@ -200,6 +200,9 @@ run;
 proc sort data=da out=da nodupkey; by public_date permno; run;
 proc print data=da(obs=100);run;
 
+data chars.v7_1_rank_label;
+set da;
+run;
 
 /* ********************************************* */
 /*  Final results                     */
