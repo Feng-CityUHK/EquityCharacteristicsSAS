@@ -1,4 +1,4 @@
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 
 %let vars_rank =
   mom12m hxz_abr hxz_sue hxz_re
@@ -210,7 +210,7 @@ set chars.v7_1_rank_label;
 run;
 
 proc export data=da
-outfile="/scratch/cityuhk/xinhe_mandy/eqchars/rank_final.csv" dbms=csv replace; run;
+outfile="/scratch/cityuhk/xinhe/eqchars/rank_final.csv" dbms=csv replace; run;
 
 proc export data=da(where=(year(public_date)=2018))
-outfile="/scratch/cityuhk/xinhe_mandy/eqchars/rank_final2018.csv" dbms=csv replace; run;
+outfile="/scratch/cityuhk/xinhe/eqchars/rank_final2018.csv" dbms=csv replace; run;
