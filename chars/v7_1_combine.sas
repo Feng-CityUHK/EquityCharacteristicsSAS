@@ -1,7 +1,18 @@
 libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
 
 /* accounting info */
-data temp7; set chars.temp7; run;
+set temp7;
+za_bm=za_bm_n/mcap_crsp;
+za_ep=za_ep_n/mcap_crsp;
+za_cfp=za_cfp_n/mcap_crsp;
+za_sp=za_sp_n/mcap_crsp;
+za_adm=za_adm_n/mcap_crsp;
+za_rdm=za_rdm_n/mcap_crsp;
+z_bm=z_bm_n/mcap_crsp;
+z_ep=z_ep_n/mcap_crsp;
+z_cfp=z_cfp_n/mcap_crsp;
+z_sp=z_sp_n/mcap_crsp;
+run;
 
 /* rvar ff3 */
 data out_ds_ff3; set chars.v7_1_rvar_ff3; run;
