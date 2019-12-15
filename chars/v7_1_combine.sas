@@ -1,6 +1,9 @@
 libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
 
 /* accounting info */
+data temp7; set chars.temp7_monthupdate; run;
+
+data temp7;
 set temp7;
 za_bm=za_bm_n/mcap_crsp;
 za_ep=za_ep_n/mcap_crsp;
