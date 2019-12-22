@@ -16,7 +16,7 @@ keep gvkey datadate fyearq fqtr epspxq ajexq;
 run;
 
 proc export data = comp1(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/sue_comp1.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/sue_comp1.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*       prepare merging with crsp               */
@@ -32,7 +32,7 @@ proc sql;
 quit;
 
 proc export data = comp2(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/sue_comp2.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/sue_comp2.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*       the time series of epspxq/ajexq         */
@@ -45,7 +45,7 @@ run;
 proc sort data=comp3 nodupkey; by permno datadate;run;
 
 proc export data = comp3(where=(year(datadate)>=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/sue_comp3.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/sue_comp3.csv' dbms=csv replace; run;
 
 /* merge lag1 to lag8, then calc sd */
 
@@ -99,7 +99,7 @@ hxz_sue = (eps-lag4(eps))/sdsue;
 run;
 
 proc export data = comp4(where=(year(datadate)>=2010))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/sue_comp4.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/sue_comp4.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*       populate the quarterly sue to monthly   */
@@ -120,15 +120,15 @@ proc sql;
 quit;
 
 proc export data = sue(where=(year(date)>=2017))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/v7_1_sue_dup.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/v7_1_sue_dup.csv' dbms=csv replace; run;
 
 proc sort data=sue nodupkey; by permno date; run;
 /* ********************************************* */
 /*  save sue                                     */
 /* ********************************************* */
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.v7_1_sue; set sue; run;
 
 proc export data = sue(where=(year(date)>=2017))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/v7_1_sue.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/v7_1_sue.csv' dbms=csv replace; run;

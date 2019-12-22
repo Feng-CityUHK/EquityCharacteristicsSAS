@@ -1,4 +1,4 @@
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 
 /* accounting info */
 data temp7; set chars.temp7_monthupdate; run;
@@ -134,4 +134,4 @@ run;
 
 data chars.temp7_rvars; set temp7; run;
 proc export data = temp7(where=(year(date)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/temp7_combine.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/temp7_combine.csv' dbms=csv replace; run;

@@ -1,4 +1,4 @@
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 
 data temp7; set chars.temp7_rvars; run;
 
@@ -303,7 +303,7 @@ data temp;
   	run;
 
   	proc export data=RPSdata_RFS
-  	outfile="/scratch/cityuhk/xinhe_mandy/eqchars/raw.csv" dbms=csv replace; run;
+  	outfile="/scratch/cityuhk/xinhe/eqchars/raw.csv" dbms=csv replace; run;
 
   	*==============================================================================;
   	/*    format data   */
@@ -445,7 +445,7 @@ data temp;
   	run;
 
   	proc export data=check_sample(where=("01JAN2018"d<=date<="31JAN2018"d))
-  	outfile="/scratch/cityuhk/xinhe_mandy/eqchars/raw2018.csv" dbms=csv replace; run;
+  	outfile="/scratch/cityuhk/xinhe/eqchars/raw2018.csv" dbms=csv replace; run;
 
     data check_sample; set check_sample;
   	/* acc */
@@ -696,7 +696,7 @@ data temp;
   	run;
 
   	proc export data=check_sample
-  	outfile="/scratch/cityuhk/xinhe_mandy/eqchars/final.csv" dbms=csv replace; run;
+  	outfile="/scratch/cityuhk/xinhe/eqchars/final.csv" dbms=csv replace; run;
 
   	*==============================================================================;
   	/*    check data   */
@@ -710,4 +710,4 @@ data temp;
   	proc sort data=check nodupkey; by permno public_date;run;
 
   	proc export data=check
-  	outfile="/scratch/cityuhk/xinhe_mandy/eqchars/final2018.csv" dbms=csv replace; run;
+  	outfile="/scratch/cityuhk/xinhe/eqchars/final2018.csv" dbms=csv replace; run;

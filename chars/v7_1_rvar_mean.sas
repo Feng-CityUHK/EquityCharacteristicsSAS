@@ -61,10 +61,10 @@ run;
 %DATELOOP (year1= 1950, year2= 2018,  in_ds=dcrsp, out_ds=work.out_ds);
 proc sort data=work.out_ds nodupkey; by permno date; run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.v7_1_rvar_mean;
 set work.out_ds;
 run;
 
 proc export data=work.out_ds
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/v7_1_rvar_mean.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/v7_1_rvar_mean.csv' dbms=csv replace; run;

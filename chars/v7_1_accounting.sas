@@ -49,10 +49,10 @@ data crspm2; set crspm2;
 	end;
 run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.crspm2_prc; set crspm2; run;
 proc export data = crspm2(where=(year(date)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/crspm2_prc.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/crspm2_prc.csv' dbms=csv replace; run;
 
 proc sort data=crspm2 nodupkey; by permno date; run;
 
@@ -72,10 +72,10 @@ data crspm2; set crspm2;
 	end;
 run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.crspm2_me; set crspm2; run;
 proc export data = crspm2(where=(year(date)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/crspm2_me.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/crspm2_me.csv' dbms=csv replace; run;
 
 /* There are cases when the same firm (permco) has two or more         */
 /* securities (permno) at same date. For the purpose of ME for         */
@@ -103,10 +103,10 @@ proc sort data=crspm2a nodupkey; by permno date;run;
 /* crspm2a is a monthly table:  */
 /* DATE	NCUSIP	TICKER	PERMNO	PERMCO	SHRCD	EXCHCD	PRC	RET	SHROUT	CFACPR	CFACSHR	RETX	DLRET	retadj	ME */
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.crspm2a; set crspm2a; run;
 proc export data = crspm2a(where=(year(date)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/crspm2a.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/crspm2a.csv' dbms=csv replace; run;
 
 
 *==============================================================================================================
@@ -180,10 +180,10 @@ create table data
 							else xsga0=0;
 						run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.funda; set data; run;
 proc export data = data(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/funda.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/funda.csv' dbms=csv replace; run;
 
 *==============================================================================================================
 
@@ -252,10 +252,10 @@ data temp; set temp;
   if last.year;
 run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.temp; set temp; run;
 proc export data = temp(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/temp.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/temp.csv' dbms=csv replace; run;
 
 /* add crsp me retadj */
 
@@ -268,10 +268,10 @@ intnx('month',a.datadate,0,'End')=intnx('month',b.date,0,'End')
 ;
 quit;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.temp1; set temp1; run;
 proc export data = temp1(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/temp1.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/temp1.csv' dbms=csv replace; run;
 
 *==============================================================================================================
 
@@ -532,10 +532,10 @@ data data2;
 	end;
 	run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.data2; set data2; run;
 proc export data = data2(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/data2.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/data2.csv' dbms=csv replace; run;
 
 /* Industry Adjustments */
 proc sql;
@@ -703,10 +703,10 @@ orgcap=orgcap_1/avgat;
 if count=1 then orgcap=.;
 run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.data2_plus; set data2; run;
 proc export data = data2(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/data2_plus.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/data2_plus.csv' dbms=csv replace; run;
 
 *==========================================================================================================
 
@@ -777,15 +777,15 @@ data temp; set temp;
 za_dy=dy;
 run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.temp_real; set temp; run;
 proc export data = temp(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/temp_real2018.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/temp_real2018.csv' dbms=csv replace; run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.temp_real; set temp; run;
 proc export data = temp(where=(year(datadate)=2017))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/temp_real2017.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/temp_real2017.csv' dbms=csv replace; run;
 
 
 *========================================================================================================
@@ -822,10 +822,10 @@ z_dy = %ttm12(mdivpay)/mcap_crsp;
 if permno ne lag11(permno) then z_dy=.;
 run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.temp2; set temp2; run;
 proc export data = temp2(where=(year(date)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/temp2.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/temp2.csv' dbms=csv replace; run;
 
 *==============================================================================================================
 
@@ -865,10 +865,10 @@ proc sort data=data ;
 	by gvkey datadate;
 run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.data_q; set data; run;
 proc export data = data(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/data_q.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/data_q.csv' dbms=csv replace; run;
 
 /* link with funda+crspm, get mveq  */
 
@@ -899,10 +899,10 @@ intnx('month',a.datadate,0,'End')=intnx('month',b.datadate,0,'End')
 ;
 quit;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.data_q_real; set data; run;
 proc export data = data(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/data_q_real.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/data_q_real.csv' dbms=csv replace; run;
 
 *==============================================================================================================
 
@@ -1255,10 +1255,10 @@ data data6;
 ;
 run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.data6; set data6; run;
 proc export data = data6(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/data6.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/data6.csv' dbms=csv replace; run;
 
 
 /* add quarterly compustat data to monthly returns and annual compustat data */
@@ -1717,7 +1717,7 @@ set temp7;
 z_rdm = z_rd_mve;
 run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.temp7_monthupdate; set temp7; run;
 proc export data = temp7(where=(year(date)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/temp7.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/temp7.csv' dbms=csv replace; run;

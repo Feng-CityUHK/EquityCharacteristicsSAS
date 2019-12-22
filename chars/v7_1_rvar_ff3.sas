@@ -82,10 +82,10 @@ run;
 proc sort data=work.out_ds nodupkey; by permno date; run;
 /* RVAR end */
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.v7_1_rvar_ff3;
 set work.out_ds;
 run;
 
 proc export data=work.out_ds
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/v7_1_rvar_ff3' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/v7_1_rvar_ff3' dbms=csv replace; run;

@@ -9,7 +9,7 @@ keep gvkey datadate rdq fyearq fqtr;
 run;
 
 proc export data = comp1(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/abr_comp1.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/abr_comp1.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*       prepare merging with crsp               */
@@ -25,7 +25,7 @@ proc sql;
 quit;
 
 proc export data = comp2(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/abr_comp2.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/abr_comp2.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*       rdq: the first trading on(after) rdq    */
@@ -47,7 +47,7 @@ proc sql;
 quit;
 
 proc export data = comp3(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/abr_comp3.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/abr_comp3.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*      crsp abnormal return                     */
@@ -76,7 +76,7 @@ run;
 
 proc sort data=crspsp500d nodupkey; by date;run;
 proc export data = crspsp500d(where=(year(date)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/abr_sprtrn.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/abr_sprtrn.csv' dbms=csv replace; run;
 
 /* abnormal return */
 proc sql;
@@ -88,7 +88,7 @@ order by a.permno, a.date;
 quit;
 
 proc export data = mydaily1(where=(year(date)>=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/abr_mydaily1.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/abr_mydaily1.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*       date count regarding to rdq             */
@@ -103,7 +103,7 @@ order by a.permno, a.rdq1, b.date;
 quit;
 
 proc export data = comp4(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/abr_comp4.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/abr_comp4.csv' dbms=csv replace; run;
 
 /* delete missing return */
 data comp4;
@@ -158,7 +158,7 @@ quit;
 proc sort data=temp3; by permno rdq1 count;run;
 
 proc export data = temp3(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/abr_temp3.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/abr_temp3.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*       calculate abr as the group sum          */
@@ -169,7 +169,7 @@ where count between -2 and 1;
 run;
 
 proc export data = temp4(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/abr_temp4.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/abr_temp4.csv' dbms=csv replace; run;
 
 proc sql;
 create
@@ -185,7 +185,7 @@ order by
 quit;
 
 proc export data = temp5(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/abr_temp5.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/abr_temp5.csv' dbms=csv replace; run;
 
 data temp6;
 set temp5(rename=(DATE=rdqplus1));
@@ -194,7 +194,7 @@ keep gvkey permno datadate rdq rdqplus1 abr;
 run;
 
 proc export data = temp6(where=(year(datadate)=2018))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/abr_temp6.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/abr_temp6.csv' dbms=csv replace; run;
 
 /* ********************************************* */
 /*       populate the quarterly abr to monthly   */
@@ -215,12 +215,12 @@ proc sql;
 quit;
 
 proc export data = rdqabr(where=(year(datadate)>=2017))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/v7_1_abr_dup.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/v7_1_abr_dup.csv' dbms=csv replace; run;
 
 proc sort data=rdqabr nodupkey; by permno date; run;
 
 proc export data = rdqabr(where=(year(datadate)>=2017))
-outfile='/scratch/cityuhk/xinhe_mandy/eqchars/v7_1_abr.csv' dbms=csv replace; run;
+outfile='/scratch/cityuhk/xinhe/eqchars/v7_1_abr.csv' dbms=csv replace; run;
 
-libname chars '/scratch/cityuhk/xinhe_mandy/eqchars';
+libname chars '/scratch/cityuhk/xinhe/eqchars';
 data chars.v7_1_abr; set rdqabr; run;
