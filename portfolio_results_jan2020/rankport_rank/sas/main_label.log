@@ -1,0 +1,5367 @@
+1                                                          The SAS System                            10:54 Sunday, December 22, 2019
+
+NOTE: Unable to open SASUSER.REGSTRY. WORK.REGSTRY will be opened instead.
+NOTE: All registry changes will be lost at the end of the session.
+
+WARNING: Unable to copy SASUSER registry to WORK registry. Because of this, you will not see registry customizations during this 
+         session.
+NOTE: Unable to open SASUSER.PROFILE. WORK.PROFILE will be opened instead.
+NOTE: All profile changes will be lost at the end of the session.
+NOTE: Copyright (c) 2016 by SAS Institute Inc., Cary, NC, USA. 
+NOTE: SAS (r) Proprietary Software 9.4 (TS1M6) 
+      Licensed to UNIVERSITY OF PENNSYLVANIA - SFA T&R, Site 70055201.
+NOTE: This session is executing on the Linux 3.10.0-1062.el7.x86_64 (LIN X64) platform.
+
+
+
+NOTE: Analytical products:
+      
+      SAS/STAT 15.1
+      SAS/ETS 15.1
+      SAS/OR 15.1
+      SAS/IML 15.1
+      SAS/QC 15.1
+
+NOTE: Additional host information:
+
+ Linux LIN X64 3.10.0-1062.el7.x86_64 #1 SMP Thu Jul 18 20:25:13 UTC 2019 x86_64 Red Hat Enterprise Linux Server release 7.7 
+      (Maipo) 
+
+
+                 *** Upcoming WRDS Maintenance Announcement ***
+
+      The WRDS servers will be undergoing regularly scheduled
+      maintenance from 8:00am - 11:00am ET on Wednesday, January 08, 2020.
+      This will affect the WRDS Cloud system and PC-SAS access. We will
+      be patching the systems to provide the most up-to-date
+      computing environment for your research programming needs.
+
+      You will not be able to access the servers while the
+      maintenance is in progress. WRDS Cloud jobs WILL BE
+      TERMINATED, and access to the WRDS Cloud head nodes
+      will be disabled for the duration of the maintenance window.
+      PC-SAS/CONNECT sessions and WRDS SAS/STUDIO sessions will be
+      interrupted, and will need to be restarted following the
+      completion of the maintenance window.
+
+      Please contact wrds-support@wharton.upenn.edu if you have any
+      questions or concerns. Thank you.
+
+
+
+NOTE: SAS initialization used:
+      real time           0.19 seconds
+      cpu time            0.02 seconds
+      
+
+NOTE: AUTOEXEC processing beginning; file is /home/cityuhk/xinhe97/autoexec.sas.
+
+NOTE: Libref AHA was successfully assigned as follows: 
+      Levels:           7
+      Engine(1):        V9 
+      Physical Name(1): /wrds/aha/sasdata/annual_survey
+      Engine(2):        V9 
+      Physical Name(2): /wrds/aha/sasdata/it_survey
+      Engine(3):        V9 
+      Physical Name(3): /wrds/aha/sasdata/hcris
+      Engine(4):        V9 
+      Physical Name(4): /wrds/aha/sasdata/annual_survey_3years
+      Engine(5):        V9 
+      Physical Name(5): /wrds/aha/sasdata/it_survey_3years
+      Engine(6):        V9 
+      Physical Name(6): /wrds/aha/sasdata/hcris_3years
+      Engine(7):        V9 
+      Physical Name(7): /wrds/aha/sasdata/annual_survey_history
+NOTE: Libref AHASAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/aha
+NOTE: Libref AUDIT was successfully assigned as follows: 
+      Levels:           5
+      Engine(1):        V9 
+      Physical Name(1): /wrds/audit/sasdata/audit_comp
+      Engine(2):        V9 
+      Physical Name(2): /wrds/audit/sasdata/corp_legal
+      Engine(3):        V9 
+      Physical Name(3): /wrds/audit/sasdata/oia
+      Engine(4):        V9 
+      Physical Name(4): /wrds/audit/sasdata/sedar
+      Engine(5):        V9 
+      Physical Name(5): /wrds/audit/sasdata/acct_os
+NOTE: Libref BANK was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/bank/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/bank/sasdata/commercial
+      Engine(3):        V9 
+      Physical Name(3): /wrds/bank/sasdata/holding
+NOTE: Libref BLOCK was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/blockholders/sasdata
+NOTE: Libref BOARDEX was successfully assigned as follows: 
+      Levels:           4
+      Engine(1):        V9 
+      Physical Name(1): /wrds/boardex/sasdata/na
+      Engine(2):        V9 
+      Physical Name(2): /wrds/boardex/sasdata/eur
+      Engine(3):        V9 
+      Physical Name(3): /wrds/boardex/sasdata/uk
+      Engine(4):        V9 
+      Physical Name(4): /wrds/boardex/sasdata/row
+NOTE: Libref BOARDSMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/boardex
+NOTE: Libref BVD was successfully assigned as follows: 
+      Levels:           10
+      Engine(1):        V9 
+      Physical Name(1): /wrds/bvd/sasdata/ama_v
+      Engine(2):        V9 
+      Physical Name(2): /wrds/bvd/sasdata/ama_l
+      Engine(3):        V9 
+      Physical Name(3): /wrds/bvd/sasdata/ama_m
+      Engine(4):        V9 
+      Physical Name(4): /wrds/bvd/sasdata/ama_s
+      Engine(5):        V9 
+      Physical Name(5): /wrds/bvd/sasdata/bankf
+      Engine(6):        V9 
+      Physical Name(6): /wrds/bvd/sasdata/is
+      Engine(7):        V9 
+      Physical Name(7): /wrds/bvd/sasdata/os
+      Engine(8):        V9 
+      Physical Name(8): /wrds/bvd/sasdata/bvdorbis/ob_l
+      Engine(9):        V9 
+      Physical Name(9): /wrds/bvd/sasdata/bvdorbis/ob_m
+      Engine(10):        V9 
+      Physical Name(10): /wrds/bvd/sasdata/bvdorbis/ob_s
+NOTE: Libref BVDLGCY was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/bvdlegacy/sasdata/bs
+NOTE: Libref BVDSAMP was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/samples/sasdata/bvd_ama
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/bvd_bs
+      Engine(3):        V9 
+      Physical Name(3): /wrds/samples/sasdata/bvdorbis
+NOTE: Libref CALCBNCH was successfully assigned as follows: 
+      Levels:           16
+      Engine(1):        V9 
+      Physical Name(1): /wrds/calcbench/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/calcbench/sasdata/ap_ar
+      Engine(3):        V9 
+      Physical Name(3): /wrds/calcbench/sasdata/business_combinations
+      Engine(4):        V9 
+      Physical Name(4): /wrds/calcbench/sasdata/commitment_contingency
+      Engine(5):        V9 
+      Physical Name(5): /wrds/calcbench/sasdata/concentration_risk
+      Engine(6):        V9 
+      Physical Name(6): /wrds/calcbench/sasdata/derivatives_hedging
+      Engine(7):        V9 
+      Physical Name(7): /wrds/calcbench/sasdata/discontinued_ops
+      Engine(8):        V9 
+      Physical Name(8): /wrds/calcbench/sasdata/equity_investments
+      Engine(9):        V9 
+      Physical Name(9): /wrds/calcbench/sasdata/equity_compensation
+      Engine(10):        V9 
+      Physical Name(10): /wrds/calcbench/sasdata/fair_value
+      Engine(11):        V9 
+      Physical Name(11): /wrds/calcbench/sasdata/business_segments
+      Engine(12):        V9 
+      Physical Name(12): /wrds/calcbench/sasdata/goodwill
+      Engine(13):        V9 
+      Physical Name(13): /wrds/calcbench/sasdata/income_tax
+      Engine(14):        V9 
+      Physical Name(14): /wrds/calcbench/sasdata/inventory
+      Engine(15):        V9 
+      Physical Name(15): /wrds/calcbench/sasdata/leases
+      Engine(16):        V9 
+      Physical Name(16): /wrds/calcbench/sasdata/equity_repurchases
+NOTE: Libref CALCSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/calcbench
+NOTE: Libref CBOE was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/cboe/sasdata
+NOTE: Libref CENTRIS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/centris/sasdata
+NOTE: Libref CIQ was successfully assigned as follows: 
+      Levels:           7
+      Engine(1):        V9 
+      Physical Name(1): /wrds/capitaliq/sasdata/helper
+      Engine(2):        V9 
+      Physical Name(2): /wrds/capitaliq/sasdata/pplintel
+      Engine(3):        V9 
+      Physical Name(3): /wrds/capitaliq/sasdata/keydev
+      Engine(4):        V9 
+      Physical Name(4): /wrds/capitaliq/sasdata/capstructure
+      Engine(5):        V9 
+      Physical Name(5): /wrds/capitaliq/sasdata/ratings
+      Engine(6):        V9 
+      Physical Name(6): /wrds/capitaliq/sasdata/transactions
+      Engine(7):        V9 
+      Physical Name(7): /wrds/capitaliq/sasdata/transcripts
+NOTE: Libref CIQSAMP was successfully assigned as follows: 
+      Levels:           7
+      Engine(1):        V9 
+      Physical Name(1): /wrds/ciqsamp/sasdata/capstructure
+      Engine(2):        V9 
+      Physical Name(2): /wrds/ciqsamp/sasdata/helper
+      Engine(3):        V9 
+      Physical Name(3): /wrds/ciqsamp/sasdata/keydev
+      Engine(4):        V9 
+      Physical Name(4): /wrds/ciqsamp/sasdata/pplintel
+      Engine(5):        V9 
+      Physical Name(5): /wrds/ciqsamp/sasdata/ratings
+      Engine(6):        V9 
+      Physical Name(6): /wrds/ciqsamp/sasdata/transactions
+      Engine(7):        V9 
+      Physical Name(7): /wrds/ciqsamp/sasdata/transcripts
+NOTE: Libref CISDM was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/morningstar/sasdata/cisdm
+NOTE: Libref CISDMSMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/morningstar
+NOTE: Libref CLRVT was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/clrvt/sasdata/drugs
+NOTE: Libref CLRVTSMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/clrvt
+NOTE: Libref COMPB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/bank
+NOTE: Libref COMPBD was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/d_bank
+NOTE: Libref COMPG was successfully assigned as follows: 
+      Levels:           7
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/global
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/global/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/global/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/global/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/global/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/global/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/global/security
+NOTE: Libref COMPGD was successfully assigned as follows: 
+      Levels:           7
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/d_global
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/d_global/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/d_global/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/d_global/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/d_global/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/d_global/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/d_global/security
+NOTE: Libref COMPA was successfully assigned as follows: 
+      Levels:           14
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/naa
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/naa/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/naa/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/naa/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/naa/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/naa/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/naa/industry
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/naa/insider
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/naa/institution
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/naa/pension
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/naa/rating
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/naa/security
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/naa/segments_current
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/naa/transparency
+NOTE: Libref COMPM was successfully assigned as follows: 
+      Levels:           14
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/nam
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/nam/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/nam/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/nam/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/nam/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/nam/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/nam/industry
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/nam/insider
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/nam/institution
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/nam/pension
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/nam/rating
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/nam/security
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/nam/segments_current
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/nam/transparency
+NOTE: Libref COMPMCUR was successfully assigned as follows: 
+      Levels:           14
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/nam_current
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/nam_current/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/nam_current/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/nam_current/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/nam_current/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/nam_current/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/nam_current/industry
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/nam_current/insider
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/nam_current/institution
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/nam_current/pension
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/nam_current/rating
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/nam_current/security
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/nam_current/segments_current
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/nam_current/transparency
+NOTE: Libref COMPNAD was successfully assigned as follows: 
+      Levels:           14
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/d_na
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/d_na/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/d_na/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/d_na/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/d_na/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/d_na/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/d_na/industry
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/d_na/insider
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/d_na/institution
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/d_na/pension
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/d_na/rating
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/d_na/security
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/d_na/segments_current
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/d_na/transparency
+NOTE: Libref COMPDCUR was successfully assigned as follows: 
+      Levels:           14
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/d_na_current
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/d_na_current/company
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/d_na_current/currency
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/d_na_current/dictionary
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/d_na_current/economy
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/d_na_current/index
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/d_na_current/industry
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/d_na_current/insider
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/d_na_current/institution
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/d_na_current/pension
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/d_na_current/rating
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/d_na_current/security
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/d_na_current/segments_current
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/d_na_current/transparency
+NOTE: Libref COMPSEG was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/seghist
+NOTE: Libref COMPSEGD was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/d_seghist
+NOTE: Libref EXECCOMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/execcomp
+NOTE: Libref COMPD was successfully assigned as follows: 
+      Levels:           23
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/d_seghist
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/d_na
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/d_na/company
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/d_na/currency
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/d_na/dictionary
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/d_na/economy
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/d_na/index
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/d_na/industry
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/d_na/insider
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/d_na/institution
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/d_na/pension
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/d_na/rating
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/d_na/security
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/d_na/segments_current
+      Engine(15):        V9 
+      Physical Name(15): /wrds/comp/sasdata/d_na/transparency
+      Engine(16):        V9 
+      Physical Name(16): /wrds/comp/sasdata/d_bank
+      Engine(17):        V9 
+      Physical Name(17): /wrds/comp/sasdata/d_global
+      Engine(18):        V9 
+      Physical Name(18): /wrds/comp/sasdata/d_global/company
+      Engine(19):        V9 
+      Physical Name(19): /wrds/comp/sasdata/d_global/currency
+      Engine(20):        V9 
+      Physical Name(20): /wrds/comp/sasdata/d_global/dictionary
+      Engine(21):        V9 
+      Physical Name(21): /wrds/comp/sasdata/d_global/economy
+      Engine(22):        V9 
+      Physical Name(22): /wrds/comp/sasdata/d_global/index
+      Engine(23):        V9 
+      Physical Name(23): /wrds/comp/sasdata/d_global/security
+NOTE: Libref COMP was successfully assigned as follows: 
+      Levels:           26
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/d_seghist
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/d_na
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/d_na/company
+      Engine(4):        V9 
+      Physical Name(4): /wrds/comp/sasdata/d_na/currency
+      Engine(5):        V9 
+      Physical Name(5): /wrds/comp/sasdata/d_na/dictionary
+      Engine(6):        V9 
+      Physical Name(6): /wrds/comp/sasdata/d_na/economy
+      Engine(7):        V9 
+      Physical Name(7): /wrds/comp/sasdata/d_na/index
+      Engine(8):        V9 
+      Physical Name(8): /wrds/comp/sasdata/d_na/industry
+      Engine(9):        V9 
+      Physical Name(9): /wrds/comp/sasdata/d_na/insider
+      Engine(10):        V9 
+      Physical Name(10): /wrds/comp/sasdata/d_na/institution
+      Engine(11):        V9 
+      Physical Name(11): /wrds/comp/sasdata/d_na/pension
+      Engine(12):        V9 
+      Physical Name(12): /wrds/comp/sasdata/d_na/rating
+      Engine(13):        V9 
+      Physical Name(13): /wrds/comp/sasdata/d_na/security
+      Engine(14):        V9 
+      Physical Name(14): /wrds/comp/sasdata/d_na/segments_current
+      Engine(15):        V9 
+      Physical Name(15): /wrds/comp/sasdata/d_na/transparency
+      Engine(16):        V9 
+      Physical Name(16): /wrds/comp/sasdata/d_bank
+      Engine(17):        V9 
+      Physical Name(17): /wrds/comp/sasdata/d_global
+      Engine(18):        V9 
+      Physical Name(18): /wrds/comp/sasdata/d_global/company
+      Engine(19):        V9 
+      Physical Name(19): /wrds/comp/sasdata/d_global/currency
+      Engine(20):        V9 
+      Physical Name(20): /wrds/comp/sasdata/d_global/dictionary
+      Engine(21):        V9 
+      Physical Name(21): /wrds/comp/sasdata/d_global/economy
+      Engine(22):        V9 
+      Physical Name(22): /wrds/comp/sasdata/d_global/index
+      Engine(23):        V9 
+      Physical Name(23): /wrds/comp/sasdata/d_global/security
+      Engine(24):        V9 
+      Physical Name(24): /wrds/comp/sasdata/execcomp
+      Engine(25):        V9 
+      Physical Name(25): /wrds/comp/sasdata/filings
+      Engine(26):        V9 
+      Physical Name(26): /wrds/comp/sasdata/marginaltax
+NOTE: Libref COMPH was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/ph
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/pit
+      Engine(3):        V9 
+      Physical Name(3): /wrds/comp/sasdata/urq
+NOTE: Libref COMPSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/compsamp/sasdata
+NOTE: Libref COMPSNAP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/snapshot
+NOTE: Libref COMSCORE was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comscore/sasdata
+NOTE: Libref CONTRIB was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/contributors/sasdata/rq
+      Engine(2):        V9 
+      Physical Name(2): /wrds/contributors/sasdata/shale
+NOTE: Libref CRSPA was successfully assigned as follows: 
+      Levels:           8
+      Engine(1):        V9 
+      Physical Name(1): /wrds/crsp/sasdata/a_stock
+      Engine(2):        V9 
+      Physical Name(2): /wrds/crsp/sasdata/a_stock62
+      Engine(3):        V9 
+      Physical Name(3): /wrds/crsp/sasdata/a_indexes
+      Engine(4):        V9 
+      Physical Name(4): /wrds/crsp/sasdata/a_ccm
+      Engine(5):        V9 
+      Physical Name(5): /wrds/crsp/sasdata/a_treasuries
+      Engine(6):        V9 
+      Physical Name(6): /wrds/crsp/sasdata/a_treas_bd
+      Engine(7):        V9 
+      Physical Name(7): /wrds/crsp/sasdata/a_treas_bm
+      Engine(8):        V9 
+      Physical Name(8): /wrds/crsp/sasdata/a_ziman
+NOTE: Libref CRSPQ was successfully assigned as follows: 
+      Levels:           9
+      Engine(1):        V9 
+      Physical Name(1): /wrds/crsp/sasdata/q_stock
+      Engine(2):        V9 
+      Physical Name(2): /wrds/crsp/sasdata/q_indexes
+      Engine(3):        V9 
+      Physical Name(3): /wrds/crsp/sasdata/q_ccm
+      Engine(4):        V9 
+      Physical Name(4): /wrds/crsp/sasdata/q_mutualfunds
+      Engine(5):        V9 
+      Physical Name(5): /wrds/crsp/sasdata/q_stock62
+      Engine(6):        V9 
+      Physical Name(6): /wrds/crsp/sasdata/q_treasuries
+      Engine(7):        V9 
+      Physical Name(7): /wrds/crsp/sasdata/q_treas_bd
+      Engine(8):        V9 
+      Physical Name(8): /wrds/crsp/sasdata/q_treas_bm
+      Engine(9):        V9 
+      Physical Name(9): /wrds/crsp/sasdata/q_ziman
+NOTE: Libref CRSPM was successfully assigned as follows: 
+      Levels:           8
+      Engine(1):        V9 
+      Physical Name(1): /wrds/crsp/sasdata/m_stock
+      Engine(2):        V9 
+      Physical Name(2): /wrds/crsp/sasdata/m_indexes
+      Engine(3):        V9 
+      Physical Name(3): /wrds/crsp/sasdata/m_ccm
+      Engine(4):        V9 
+      Physical Name(4): /wrds/crsp/sasdata/m_stock62
+      Engine(5):        V9 
+      Physical Name(5): /wrds/crsp/sasdata/m_treasuries
+      Engine(6):        V9 
+      Physical Name(6): /wrds/crsp/sasdata/m_treas_bd
+      Engine(7):        V9 
+      Physical Name(7): /wrds/crsp/sasdata/m_treas_bm
+      Engine(8):        V9 
+      Physical Name(8): /wrds/crsp/sasdata/m_ziman
+NOTE: Libref CRSP was successfully assigned as follows: 
+      Levels:           9
+      Engine(1):        V9 
+      Physical Name(1): /wrds/crsp/sasdata/a_stock
+      Engine(2):        V9 
+      Physical Name(2): /wrds/crsp/sasdata/a_stock62
+      Engine(3):        V9 
+      Physical Name(3): /wrds/crsp/sasdata/a_indexes
+      Engine(4):        V9 
+      Physical Name(4): /wrds/crsp/sasdata/a_ccm
+      Engine(5):        V9 
+      Physical Name(5): /wrds/crsp/sasdata/a_treasuries
+      Engine(6):        V9 
+      Physical Name(6): /wrds/crsp/sasdata/a_treas_bd
+      Engine(7):        V9 
+      Physical Name(7): /wrds/crsp/sasdata/a_treas_bm
+      Engine(8):        V9 
+      Physical Name(8): /wrds/crsp/sasdata/a_ziman
+      Engine(9):        V9 
+      Physical Name(9): /wrds/crsp/sasdata/q_mutualfunds
+NOTE: Libref CRSPSAMP was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/crspsamp/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/crsp_mf
+NOTE: Libref CSMAR was successfully assigned as follows: 
+      Levels:           12
+      Engine(1):        V9 
+      Physical Name(1): /wrds/csmar/sasdata/trading
+      Engine(2):        V9 
+      Physical Name(2): /wrds/csmar/sasdata/financial
+      Engine(3):        V9 
+      Physical Name(3): /wrds/csmar/sasdata/funds_mkt_research
+      Engine(4):        V9 
+      Physical Name(4): /wrds/csmar/sasdata/ma
+      Engine(5):        V9 
+      Physical Name(5): /wrds/csmar/sasdata/ipo_a
+      Engine(6):        V9 
+      Physical Name(6): /wrds/csmar/sasdata/af
+      Engine(7):        V9 
+      Physical Name(7): /wrds/csmar/sasdata/cd
+      Engine(8):        V9 
+      Physical Name(8): /wrds/csmar/sasdata/cg
+      Engine(9):        V9 
+      Physical Name(9): /wrds/csmar/sasdata/ini
+      Engine(10):        V9 
+      Physical Name(10): /wrds/csmar/sasdata/colc
+      Engine(11):        V9 
+      Physical Name(11): /wrds/csmar/sasdata/rs
+      Engine(12):        V9 
+      Physical Name(12): /wrds/csmar/sasdata/hld
+NOTE: Libref CUSIPM was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/cusip/sasdata
+NOTE: Libref DEALSCAN was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/tfn/sasdata/dealscan
+NOTE: Libref DJONES was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/djones/sasdata
+NOTE: Libref DMEF was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/dmef/sasdata
+NOTE: Libref DOE was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/doe/sasdata
+NOTE: Libref EMDB was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/comp/sasdata/emdbd
+      Engine(2):        V9 
+      Physical Name(2): /wrds/comp/sasdata/emdbm
+NOTE: Libref ETFG was successfully assigned as follows: 
+      Levels:           4
+      Engine(1):        V9 
+      Physical Name(1): /wrds/etfg/sasdata/industry
+      Engine(2):        V9 
+      Physical Name(2): /wrds/etfg/sasdata/fund_flow
+      Engine(3):        V9 
+      Physical Name(3): /wrds/etfg/sasdata/analytics
+      Engine(4):        V9 
+      Physical Name(4): /wrds/etfg/sasdata/constituents
+NOTE: Libref ETFGSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/etfg
+NOTE: Libref EUREKA was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/eureka/sasdata
+NOTE: Libref EURSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/eureka
+NOTE: Libref FACTSET was successfully assigned as follows: 
+      Levels:           7
+      Engine(1):        V9 
+      Physical Name(1): /wrds/factset/sasdata/ff_usc
+      Engine(2):        V9 
+      Physical Name(2): /wrds/factset/sasdata/ff_int
+      Engine(3):        V9 
+      Physical Name(3): /wrds/factset/sasdata/own
+      Engine(4):        V9 
+      Physical Name(4): /wrds/factset/sasdata/common
+      Engine(5):        V9 
+      Physical Name(5): /wrds/factset/sasdata/own_v5
+      Engine(6):        V9 
+      Physical Name(6): /wrds/factset/sasdata/ff_usc_v3
+      Engine(7):        V9 
+      Physical Name(7): /wrds/factset/sasdata/ff_int_v3
+NOTE: Libref FSSAMP was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/samples/sasdata/factset
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/revere
+NOTE: Libref FDIC was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/fdic/sasdata
+NOTE: Libref FF was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/ff/sasdata
+NOTE: Libref FISD was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/mergent/sasdata/fisd
+      Engine(2):        V9 
+      Physical Name(2): /wrds/mergent/sasdata/naic
+NOTE: Libref FISDSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/fisdsamp/sasdata
+NOTE: Libref FTSE was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/ftse/sasdata/russell
+NOTE: Libref FTSESAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/ftse
+NOTE: Libref FRB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/frb/sasdata
+NOTE: Libref GINSIGHT was successfully assigned as follows: 
+      Levels:           4
+      Engine(1):        V9 
+      Physical Name(1): /wrds/ginsight/sasdata/all
+      Engine(2):        V9 
+      Physical Name(2): /wrds/ginsight/sasdata/basic
+      Engine(3):        V9 
+      Physical Name(3): /wrds/ginsight/sasdata/common
+      Engine(4):        V9 
+      Physical Name(4): /wrds/ginsight/sasdata/econ_analytics
+NOTE: Libref GMI was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/gmiratings/sasdata
+NOTE: Libref GOVPX was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/govpx/sasdata
+NOTE: Libref GOVPXSMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/govpx
+NOTE: Libref HBASEPRM was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/hbase/sasdata/premium
+NOTE: Libref HBASE was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): /wrds/hbase/sasdata/premium
+NOTE: Libref HBASESMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/hbase
+NOTE: Libref HFR was successfully assigned as follows: 
+      Levels:           4
+      Engine(1):        V9 
+      Physical Name(1): /wrds/hfr/sasdata/hfrdb_academic_dead
+      Engine(2):        V9 
+      Physical Name(2): /wrds/hfr/sasdata/hfrdb_academic_live
+      Engine(3):        V9 
+      Physical Name(3): /wrds/hfr/sasdata/hfrdb_dead
+      Engine(4):        V9 
+      Physical Name(4): /wrds/hfr/sasdata/hfrdb_live
+NOTE: Libref HFRSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/hfrsamp/sasdata/hfrdb
+NOTE: Libref IBES was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/ibes/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/ibes/sasdata/iga
+      Engine(3):        V9 
+      Physical Name(3): /wrds/ibes/sasdata/guidance
+NOTE: Libref IBESCORP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/ibes/sasdata/corporate
+NOTE: Libref IBESKPI was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/ibes/sasdata/kpi
+NOTE: Libref IFGR was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/infogroup/sasdata/business
+      Engine(2):        V9 
+      Physical Name(2): /wrds/infogroup/sasdata/residential
+NOTE: Libref IFGRSAMP was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/samples/sasdata/infogroup/business
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/infogroup/residential
+NOTE: Libref IMS was successfully assigned as follows: 
+      Levels:           9
+      Engine(1):        V9 
+      Physical Name(1): /wrds/ims/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/ims/sasdata/recent_standard_plus
+      Engine(3):        V9 
+      Physical Name(3): /wrds/ims/sasdata/recent_premium
+      Engine(4):        V9 
+      Physical Name(4): /wrds/ims/sasdata/historical_standard_plus
+      Engine(5):        V9 
+      Physical Name(5): /wrds/ims/sasdata/historical_premium
+      Engine(6):        V9 
+      Physical Name(6): /wrds/ims/sasdata/historical_3years_standard_plus
+      Engine(7):        V9 
+      Physical Name(7): /wrds/ims/sasdata/historical_3years_premium
+      Engine(8):        V9 
+      Physical Name(8): /wrds/ims/sasdata/historical_5years_standard_plus
+      Engine(9):        V9 
+      Physical Name(9): /wrds/ims/sasdata/historical_5years_premium
+NOTE: Libref IMSSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/ims
+NOTE: Libref IRI was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/iri/sasdata
+NOTE: Libref ISS was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/riskmetrics/sasdata/incentive_lab
+      Engine(2):        V9 
+      Physical Name(2): /wrds/riskmetrics/sasdata/incentive_lab/europe
+NOTE: Libref ISSM was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/issm/sasdata
+NOTE: Libref KLD was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/kld/sasdata
+NOTE: Libref KPISAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/ibeskpi
+NOTE: Libref KTMINE was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/ktmine/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/ktmine/sasdata/corptree
+NOTE: Libref KTSAMP was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/samples/sasdata/ktmine
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/ktmine/corptree
+NOTE: Libref LEVIN was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/levin/sasdata
+NOTE: Libref LVNSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/levin
+NOTE: Libref LSPD was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/lspd/sasdata/monthly
+      Engine(2):        V9 
+      Physical Name(2): /wrds/lspd/sasdata/daily
+NOTE: Libref LSPDSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/lspd
+NOTE: Libref MARKIT was successfully assigned as follows: 
+      Levels:           10
+      Engine(1):        V9 
+      Physical Name(1): /wrds/markit/sasdata/cds
+      Engine(2):        V9 
+      Physical Name(2): /wrds/markit/sasdata/red
+      Engine(3):        V9 
+      Physical Name(3): /wrds/markit/sasdata/cdx_composites
+      Engine(4):        V9 
+      Physical Name(4): /wrds/markit/sasdata/cdx_constituents
+      Engine(5):        V9 
+      Physical Name(5): /wrds/markit/sasdata/itraxx_asia_composites
+      Engine(6):        V9 
+      Physical Name(6): /wrds/markit/sasdata/itraxx_europe_composites
+      Engine(7):        V9 
+      Physical Name(7): /wrds/markit/sasdata/itraxx_sovx_composites
+      Engine(8):        V9 
+      Physical Name(8): /wrds/markit/sasdata/itraxx_asia_constituents
+      Engine(9):        V9 
+      Physical Name(9): /wrds/markit/sasdata/itraxx_europe_constituents
+      Engine(10):        V9 
+      Physical Name(10): /wrds/markit/sasdata/itraxx_sovx_constituents
+NOTE: Libref MSFANLY was successfully assigned as follows: 
+      Levels:           5
+      Engine(1):        V9 
+      Physical Name(1): /wrds/markit/sasdata/msf_analytics_bonds
+      Engine(2):        V9 
+      Physical Name(2): /wrds/markit/sasdata/msf_analytics_eqty_amer
+      Engine(3):        V9 
+      Physical Name(3): /wrds/markit/sasdata/msf_analytics_eqty_euro
+      Engine(4):        V9 
+      Physical Name(4): /wrds/markit/sasdata/msf_analytics_eqty_asia
+      Engine(5):        V9 
+      Physical Name(5): /wrds/markit/sasdata/msf_analytics_eqty_other
+NOTE: Libref MSFINST was successfully assigned as follows: 
+      Levels:           5
+      Engine(1):        V9 
+      Physical Name(1): /wrds/markit/sasdata/msf_inst_bonds
+      Engine(2):        V9 
+      Physical Name(2): /wrds/markit/sasdata/msf_inst_eqty_amer
+      Engine(3):        V9 
+      Physical Name(3): /wrds/markit/sasdata/msf_inst_eqty_asia
+      Engine(4):        V9 
+      Physical Name(4): /wrds/markit/sasdata/msf_inst_eqty_euro
+      Engine(5):        V9 
+      Physical Name(5): /wrds/markit/sasdata/msf_inst_eqty_other
+NOTE: Libref MRKTSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/markit/cdsred
+NOTE: Libref MFL was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/mfl/sasdata
+NOTE: Libref MSRB was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/msrb/sasdata
+NOTE: Libref MSRBSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/msrb
+NOTE: Libref NASTRAQ was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/nastraq/sasdata
+NOTE: Libref OMTRIAL was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/samples/sasdata/optionmetrics
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/optionmetrics/europe
+NOTE: Libref OPTIONM was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/optionm/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/optionm/sasdata/europe
+NOTE: Libref OTC was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/otc/sasdata/endofday
+NOTE: Libref PACAP was successfully assigned as follows: 
+      Levels:           8
+      Engine(1):        V9 
+      Physical Name(1): /wrds/pacap/sasdata/hk
+      Engine(2):        V9 
+      Physical Name(2): /wrds/pacap/sasdata/id
+      Engine(3):        V9 
+      Physical Name(3): /wrds/pacap/sasdata/ja
+      Engine(4):        V9 
+      Physical Name(4): /wrds/pacap/sasdata/ks
+      Engine(5):        V9 
+      Physical Name(5): /wrds/pacap/sasdata/my
+      Engine(6):        V9 
+      Physical Name(6): /wrds/pacap/sasdata/sn
+      Engine(7):        V9 
+      Physical Name(7): /wrds/pacap/sasdata/tw
+      Engine(8):        V9 
+      Physical Name(8): /wrds/pacap/sasdata/th
+NOTE: Libref PHLX was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/phlx/sasdata
+NOTE: Libref PPUBLICA was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/ppublica/sasdata/d4d
+      Engine(2):        V9 
+      Physical Name(2): /wrds/ppublica/sasdata/rx_checkup
+NOTE: Libref PPUBSAMP was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/samples/sasdata/ppublica/d4d
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/ppublica/rx_checkup
+WARNING: One or more libraries specified in the concatenated library PREQIN do 
+         not exist.  These libraries were removed from the concatenation.
+NOTE: Libref PREQIN was successfully assigned as follows: 
+      Levels:           1
+      Engine(1):        V9 
+      Physical Name(1): /wrds/preqin/sasdata/private_equity
+NOTE: Libref PREQSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/preqin
+NOTE: Libref PUBLIC was successfully assigned as follows: 
+      Levels:           7
+      Engine(1):        V9 
+      Physical Name(1): /wrds/public/sasdata/climate/noaa
+      Engine(2):        V9 
+      Physical Name(2): /wrds/public/sasdata/legal/govtrack
+      Engine(3):        V9 
+      Physical Name(3): /wrds/public/sasdata/macroecon/bea
+      Engine(4):        V9 
+      Physical Name(4): /wrds/public/sasdata/macroecon/bls
+      Engine(5):        V9 
+      Physical Name(5): /wrds/public/sasdata/healthcare/hcup
+      Engine(6):        V9 
+      Physical Name(6): /wrds/public/sasdata/healthcare/meps
+      Engine(7):        V9 
+      Physical Name(7): /wrds/public/sasdata/taxis
+NOTE: Libref PWT was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/pwt/sasdata
+NOTE: Libref RENT was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/rent/sasdata
+NOTE: Libref REPRISK was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/reprisk/sasdata/pm
+      Engine(2):        V9 
+      Physical Name(2): /wrds/reprisk/sasdata/std
+      Engine(3):        V9 
+      Physical Name(3): /wrds/reprisk/sasdata
+NOTE: Libref REPSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/reprisk
+NOTE: Libref REVERE was successfully assigned as follows: 
+      Levels:           4
+      Engine(1):        V9 
+      Physical Name(1): /wrds/factset/sasdata/revere_common
+      Engine(2):        V9 
+      Physical Name(2): /wrds/factset/sasdata/revere_supply_chain
+      Engine(3):        V9 
+      Physical Name(3): /wrds/factset/sasdata/revere_geo_rev
+      Engine(4):        V9 
+      Physical Name(4): /wrds/factset/sasdata/revere_ind_class
+NOTE: Libref RISK was successfully assigned as follows: 
+      Levels:           12
+      Engine(1):        V9 
+      Physical Name(1): /wrds/riskmetrics/sasdata/directors
+      Engine(2):        V9 
+      Physical Name(2): /wrds/riskmetrics/sasdata/governance
+      Engine(3):        V9 
+      Physical Name(3): /wrds/riskmetrics/sasdata/proposals
+      Engine(4):        V9 
+      Physical Name(4): /wrds/riskmetrics/sasdata/incentive_lab
+      Engine(5):        V9 
+      Physical Name(5): /wrds/riskmetrics/sasdata/incentive_lab/europe
+      Engine(6):        V9 
+      Physical Name(6): /wrds/riskmetrics/sasdata/votes
+      Engine(7):        V9 
+      Physical Name(7): /wrds/riskmetrics/sasdata/voting_analytics
+      Engine(8):        V9 
+      Physical Name(8): /wrds/riskmetrics/sasdata/voting_analytics/issrec
+      Engine(9):        V9 
+      Physical Name(9): /wrds/riskmetrics/sasdata/voting_analytics/mf
+      Engine(10):        V9 
+      Physical Name(10): /wrds/riskmetrics/sasdata/voting_analytics/proposals
+      Engine(11):        V9 
+      Physical Name(11): 
+      /wrds/riskmetrics/sasdata/voting_analytics/voteresults_global
+      Engine(12):        V9 
+      Physical Name(12): 
+      /wrds/riskmetrics/sasdata/voting_analytics/voteresults_us
+NOTE: Libref RISKSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/riskmetrics
+NOTE: Libref RPNA was successfully assigned as follows: 
+      Levels:           5
+      Engine(1):        V9 
+      Physical Name(1): /wrds/ravenpack/sasdata/common
+      Engine(2):        V9 
+      Physical Name(2): /wrds/ravenpack/sasdata/dow_jones_edition
+      Engine(3):        V9 
+      Physical Name(3): /wrds/ravenpack/sasdata/full_edition
+      Engine(4):        V9 
+      Physical Name(4): /wrds/ravenpack/sasdata/pr_edition
+      Engine(5):        V9 
+      Physical Name(5): /wrds/ravenpack/sasdata/web_edition
+NOTE: Libref RPNASAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/ravenpack
+NOTE: Libref SDC was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/tfn/sasdata/sdc_ma
+      Engine(2):        V9 
+      Physical Name(2): /wrds/tfn/sasdata/sdc_ni
+NOTE: Libref SDCSAMP was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/samples/sasdata/tfn/sdc_ma
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/tfn/sdc_ni
+NOTE: Libref SECSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/sec
+NOTE: Libref SNAPSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/comp_snap
+NOTE: Libref SNL was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/snl/sasdata
+NOTE: Libref SNLBR was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/snl/sasdata/bank_reg
+NOTE: Libref SNLSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/snl
+NOTE: Libref SPRAT was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/comp/sasdata/sprat
+NOTE: Libref SUSTAIN was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/sustain/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/sustain/sasdata/na_only
+NOTE: Libref SUSTSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/sustain
+NOTE: Libref TAQ was successfully assigned as follows: 
+      Levels:           4
+      Engine(1):        V9 
+      Physical Name(1): /wrds/taq/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/nyse/sasdata/wrds_taqs_ct
+      Engine(3):        V9 
+      Physical Name(3): /wrds/nyse/sasdata/wrds_taqs_nbbo
+      Engine(4):        V9 
+      Physical Name(4): /wrds/nyse/sasdata/wrds_taqs_iid_v1
+NOTE: Libref TAQMSEC was successfully assigned as follows: 
+      Levels:           7
+      Engine(1):        V9 
+      Physical Name(1): /wrds/nyse/sasdata/taqms/ct
+      Engine(2):        V9 
+      Physical Name(2): /wrds/nyse/sasdata/taqms/cq
+      Engine(3):        V9 
+      Physical Name(3): /wrds/nyse/sasdata/taqms/mast
+      Engine(4):        V9 
+      Physical Name(4): /wrds/nyse/sasdata/taqms/nbbo
+      Engine(5):        V9 
+      Physical Name(5): /wrds/nyse/sasdata/taqms/nbbod2m
+      Engine(6):        V9 
+      Physical Name(6): /wrds/nyse/sasdata/wrds_taqms_wct
+      Engine(7):        V9 
+      Physical Name(7): /wrds/nyse/sasdata/wrds_taqms_iid
+NOTE: Libref TAQSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/taqsamp/sasdata
+NOTE: Libref TAQMSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/taqmssamp/sasdata
+NOTE: Libref TASS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/tfn/sasdata/tass
+NOTE: Libref TFN was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/tfn/sasdata/s12
+      Engine(2):        V9 
+      Physical Name(2): /wrds/tfn/sasdata/s34
+      Engine(3):        V9 
+      Physical Name(3): /wrds/tfn/sasdata/insiders
+NOTE: Libref TOTALQ was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/contributors/sasdata/total_q
+NOTE: Libref TRACE was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/trace/sasdata/standard
+      Engine(2):        V9 
+      Physical Name(2): /wrds/trace/sasdata/enhanced
+NOTE: Libref TROWN was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/tfn/sasdata/ownership
+NOTE: Libref TRSAMP was successfully assigned as follows: 
+      Levels:           3
+      Engine(1):        V9 
+      Physical Name(1): /wrds/samples/sasdata/ibes_guidance
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/tass
+      Engine(3):        V9 
+      Physical Name(3): /wrds/samples/sasdata/worldscope
+NOTE: Libref TRWS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/tfn/sasdata/worldscope
+NOTE: Libref TWOIQ was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/2iq/sasdata
+NOTE: Libref TWOIQSMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/2iq
+NOTE: Libref WAPPSAMP was successfully assigned as follows: 
+      Levels:           2
+      Engine(1):        V9 
+      Physical Name(1): /wrds/samples/sasdata/ciqevtstudy
+      Engine(2):        V9 
+      Physical Name(2): /wrds/samples/sasdata/ciqintevtstudy
+NOTE: Libref WQA was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/wqa/sasdata
+WARNING: One or more libraries specified in the concatenated library WRDSSEC do 
+         not exist.  These libraries were removed from the concatenation.
+NOTE: Libref WRDSSEC was successfully assigned as follows: 
+      Levels:           4
+      Engine(1):        V9 
+      Physical Name(1): /wrds/sec/sasdata
+      Engine(2):        V9 
+      Physical Name(2): /wrds/sec/sasdata/common
+      Engine(3):        V9 
+      Physical Name(3): /wrds/sec/sasdata/sa
+      Engine(4):        V9 
+      Physical Name(4): /wrds/sec/sasdata/insiders
+NOTE: Libref WRDSAPPS was successfully assigned as follows: 
+      Levels:           11
+      Engine(1):        V9 
+      Physical Name(1): /wrds/wrdsapps/sasdata/intevtstudy
+      Engine(2):        V9 
+      Physical Name(2): /wrds/wrdsapps/sasdata/ciqintevtstudy
+      Engine(3):        V9 
+      Physical Name(3): /wrds/wrdsapps/sasdata/finratio
+      Engine(4):        V9 
+      Physical Name(4): /wrds/wrdsapps/sasdata/ravtaqevtstudy
+      Engine(5):        V9 
+      Physical Name(5): /wrds/wrdsapps/sasdata/gindices
+      Engine(6):        V9 
+      Physical Name(6): /wrds/wrdsapps/sasdata/bond
+      Engine(7):        V9 
+      Physical Name(7): /wrds/wrdsapps/sasdata/linking/iclink
+      Engine(8):        V9 
+      Physical Name(8): /wrds/wrdsapps/sasdata/linking/oclink
+      Engine(9):        V9 
+      Physical Name(9): /wrds/wrdsapps/sasdata/linking/tclink
+      Engine(10):        V9 
+      Physical Name(10): /wrds/wrdsapps/sasdata/linking/bdxinslink
+      Engine(11):        V9 
+      Physical Name(11): /wrds/wrdsapps/sasdata/longrunevt
+NOTE: Libref ZACKS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/zacks/sasdata
+NOTE: Libref ZACKSAMP was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /wrds/samples/sasdata/zacks
+
+NOTE: AUTOEXEC processing completed.
+
+1          %include 'portfolio_chars.sas';
+177        
+178        %let uni_begdt = 01JAN1976;
+179        %let uni_enddt = 31DEC2018;
+180        
+181        libname chars '/scratch/cityuhk/xinhe/eqchars';
+NOTE: Libref CHARS was successfully assigned as follows: 
+      Engine:        V9 
+      Physical Name: /scratch/cityuhk/xinhe/eqchars
+182        
+183        %let vars =
+184        mom12m hxz_abr hxz_sue hxz_re
+185        bm ep cfp sp
+186        agr ni acc
+187        op roe
+188        seas1a adm rdm
+189        me svar beta mom1m
+190        ;
+191        
+192        %let rank_vars =
+193        rank_mom12m rank_hxz_abr rank_hxz_sue rank_hxz_re
+194        rank_bm rank_ep rank_cfp rank_sp
+195        rank_agr rank_ni rank_acc
+196        rank_op rank_roe
+197        rank_seas1a rank_adm rank_rdm
+198        rank_me rank_svar rank_beta rank_mom1m
+199        ;
+200        
+201        /* ********************************************* */
+202        /*  Final results                     */
+203        /* ********************************************* */
+204        
+205        data da;
+206        set chars.v7_1_rank_label;
+207        keep
+208            public_date   permno   gvkey   sic  cusip
+209            &vars
+210            &rank_vars
+211            FFI49 FFI49_desc
+212            DGTW_PORT
+213            port_me port_beta port_svar;
+214        run;
+
+NOTE: There were 2597131 observations read from the data set 
+      CHARS.V7_1_RANK_LABEL.
+NOTE: The data set WORK.DA has 2597131 observations and 51 variables.
+NOTE: DATA statement used (Total process time):
+      real time           4.40 seconds
+      cpu time            1.50 seconds
+      
+
+215        
+216        proc export data=da
+217        outfile="/scratch/cityuhk/xinhe/eqchars/rank_final.csv" dbms=csv
+217      ! replace; run;
+
+218         /*******************************************************************
+218      ! ***
+219         *   PRODUCT:   SAS
+220         *   VERSION:   9.4
+221         *   CREATOR:   External File Interface
+222         *   DATE:      22DEC19
+223         *   DESC:      Generated SAS Datastep Code
+224         *   TEMPLATE SOURCE:  (None Specified.)
+225         ********************************************************************
+225      ! ***/
+226            data _null_;
+227            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+228            %let _EFIREC_ = 0;     /* clear export record count macro
+228      ! variable */
+229            file '/scratch/cityuhk/xinhe/eqchars/rank_final.csv'
+229      ! delimiter=',' DSD DROPOVER lrecl=32767;
+230            if _n_ = 1 then        /* write column names or labels */
+231             do;
+232               put
+233                  "permno"
+234               ','
+235                  "gvkey"
+236               ','
+237                  "sic"
+238               ','
+239                  "roe"
+240               ','
+241                  "FFI49_desc"
+242               ','
+243                  "FFI49"
+244               ','
+245                  "acc"
+246               ','
+247                  "agr"
+248               ','
+249                  "bm"
+250               ','
+251                  "cfp"
+252               ','
+253                  "ep"
+254               ','
+255                  "op"
+256               ','
+257                  "ni"
+258               ','
+259                  "rdm"
+260               ','
+261                  "adm"
+262               ','
+263                  "sp"
+264               ','
+265                  "me"
+266               ','
+267                  "svar"
+268               ','
+269                  "beta"
+270               ','
+271                  "mom1m"
+272               ','
+273                  "mom12m"
+274               ','
+275                  "seas1a"
+276               ','
+277                  "hxz_re"
+278               ','
+279                  "hxz_abr"
+280               ','
+281                  "hxz_sue"
+282               ','
+283                  "cusip"
+284               ','
+285                  "public_date"
+286               ','
+287                  "rank_mom12m"
+288               ','
+289                  "rank_hxz_abr"
+290               ','
+291                  "rank_hxz_sue"
+292               ','
+293                  "rank_hxz_re"
+294               ','
+295                  "rank_bm"
+296               ','
+297                  "rank_ep"
+298               ','
+299                  "rank_cfp"
+300               ','
+301                  "rank_sp"
+302               ','
+303                  "rank_agr"
+304               ','
+305                  "rank_ni"
+306               ','
+307                  "rank_acc"
+308               ','
+309                  "rank_op"
+310               ','
+311                  "rank_roe"
+312               ','
+313                  "rank_seas1a"
+314               ','
+315                  "rank_adm"
+316               ','
+317                  "rank_rdm"
+318               ','
+319                  "rank_me"
+320               ','
+321                  "port_me"
+322               ','
+323                  "rank_svar"
+324               ','
+325                  "port_svar"
+326               ','
+327                  "rank_beta"
+328               ','
+329                  "port_beta"
+330               ','
+331                  "rank_mom1m"
+332               ','
+333                  "DGTW_PORT"
+334               ;
+335             end;
+336           set  DA   end=EFIEOD;
+337               format permno best12. ;
+338               format gvkey $6. ;
+339               format sic $4. ;
+340               format roe best12. ;
+341               format FFI49_desc $5. ;
+342               format FFI49 best12. ;
+343               format acc best12. ;
+344               format agr best12. ;
+345               format bm best12. ;
+346               format cfp best12. ;
+347               format ep best12. ;
+348               format op best12. ;
+349               format ni best12. ;
+350               format rdm best12. ;
+351               format adm best12. ;
+352               format sp best12. ;
+353               format me best12. ;
+354               format svar best12. ;
+355               format beta best12. ;
+356               format mom1m best12. ;
+357               format mom12m best12. ;
+358               format seas1a best12. ;
+359               format hxz_re best12. ;
+360               format hxz_abr best12. ;
+361               format hxz_sue best12. ;
+362               format cusip $9. ;
+363               format public_date yymmdd10. ;
+364               format rank_mom12m best12. ;
+365               format rank_hxz_abr best12. ;
+366               format rank_hxz_sue best12. ;
+367               format rank_hxz_re best12. ;
+368               format rank_bm best12. ;
+369               format rank_ep best12. ;
+370               format rank_cfp best12. ;
+371               format rank_sp best12. ;
+372               format rank_agr best12. ;
+373               format rank_ni best12. ;
+374               format rank_acc best12. ;
+375               format rank_op best12. ;
+376               format rank_roe best12. ;
+377               format rank_seas1a best12. ;
+378               format rank_adm best12. ;
+379               format rank_rdm best12. ;
+380               format rank_me best12. ;
+381               format port_me best12. ;
+382               format rank_svar best12. ;
+383               format port_svar best12. ;
+384               format rank_beta best12. ;
+385               format port_beta best12. ;
+386               format rank_mom1m best12. ;
+387               format DGTW_PORT $3. ;
+388             do;
+389               EFIOUT + 1;
+390               put permno @;
+391               put gvkey $ @;
+392               put sic $ @;
+393               put roe @;
+394               put FFI49_desc $ @;
+395               put FFI49 @;
+396               put acc @;
+397               put agr @;
+398               put bm @;
+399               put cfp @;
+400               put ep @;
+401               put op @;
+402               put ni @;
+403               put rdm @;
+404               put adm @;
+405               put sp @;
+406               put me @;
+407               put svar @;
+408               put beta @;
+409               put mom1m @;
+410               put mom12m @;
+411               put seas1a @;
+412               put hxz_re @;
+413               put hxz_abr @;
+414               put hxz_sue @;
+415               put cusip $ @;
+416               put public_date @;
+417               put rank_mom12m @;
+418               put rank_hxz_abr @;
+419               put rank_hxz_sue @;
+420               put rank_hxz_re @;
+421               put rank_bm @;
+422               put rank_ep @;
+423               put rank_cfp @;
+424               put rank_sp @;
+425               put rank_agr @;
+426               put rank_ni @;
+427               put rank_acc @;
+428               put rank_op @;
+429               put rank_roe @;
+430               put rank_seas1a @;
+431               put rank_adm @;
+432               put rank_rdm @;
+433               put rank_me @;
+434               put port_me @;
+435               put rank_svar @;
+436               put port_svar @;
+437               put rank_beta @;
+438               put port_beta @;
+439               put rank_mom1m @;
+440               put DGTW_PORT $ ;
+441               ;
+442             end;
+443            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+443      ! detection macro variable */
+444            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+445            run;
+
+NOTE: The file '/scratch/cityuhk/xinhe/eqchars/rank_final.csv' is:
+      Filename=/scratch/cityuhk/xinhe/eqchars/rank_final.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:54:17
+
+NOTE: 2597132 records were written to the file 
+      '/scratch/cityuhk/xinhe/eqchars/rank_final.csv'.
+      The minimum record length was 117.
+      The maximum record length was 574.
+NOTE: There were 2597131 observations read from the data set WORK.DA.
+NOTE: DATA statement used (Total process time):
+      real time           15.40 seconds
+      cpu time            14.83 seconds
+      
+
+2597131 records created in /scratch/cityuhk/xinhe/eqchars/rank_final.csv from 
+DA.
+  
+  
+NOTE: "/scratch/cityuhk/xinhe/eqchars/rank_final.csv" file was successfully 
+      created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           15.55 seconds
+      cpu time            14.87 seconds
+      
+
+446        
+447        proc export data=da(where=(year(public_date)=2018))
+448        outfile="/scratch/cityuhk/xinhe/eqchars/rank_final2018.csv" dbms=csv
+448      ! replace; run;
+
+449         /*******************************************************************
+449      ! ***
+450         *   PRODUCT:   SAS
+451         *   VERSION:   9.4
+452         *   CREATOR:   External File Interface
+453         *   DATE:      22DEC19
+454         *   DESC:      Generated SAS Datastep Code
+455         *   TEMPLATE SOURCE:  (None Specified.)
+456         ********************************************************************
+456      ! ***/
+457            data _null_;
+458            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+459            %let _EFIREC_ = 0;     /* clear export record count macro
+459      ! variable */
+460            file '/scratch/cityuhk/xinhe/eqchars/rank_final2018.csv'
+460      ! delimiter=',' DSD DROPOVER lrecl=32767;
+461            if _n_ = 1 then        /* write column names or labels */
+462             do;
+463               put
+464                  "permno"
+465               ','
+466                  "gvkey"
+467               ','
+468                  "sic"
+469               ','
+470                  "roe"
+471               ','
+472                  "FFI49_desc"
+473               ','
+474                  "FFI49"
+475               ','
+476                  "acc"
+477               ','
+478                  "agr"
+479               ','
+480                  "bm"
+481               ','
+482                  "cfp"
+483               ','
+484                  "ep"
+485               ','
+486                  "op"
+487               ','
+488                  "ni"
+489               ','
+490                  "rdm"
+491               ','
+492                  "adm"
+493               ','
+494                  "sp"
+495               ','
+496                  "me"
+497               ','
+498                  "svar"
+499               ','
+500                  "beta"
+501               ','
+502                  "mom1m"
+503               ','
+504                  "mom12m"
+505               ','
+506                  "seas1a"
+507               ','
+508                  "hxz_re"
+509               ','
+510                  "hxz_abr"
+511               ','
+512                  "hxz_sue"
+513               ','
+514                  "cusip"
+515               ','
+516                  "public_date"
+517               ','
+518                  "rank_mom12m"
+519               ','
+520                  "rank_hxz_abr"
+521               ','
+522                  "rank_hxz_sue"
+523               ','
+524                  "rank_hxz_re"
+525               ','
+526                  "rank_bm"
+527               ','
+528                  "rank_ep"
+529               ','
+530                  "rank_cfp"
+531               ','
+532                  "rank_sp"
+533               ','
+534                  "rank_agr"
+535               ','
+536                  "rank_ni"
+537               ','
+538                  "rank_acc"
+539               ','
+540                  "rank_op"
+541               ','
+542                  "rank_roe"
+543               ','
+544                  "rank_seas1a"
+545               ','
+546                  "rank_adm"
+547               ','
+548                  "rank_rdm"
+549               ','
+550                  "rank_me"
+551               ','
+552                  "port_me"
+553               ','
+554                  "rank_svar"
+555               ','
+556                  "port_svar"
+557               ','
+558                  "rank_beta"
+559               ','
+560                  "port_beta"
+561               ','
+562                  "rank_mom1m"
+563               ','
+564                  "DGTW_PORT"
+565               ;
+566             end;
+567           set  DA(where=(year(public_date)=2018))   end=EFIEOD;
+568               format permno best12. ;
+569               format gvkey $6. ;
+570               format sic $4. ;
+571               format roe best12. ;
+572               format FFI49_desc $5. ;
+573               format FFI49 best12. ;
+574               format acc best12. ;
+575               format agr best12. ;
+576               format bm best12. ;
+577               format cfp best12. ;
+578               format ep best12. ;
+579               format op best12. ;
+580               format ni best12. ;
+581               format rdm best12. ;
+582               format adm best12. ;
+583               format sp best12. ;
+584               format me best12. ;
+585               format svar best12. ;
+586               format beta best12. ;
+587               format mom1m best12. ;
+588               format mom12m best12. ;
+589               format seas1a best12. ;
+590               format hxz_re best12. ;
+591               format hxz_abr best12. ;
+592               format hxz_sue best12. ;
+593               format cusip $9. ;
+594               format public_date yymmdd10. ;
+595               format rank_mom12m best12. ;
+596               format rank_hxz_abr best12. ;
+597               format rank_hxz_sue best12. ;
+598               format rank_hxz_re best12. ;
+599               format rank_bm best12. ;
+600               format rank_ep best12. ;
+601               format rank_cfp best12. ;
+602               format rank_sp best12. ;
+603               format rank_agr best12. ;
+604               format rank_ni best12. ;
+605               format rank_acc best12. ;
+606               format rank_op best12. ;
+607               format rank_roe best12. ;
+608               format rank_seas1a best12. ;
+609               format rank_adm best12. ;
+610               format rank_rdm best12. ;
+611               format rank_me best12. ;
+612               format port_me best12. ;
+613               format rank_svar best12. ;
+614               format port_svar best12. ;
+615               format rank_beta best12. ;
+616               format port_beta best12. ;
+617               format rank_mom1m best12. ;
+618               format DGTW_PORT $3. ;
+619             do;
+620               EFIOUT + 1;
+621               put permno @;
+622               put gvkey $ @;
+623               put sic $ @;
+624               put roe @;
+625               put FFI49_desc $ @;
+626               put FFI49 @;
+627               put acc @;
+628               put agr @;
+629               put bm @;
+630               put cfp @;
+631               put ep @;
+632               put op @;
+633               put ni @;
+634               put rdm @;
+635               put adm @;
+636               put sp @;
+637               put me @;
+638               put svar @;
+639               put beta @;
+640               put mom1m @;
+641               put mom12m @;
+642               put seas1a @;
+643               put hxz_re @;
+644               put hxz_abr @;
+645               put hxz_sue @;
+646               put cusip $ @;
+647               put public_date @;
+648               put rank_mom12m @;
+649               put rank_hxz_abr @;
+650               put rank_hxz_sue @;
+651               put rank_hxz_re @;
+652               put rank_bm @;
+653               put rank_ep @;
+654               put rank_cfp @;
+655               put rank_sp @;
+656               put rank_agr @;
+657               put rank_ni @;
+658               put rank_acc @;
+659               put rank_op @;
+660               put rank_roe @;
+661               put rank_seas1a @;
+662               put rank_adm @;
+663               put rank_rdm @;
+664               put rank_me @;
+665               put port_me @;
+666               put rank_svar @;
+667               put port_svar @;
+668               put rank_beta @;
+669               put port_beta @;
+670               put rank_mom1m @;
+671               put DGTW_PORT $ ;
+672               ;
+673             end;
+674            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+674      ! detection macro variable */
+675            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+676            run;
+
+NOTE: The file '/scratch/cityuhk/xinhe/eqchars/rank_final2018.csv' is:
+      Filename=/scratch/cityuhk/xinhe/eqchars/rank_final2018.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:54:33
+
+NOTE: 40586 records were written to the file 
+      '/scratch/cityuhk/xinhe/eqchars/rank_final2018.csv'.
+      The minimum record length was 197.
+      The maximum record length was 574.
+NOTE: There were 40585 observations read from the data set WORK.DA.
+      WHERE YEAR(public_date)=2018;
+NOTE: DATA statement used (Total process time):
+      real time           0.74 seconds
+      cpu time            0.70 seconds
+      
+
+40585 records created in /scratch/cityuhk/xinhe/eqchars/rank_final2018.csv from 
+DA.
+  
+  
+NOTE: "/scratch/cityuhk/xinhe/eqchars/rank_final2018.csv" file was successfully 
+      created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           1.71 seconds
+      cpu time            1.58 seconds
+      
+
+677        
+678        
+679        data da;
+680        set da;
+681        weight_port = me;
+682        run;
+
+NOTE: There were 2597131 observations read from the data set WORK.DA.
+NOTE: The data set WORK.DA has 2597131 observations and 52 variables.
+NOTE: DATA statement used (Total process time):
+      real time           1.35 seconds
+      cpu time            1.30 seconds
+      
+
+683        
+684        data eqchars;
+685        set da;
+686        keep
+687            public_date   permno   gvkey   sic  cusip
+688            weight_port
+689            &vars
+690            &rank_vars
+691            FFI49 FFI49_desc
+692            DGTW_PORT
+693            port_me port_beta port_svar;
+694        run;
+
+NOTE: There were 2597131 observations read from the data set WORK.DA.
+NOTE: The data set WORK.EQCHARS has 2597131 observations and 52 variables.
+NOTE: DATA statement used (Total process time):
+      real time           1.07 seconds
+      cpu time            1.07 seconds
+      
+
+695        
+696        /*
+696      ! *********************************************************************
+696      ! ************ */
+697        
+698        
+699        %FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt,
+699      ! label=port_me, AVR=mean, weight=weight_port, Input=eqchars,
+699      ! vars=&rank_vars);
+
+NOTE: There were 2329747 observations read from the data set WORK.EQCHARS.
+      WHERE (public_date>='01JAN1976'D and public_date<='31DEC2018'D);
+NOTE: The data set WORK.RATIOS has 2329747 observations and 52 variables.
+NOTE: DATA statement used (Total process time):
+      real time           1.06 seconds
+      cpu time            1.07 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RATIOS.
+NOTE: The data set WORK.RATIOS has 2329747 observations and 52 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           2.17 seconds
+      cpu time            3.03 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RATIOS.
+      WHERE not MISSING(port_me);
+NOTE: The data set WORK.INDRATIOS has 5676 observations and 24 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           1.25 seconds
+      cpu time            1.25 seconds
+      
+
+
+NOTE: There were 5676 observations read from the data set WORK.INDRATIOS.
+NOTE: The data set WORK.INDRATIOS has 5676 observations and 24 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 5160 observations read from the data set WORK.INDRATIOS.
+      WHERE not MISSING(port_me);
+NOTE: The data set WORK.INDRATIOS has 5160 observations and 23 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+700         /*******************************************************************
+700      ! ***
+701         *   PRODUCT:   SAS
+702         *   VERSION:   9.4
+703         *   CREATOR:   External File Interface
+704         *   DATE:      22DEC19
+705         *   DESC:      Generated SAS Datastep Code
+706         *   TEMPLATE SOURCE:  (None Specified.)
+707         ********************************************************************
+707      ! ***/
+708            data _null_;
+709            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+710            %let _EFIREC_ = 0;     /* clear export record count macro
+710      ! variable */
+711            file 'indratios_port_me.csv' delimiter=',' DSD DROPOVER
+711      ! lrecl=32767;
+712            if _n_ = 1 then        /* write column names or labels */
+713             do;
+714               put
+715                  "public_date"
+716               ','
+717                  "port_me"
+718               ','
+719                  "_FREQ_"
+720               ','
+721                  "rank_mom12m_Mean"
+722               ','
+723                  "rank_hxz_abr_Mean"
+724               ','
+725                  "rank_hxz_sue_Mean"
+726               ','
+727                  "rank_hxz_re_Mean"
+728               ','
+729                  "rank_bm_Mean"
+730               ','
+731                  "rank_ep_Mean"
+732               ','
+733                  "rank_cfp_Mean"
+734               ','
+735                  "rank_sp_Mean"
+736               ','
+737                  "rank_agr_Mean"
+738               ','
+739                  "rank_ni_Mean"
+740               ','
+741                  "rank_acc_Mean"
+742               ','
+743                  "rank_op_Mean"
+744               ','
+745                  "rank_roe_Mean"
+746               ','
+747                  "rank_seas1a_Mean"
+748               ','
+749                  "rank_adm_Mean"
+750               ','
+751                  "rank_rdm_Mean"
+752               ','
+753                  "rank_me_Mean"
+754               ','
+755                  "rank_svar_Mean"
+756               ','
+757                  "rank_beta_Mean"
+758               ','
+759                  "rank_mom1m_Mean"
+760               ;
+761             end;
+762           set  INDRATIOS   end=EFIEOD;
+763               format public_date mmddyyd10. ;
+764               format port_me best12. ;
+765               format _FREQ_ best12. ;
+766               format rank_mom12m_Mean best12. ;
+767               format rank_hxz_abr_Mean best12. ;
+768               format rank_hxz_sue_Mean best12. ;
+769               format rank_hxz_re_Mean best12. ;
+770               format rank_bm_Mean best12. ;
+771               format rank_ep_Mean best12. ;
+772               format rank_cfp_Mean best12. ;
+773               format rank_sp_Mean best12. ;
+774               format rank_agr_Mean best12. ;
+775               format rank_ni_Mean best12. ;
+776               format rank_acc_Mean best12. ;
+777               format rank_op_Mean best12. ;
+778               format rank_roe_Mean best12. ;
+779               format rank_seas1a_Mean best12. ;
+780               format rank_adm_Mean best12. ;
+781               format rank_rdm_Mean best12. ;
+782               format rank_me_Mean best12. ;
+783               format rank_svar_Mean best12. ;
+784               format rank_beta_Mean best12. ;
+785               format rank_mom1m_Mean best12. ;
+786             do;
+787               EFIOUT + 1;
+788               put public_date @;
+789               put port_me @;
+790               put _FREQ_ @;
+791               put rank_mom12m_Mean @;
+792               put rank_hxz_abr_Mean @;
+793               put rank_hxz_sue_Mean @;
+794               put rank_hxz_re_Mean @;
+795               put rank_bm_Mean @;
+796               put rank_ep_Mean @;
+797               put rank_cfp_Mean @;
+798               put rank_sp_Mean @;
+799               put rank_agr_Mean @;
+800               put rank_ni_Mean @;
+801               put rank_acc_Mean @;
+802               put rank_op_Mean @;
+803               put rank_roe_Mean @;
+804               put rank_seas1a_Mean @;
+805               put rank_adm_Mean @;
+806               put rank_rdm_Mean @;
+807               put rank_me_Mean @;
+808               put rank_svar_Mean @;
+809               put rank_beta_Mean @;
+810               put rank_mom1m_Mean ;
+811               ;
+812             end;
+813            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+813      ! detection macro variable */
+814            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+815            run;
+
+NOTE: The file 'indratios_port_me.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/indratios_port_me.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:54:41
+
+NOTE: 5161 records were written to the file 'indratios_port_me.csv'.
+      The minimum record length was 257.
+      The maximum record length was 321.
+NOTE: There were 5160 observations read from the data set WORK.INDRATIOS.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+5160 records created in indratios_port_me.csv from INDRATIOS.
+  
+  
+NOTE: "indratios_port_me.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.12 seconds
+      cpu time            0.05 seconds
+      
+
+NOTE: Table WORK.RETS created, with 2329747 rows and 53 columns.
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           8.61 seconds
+      cpu time            13.56 seconds
+      
+
+
+NOTE: Input data set is already sorted, no sorting done.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RETS.
+      WHERE not MISSING(port_me);
+NOTE: The data set WORK.VWRET has 5676 observations and 4 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.58 seconds
+      cpu time            0.60 seconds
+      
+
+
+NOTE: There were 5676 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET has 5676 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+WARNING: 516 observations omitted due to missing ID values.
+NOTE: There were 5676 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET2 has 516 observations and 11 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+816         /*******************************************************************
+816      ! ***
+817         *   PRODUCT:   SAS
+818         *   VERSION:   9.4
+819         *   CREATOR:   External File Interface
+820         *   DATE:      22DEC19
+821         *   DESC:      Generated SAS Datastep Code
+822         *   TEMPLATE SOURCE:  (None Specified.)
+823         ********************************************************************
+823      ! ***/
+824            data _null_;
+825            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+826            %let _EFIREC_ = 0;     /* clear export record count macro
+826      ! variable */
+827            file 'vwret2_port_me.csv' delimiter=',' DSD DROPOVER lrecl=32767;
+828            if _n_ = 1 then        /* write column names or labels */
+829             do;
+830               put
+831                  "public_date"
+832               ','
+833                  "_0"
+834               ','
+835                  "_1"
+836               ','
+837                  "_2"
+838               ','
+839                  "_3"
+840               ','
+841                  "_4"
+842               ','
+843                  "_5"
+844               ','
+845                  "_6"
+846               ','
+847                  "_7"
+848               ','
+849                  "_8"
+850               ','
+851                  "_9"
+852               ;
+853             end;
+854           set  VWRET2   end=EFIEOD;
+855               format public_date yymmdd10. ;
+856               format _0 11.6 ;
+857               format _1 11.6 ;
+858               format _2 11.6 ;
+859               format _3 11.6 ;
+860               format _4 11.6 ;
+861               format _5 11.6 ;
+862               format _6 11.6 ;
+863               format _7 11.6 ;
+864               format _8 11.6 ;
+865               format _9 11.6 ;
+866             do;
+867               EFIOUT + 1;
+868               put public_date @;
+869               put _0 @;
+870               put _1 @;
+871               put _2 @;
+872               put _3 @;
+873               put _4 @;
+874               put _5 @;
+875               put _6 @;
+876               put _7 @;
+877               put _8 @;
+878               put _9 ;
+879               ;
+880             end;
+881            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+881      ! detection macro variable */
+882            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+883            run;
+
+NOTE: The file 'vwret2_port_me.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/vwret2_port_me.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:54:50
+
+NOTE: 517 records were written to the file 'vwret2_port_me.csv'.
+      The minimum record length was 20.
+      The maximum record length was 110.
+NOTE: There were 516 observations read from the data set WORK.VWRET2.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+516 records created in vwret2_port_me.csv from VWRET2.
+  
+  
+NOTE: "vwret2_port_me.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.02 seconds
+      
+
+
+WARNING: 516 observations omitted due to missing ID values.
+NOTE: There were 5676 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET3 has 516 observations and 11 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+884         /*******************************************************************
+884      ! ***
+885         *   PRODUCT:   SAS
+886         *   VERSION:   9.4
+887         *   CREATOR:   External File Interface
+888         *   DATE:      22DEC19
+889         *   DESC:      Generated SAS Datastep Code
+890         *   TEMPLATE SOURCE:  (None Specified.)
+891         ********************************************************************
+891      ! ***/
+892            data _null_;
+893            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+894            %let _EFIREC_ = 0;     /* clear export record count macro
+894      ! variable */
+895            file 'vwret3_port_me.csv' delimiter=',' DSD DROPOVER lrecl=32767;
+896            if _n_ = 1 then        /* write column names or labels */
+897             do;
+898               put
+899                  "public_date"
+900               ','
+901                  "n_0"
+902               ','
+903                  "n_1"
+904               ','
+905                  "n_2"
+906               ','
+907                  "n_3"
+908               ','
+909                  "n_4"
+910               ','
+911                  "n_5"
+912               ','
+913                  "n_6"
+914               ','
+915                  "n_7"
+916               ','
+917                  "n_8"
+918               ','
+919                  "n_9"
+920               ;
+921             end;
+922           set  VWRET3   end=EFIEOD;
+923               format public_date yymmdd10. ;
+924               format n_0 best12. ;
+925               format n_1 best12. ;
+926               format n_2 best12. ;
+927               format n_3 best12. ;
+928               format n_4 best12. ;
+929               format n_5 best12. ;
+930               format n_6 best12. ;
+931               format n_7 best12. ;
+932               format n_8 best12. ;
+933               format n_9 best12. ;
+934             do;
+935               EFIOUT + 1;
+936               put public_date @;
+937               put n_0 @;
+938               put n_1 @;
+939               put n_2 @;
+940               put n_3 @;
+941               put n_4 @;
+942               put n_5 @;
+943               put n_6 @;
+944               put n_7 @;
+945               put n_8 @;
+946               put n_9 ;
+947               ;
+948             end;
+949            if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+949      ! detection macro variable */
+950            if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+951            run;
+
+NOTE: The file 'vwret3_port_me.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/vwret3_port_me.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:54:50
+
+NOTE: 517 records were written to the file 'vwret3_port_me.csv'.
+      The minimum record length was 30.
+      The maximum record length was 51.
+NOTE: There were 516 observations read from the data set WORK.VWRET3.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+516 records created in vwret3_port_me.csv from VWRET3.
+  
+  
+NOTE: "vwret3_port_me.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.03 seconds
+      
+
+NOTE: Table WORK.RATIOS has been dropped.
+NOTE: Table WORK.INDRATIOS has been dropped.
+NOTE: Table WORK.RETS has been dropped.
+WARNING: File WORK.INDRETS.DATA does not exist.
+WARNING: Table WORK.INDRETS has not been dropped.
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.22 seconds
+      cpu time            0.23 seconds
+      
+
+952        %FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt,
+952      ! label=port_svar, AVR=mean, weight=weight_port, Input=eqchars,
+952      ! vars=&rank_vars);
+
+NOTE: There were 2329747 observations read from the data set WORK.EQCHARS.
+      WHERE (public_date>='01JAN1976'D and public_date<='31DEC2018'D);
+NOTE: The data set WORK.RATIOS has 2329747 observations and 52 variables.
+NOTE: DATA statement used (Total process time):
+      real time           1.04 seconds
+      cpu time            1.04 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RATIOS.
+NOTE: The data set WORK.RATIOS has 2329747 observations and 52 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           1.99 seconds
+      cpu time            3.24 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RATIOS.
+      WHERE not MISSING(port_svar);
+NOTE: The data set WORK.INDRATIOS has 5676 observations and 24 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           1.24 seconds
+      cpu time            1.25 seconds
+      
+
+
+NOTE: There were 5676 observations read from the data set WORK.INDRATIOS.
+NOTE: The data set WORK.INDRATIOS has 5676 observations and 24 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 5160 observations read from the data set WORK.INDRATIOS.
+      WHERE not MISSING(port_svar);
+NOTE: The data set WORK.INDRATIOS has 5160 observations and 23 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+953         /*******************************************************************
+953      ! ***
+954         *   PRODUCT:   SAS
+955         *   VERSION:   9.4
+956         *   CREATOR:   External File Interface
+957         *   DATE:      22DEC19
+958         *   DESC:      Generated SAS Datastep Code
+959         *   TEMPLATE SOURCE:  (None Specified.)
+960         ********************************************************************
+960      ! ***/
+961            data _null_;
+962            %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+963            %let _EFIREC_ = 0;     /* clear export record count macro
+963      ! variable */
+964            file 'indratios_port_svar.csv' delimiter=',' DSD DROPOVER
+964      ! lrecl=32767;
+965            if _n_ = 1 then        /* write column names or labels */
+966             do;
+967               put
+968                  "public_date"
+969               ','
+970                  "port_svar"
+971               ','
+972                  "_FREQ_"
+973               ','
+974                  "rank_mom12m_Mean"
+975               ','
+976                  "rank_hxz_abr_Mean"
+977               ','
+978                  "rank_hxz_sue_Mean"
+979               ','
+980                  "rank_hxz_re_Mean"
+981               ','
+982                  "rank_bm_Mean"
+983               ','
+984                  "rank_ep_Mean"
+985               ','
+986                  "rank_cfp_Mean"
+987               ','
+988                  "rank_sp_Mean"
+989               ','
+990                  "rank_agr_Mean"
+991               ','
+992                  "rank_ni_Mean"
+993               ','
+994                  "rank_acc_Mean"
+995               ','
+996                  "rank_op_Mean"
+997               ','
+998                  "rank_roe_Mean"
+999               ','
+1000                 "rank_seas1a_Mean"
+1001              ','
+1002                 "rank_adm_Mean"
+1003              ','
+1004                 "rank_rdm_Mean"
+1005              ','
+1006                 "rank_me_Mean"
+1007              ','
+1008                 "rank_svar_Mean"
+1009              ','
+1010                 "rank_beta_Mean"
+1011              ','
+1012                 "rank_mom1m_Mean"
+1013              ;
+1014            end;
+1015          set  INDRATIOS   end=EFIEOD;
+1016              format public_date mmddyyd10. ;
+1017              format port_svar best12. ;
+1018              format _FREQ_ best12. ;
+1019              format rank_mom12m_Mean best12. ;
+1020              format rank_hxz_abr_Mean best12. ;
+1021              format rank_hxz_sue_Mean best12. ;
+1022              format rank_hxz_re_Mean best12. ;
+1023              format rank_bm_Mean best12. ;
+1024              format rank_ep_Mean best12. ;
+1025              format rank_cfp_Mean best12. ;
+1026              format rank_sp_Mean best12. ;
+1027              format rank_agr_Mean best12. ;
+1028              format rank_ni_Mean best12. ;
+1029              format rank_acc_Mean best12. ;
+1030              format rank_op_Mean best12. ;
+1031              format rank_roe_Mean best12. ;
+1032              format rank_seas1a_Mean best12. ;
+1033              format rank_adm_Mean best12. ;
+1034              format rank_rdm_Mean best12. ;
+1035              format rank_me_Mean best12. ;
+1036              format rank_svar_Mean best12. ;
+1037              format rank_beta_Mean best12. ;
+1038              format rank_mom1m_Mean best12. ;
+1039            do;
+1040              EFIOUT + 1;
+1041              put public_date @;
+1042              put port_svar @;
+1043              put _FREQ_ @;
+1044              put rank_mom12m_Mean @;
+1045              put rank_hxz_abr_Mean @;
+1046              put rank_hxz_sue_Mean @;
+1047              put rank_hxz_re_Mean @;
+1048              put rank_bm_Mean @;
+1049              put rank_ep_Mean @;
+1050              put rank_cfp_Mean @;
+1051              put rank_sp_Mean @;
+1052              put rank_agr_Mean @;
+1053              put rank_ni_Mean @;
+1054              put rank_acc_Mean @;
+1055              put rank_op_Mean @;
+1056              put rank_roe_Mean @;
+1057              put rank_seas1a_Mean @;
+1058              put rank_adm_Mean @;
+1059              put rank_rdm_Mean @;
+1060              put rank_me_Mean @;
+1061              put rank_svar_Mean @;
+1062              put rank_beta_Mean @;
+1063              put rank_mom1m_Mean ;
+1064              ;
+1065            end;
+1066           if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+1066     ! detection macro variable */
+1067           if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+1068           run;
+
+NOTE: The file 'indratios_port_svar.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/indratios_port_svar.csv
+      ,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:54:55
+
+NOTE: 5161 records were written to the file 'indratios_port_svar.csv'.
+      The minimum record length was 259.
+      The maximum record length was 323.
+NOTE: There were 5160 observations read from the data set WORK.INDRATIOS.
+NOTE: DATA statement used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.02 seconds
+      
+
+5160 records created in indratios_port_svar.csv from INDRATIOS.
+  
+  
+NOTE: "indratios_port_svar.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.19 seconds
+      cpu time            0.04 seconds
+      
+
+NOTE: Table WORK.RETS created, with 2329747 rows and 53 columns.
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           8.67 seconds
+      cpu time            13.79 seconds
+      
+
+
+NOTE: Input data set is already sorted, no sorting done.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RETS.
+      WHERE not MISSING(port_svar);
+NOTE: The data set WORK.VWRET has 5676 observations and 4 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.59 seconds
+      cpu time            0.59 seconds
+      
+
+
+NOTE: There were 5676 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET has 5676 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+WARNING: 516 observations omitted due to missing ID values.
+NOTE: There were 5676 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET2 has 516 observations and 11 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+1069        /*******************************************************************
+1069     ! ***
+1070        *   PRODUCT:   SAS
+1071        *   VERSION:   9.4
+1072        *   CREATOR:   External File Interface
+1073        *   DATE:      22DEC19
+1074        *   DESC:      Generated SAS Datastep Code
+1075        *   TEMPLATE SOURCE:  (None Specified.)
+1076        ********************************************************************
+1076     ! ***/
+1077           data _null_;
+1078           %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+1079           %let _EFIREC_ = 0;     /* clear export record count macro
+1079     ! variable */
+1080           file 'vwret2_port_svar.csv' delimiter=',' DSD DROPOVER
+1080     ! lrecl=32767;
+1081           if _n_ = 1 then        /* write column names or labels */
+1082            do;
+1083              put
+1084                 "public_date"
+1085              ','
+1086                 "_0"
+1087              ','
+1088                 "_1"
+1089              ','
+1090                 "_2"
+1091              ','
+1092                 "_3"
+1093              ','
+1094                 "_4"
+1095              ','
+1096                 "_5"
+1097              ','
+1098                 "_6"
+1099              ','
+1100                 "_7"
+1101              ','
+1102                 "_8"
+1103              ','
+1104                 "_9"
+1105              ;
+1106            end;
+1107          set  VWRET2   end=EFIEOD;
+1108              format public_date yymmdd10. ;
+1109              format _0 11.6 ;
+1110              format _1 11.6 ;
+1111              format _2 11.6 ;
+1112              format _3 11.6 ;
+1113              format _4 11.6 ;
+1114              format _5 11.6 ;
+1115              format _6 11.6 ;
+1116              format _7 11.6 ;
+1117              format _8 11.6 ;
+1118              format _9 11.6 ;
+1119            do;
+1120              EFIOUT + 1;
+1121              put public_date @;
+1122              put _0 @;
+1123              put _1 @;
+1124              put _2 @;
+1125              put _3 @;
+1126              put _4 @;
+1127              put _5 @;
+1128              put _6 @;
+1129              put _7 @;
+1130              put _8 @;
+1131              put _9 ;
+1132              ;
+1133            end;
+1134           if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+1134     ! detection macro variable */
+1135           if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+1136           run;
+
+NOTE: The file 'vwret2_port_svar.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/vwret2_port_svar.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:55:04
+
+NOTE: 517 records were written to the file 'vwret2_port_svar.csv'.
+      The minimum record length was 20.
+      The maximum record length was 110.
+NOTE: There were 516 observations read from the data set WORK.VWRET2.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+516 records created in vwret2_port_svar.csv from VWRET2.
+  
+  
+NOTE: "vwret2_port_svar.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.03 seconds
+      
+
+
+WARNING: 516 observations omitted due to missing ID values.
+NOTE: There were 5676 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET3 has 516 observations and 11 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+1137        /*******************************************************************
+1137     ! ***
+1138        *   PRODUCT:   SAS
+1139        *   VERSION:   9.4
+1140        *   CREATOR:   External File Interface
+1141        *   DATE:      22DEC19
+1142        *   DESC:      Generated SAS Datastep Code
+1143        *   TEMPLATE SOURCE:  (None Specified.)
+1144        ********************************************************************
+1144     ! ***/
+1145           data _null_;
+1146           %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+1147           %let _EFIREC_ = 0;     /* clear export record count macro
+1147     ! variable */
+1148           file 'vwret3_port_svar.csv' delimiter=',' DSD DROPOVER
+1148     ! lrecl=32767;
+1149           if _n_ = 1 then        /* write column names or labels */
+1150            do;
+1151              put
+1152                 "public_date"
+1153              ','
+1154                 "n_0"
+1155              ','
+1156                 "n_1"
+1157              ','
+1158                 "n_2"
+1159              ','
+1160                 "n_3"
+1161              ','
+1162                 "n_4"
+1163              ','
+1164                 "n_5"
+1165              ','
+1166                 "n_6"
+1167              ','
+1168                 "n_7"
+1169              ','
+1170                 "n_8"
+1171              ','
+1172                 "n_9"
+1173              ;
+1174            end;
+1175          set  VWRET3   end=EFIEOD;
+1176              format public_date yymmdd10. ;
+1177              format n_0 best12. ;
+1178              format n_1 best12. ;
+1179              format n_2 best12. ;
+1180              format n_3 best12. ;
+1181              format n_4 best12. ;
+1182              format n_5 best12. ;
+1183              format n_6 best12. ;
+1184              format n_7 best12. ;
+1185              format n_8 best12. ;
+1186              format n_9 best12. ;
+1187            do;
+1188              EFIOUT + 1;
+1189              put public_date @;
+1190              put n_0 @;
+1191              put n_1 @;
+1192              put n_2 @;
+1193              put n_3 @;
+1194              put n_4 @;
+1195              put n_5 @;
+1196              put n_6 @;
+1197              put n_7 @;
+1198              put n_8 @;
+1199              put n_9 ;
+1200              ;
+1201            end;
+1202           if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+1202     ! detection macro variable */
+1203           if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+1204           run;
+
+NOTE: The file 'vwret3_port_svar.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/vwret3_port_svar.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:55:04
+
+NOTE: 517 records were written to the file 'vwret3_port_svar.csv'.
+      The minimum record length was 30.
+      The maximum record length was 51.
+NOTE: There were 516 observations read from the data set WORK.VWRET3.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+516 records created in vwret3_port_svar.csv from VWRET3.
+  
+  
+NOTE: "vwret3_port_svar.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.03 seconds
+      
+
+NOTE: Table WORK.RATIOS has been dropped.
+NOTE: Table WORK.INDRATIOS has been dropped.
+NOTE: Table WORK.RETS has been dropped.
+WARNING: File WORK.INDRETS.DATA does not exist.
+WARNING: Table WORK.INDRETS has not been dropped.
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.22 seconds
+      cpu time            0.22 seconds
+      
+
+1205       %FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt,
+1205     ! label=port_beta, AVR=mean, weight=weight_port, Input=eqchars,
+1205     ! vars=&rank_vars);
+
+NOTE: There were 2329747 observations read from the data set WORK.EQCHARS.
+      WHERE (public_date>='01JAN1976'D and public_date<='31DEC2018'D);
+NOTE: The data set WORK.RATIOS has 2329747 observations and 52 variables.
+NOTE: DATA statement used (Total process time):
+      real time           1.04 seconds
+      cpu time            1.05 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RATIOS.
+NOTE: The data set WORK.RATIOS has 2329747 observations and 52 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           2.26 seconds
+      cpu time            3.21 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RATIOS.
+      WHERE not MISSING(port_beta);
+NOTE: The data set WORK.INDRATIOS has 5676 observations and 24 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           1.25 seconds
+      cpu time            1.26 seconds
+      
+
+
+NOTE: There were 5676 observations read from the data set WORK.INDRATIOS.
+NOTE: The data set WORK.INDRATIOS has 5676 observations and 24 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+NOTE: There were 5160 observations read from the data set WORK.INDRATIOS.
+      WHERE not MISSING(port_beta);
+NOTE: The data set WORK.INDRATIOS has 5160 observations and 23 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+1206        /*******************************************************************
+1206     ! ***
+1207        *   PRODUCT:   SAS
+1208        *   VERSION:   9.4
+1209        *   CREATOR:   External File Interface
+1210        *   DATE:      22DEC19
+1211        *   DESC:      Generated SAS Datastep Code
+1212        *   TEMPLATE SOURCE:  (None Specified.)
+1213        ********************************************************************
+1213     ! ***/
+1214           data _null_;
+1215           %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+1216           %let _EFIREC_ = 0;     /* clear export record count macro
+1216     ! variable */
+1217           file 'indratios_port_beta.csv' delimiter=',' DSD DROPOVER
+1217     ! lrecl=32767;
+1218           if _n_ = 1 then        /* write column names or labels */
+1219            do;
+1220              put
+1221                 "public_date"
+1222              ','
+1223                 "port_beta"
+1224              ','
+1225                 "_FREQ_"
+1226              ','
+1227                 "rank_mom12m_Mean"
+1228              ','
+1229                 "rank_hxz_abr_Mean"
+1230              ','
+1231                 "rank_hxz_sue_Mean"
+1232              ','
+1233                 "rank_hxz_re_Mean"
+1234              ','
+1235                 "rank_bm_Mean"
+1236              ','
+1237                 "rank_ep_Mean"
+1238              ','
+1239                 "rank_cfp_Mean"
+1240              ','
+1241                 "rank_sp_Mean"
+1242              ','
+1243                 "rank_agr_Mean"
+1244              ','
+1245                 "rank_ni_Mean"
+1246              ','
+1247                 "rank_acc_Mean"
+1248              ','
+1249                 "rank_op_Mean"
+1250              ','
+1251                 "rank_roe_Mean"
+1252              ','
+1253                 "rank_seas1a_Mean"
+1254              ','
+1255                 "rank_adm_Mean"
+1256              ','
+1257                 "rank_rdm_Mean"
+1258              ','
+1259                 "rank_me_Mean"
+1260              ','
+1261                 "rank_svar_Mean"
+1262              ','
+1263                 "rank_beta_Mean"
+1264              ','
+1265                 "rank_mom1m_Mean"
+1266              ;
+1267            end;
+1268          set  INDRATIOS   end=EFIEOD;
+1269              format public_date mmddyyd10. ;
+1270              format port_beta best12. ;
+1271              format _FREQ_ best12. ;
+1272              format rank_mom12m_Mean best12. ;
+1273              format rank_hxz_abr_Mean best12. ;
+1274              format rank_hxz_sue_Mean best12. ;
+1275              format rank_hxz_re_Mean best12. ;
+1276              format rank_bm_Mean best12. ;
+1277              format rank_ep_Mean best12. ;
+1278              format rank_cfp_Mean best12. ;
+1279              format rank_sp_Mean best12. ;
+1280              format rank_agr_Mean best12. ;
+1281              format rank_ni_Mean best12. ;
+1282              format rank_acc_Mean best12. ;
+1283              format rank_op_Mean best12. ;
+1284              format rank_roe_Mean best12. ;
+1285              format rank_seas1a_Mean best12. ;
+1286              format rank_adm_Mean best12. ;
+1287              format rank_rdm_Mean best12. ;
+1288              format rank_me_Mean best12. ;
+1289              format rank_svar_Mean best12. ;
+1290              format rank_beta_Mean best12. ;
+1291              format rank_mom1m_Mean best12. ;
+1292            do;
+1293              EFIOUT + 1;
+1294              put public_date @;
+1295              put port_beta @;
+1296              put _FREQ_ @;
+1297              put rank_mom12m_Mean @;
+1298              put rank_hxz_abr_Mean @;
+1299              put rank_hxz_sue_Mean @;
+1300              put rank_hxz_re_Mean @;
+1301              put rank_bm_Mean @;
+1302              put rank_ep_Mean @;
+1303              put rank_cfp_Mean @;
+1304              put rank_sp_Mean @;
+1305              put rank_agr_Mean @;
+1306              put rank_ni_Mean @;
+1307              put rank_acc_Mean @;
+1308              put rank_op_Mean @;
+1309              put rank_roe_Mean @;
+1310              put rank_seas1a_Mean @;
+1311              put rank_adm_Mean @;
+1312              put rank_rdm_Mean @;
+1313              put rank_me_Mean @;
+1314              put rank_svar_Mean @;
+1315              put rank_beta_Mean @;
+1316              put rank_mom1m_Mean ;
+1317              ;
+1318            end;
+1319           if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+1319     ! detection macro variable */
+1320           if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+1321           run;
+
+NOTE: The file 'indratios_port_beta.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/indratios_port_beta.csv
+      ,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:55:09
+
+NOTE: 5161 records were written to the file 'indratios_port_beta.csv'.
+      The minimum record length was 258.
+      The maximum record length was 323.
+NOTE: There were 5160 observations read from the data set WORK.INDRATIOS.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.01 seconds
+      
+
+5160 records created in indratios_port_beta.csv from INDRATIOS.
+  
+  
+NOTE: "indratios_port_beta.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.11 seconds
+      cpu time            0.05 seconds
+      
+
+NOTE: Table WORK.RETS created, with 2329747 rows and 53 columns.
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           8.55 seconds
+      cpu time            13.32 seconds
+      
+
+
+NOTE: Input data set is already sorted, no sorting done.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RETS.
+      WHERE not MISSING(port_beta);
+NOTE: The data set WORK.VWRET has 5676 observations and 4 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.59 seconds
+      cpu time            0.58 seconds
+      
+
+
+NOTE: There were 5676 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET has 5676 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+WARNING: 516 observations omitted due to missing ID values.
+NOTE: There were 5676 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET2 has 516 observations and 11 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+1322        /*******************************************************************
+1322     ! ***
+1323        *   PRODUCT:   SAS
+1324        *   VERSION:   9.4
+1325        *   CREATOR:   External File Interface
+1326        *   DATE:      22DEC19
+1327        *   DESC:      Generated SAS Datastep Code
+1328        *   TEMPLATE SOURCE:  (None Specified.)
+1329        ********************************************************************
+1329     ! ***/
+1330           data _null_;
+1331           %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+1332           %let _EFIREC_ = 0;     /* clear export record count macro
+1332     ! variable */
+1333           file 'vwret2_port_beta.csv' delimiter=',' DSD DROPOVER
+1333     ! lrecl=32767;
+1334           if _n_ = 1 then        /* write column names or labels */
+1335            do;
+1336              put
+1337                 "public_date"
+1338              ','
+1339                 "_0"
+1340              ','
+1341                 "_1"
+1342              ','
+1343                 "_2"
+1344              ','
+1345                 "_3"
+1346              ','
+1347                 "_4"
+1348              ','
+1349                 "_5"
+1350              ','
+1351                 "_6"
+1352              ','
+1353                 "_7"
+1354              ','
+1355                 "_8"
+1356              ','
+1357                 "_9"
+1358              ;
+1359            end;
+1360          set  VWRET2   end=EFIEOD;
+1361              format public_date yymmdd10. ;
+1362              format _0 11.6 ;
+1363              format _1 11.6 ;
+1364              format _2 11.6 ;
+1365              format _3 11.6 ;
+1366              format _4 11.6 ;
+1367              format _5 11.6 ;
+1368              format _6 11.6 ;
+1369              format _7 11.6 ;
+1370              format _8 11.6 ;
+1371              format _9 11.6 ;
+1372            do;
+1373              EFIOUT + 1;
+1374              put public_date @;
+1375              put _0 @;
+1376              put _1 @;
+1377              put _2 @;
+1378              put _3 @;
+1379              put _4 @;
+1380              put _5 @;
+1381              put _6 @;
+1382              put _7 @;
+1383              put _8 @;
+1384              put _9 ;
+1385              ;
+1386            end;
+1387           if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+1387     ! detection macro variable */
+1388           if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+1389           run;
+
+NOTE: The file 'vwret2_port_beta.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/vwret2_port_beta.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:55:19
+
+NOTE: 517 records were written to the file 'vwret2_port_beta.csv'.
+      The minimum record length was 20.
+      The maximum record length was 110.
+NOTE: There were 516 observations read from the data set WORK.VWRET2.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.02 seconds
+      
+
+516 records created in vwret2_port_beta.csv from VWRET2.
+  
+  
+NOTE: "vwret2_port_beta.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.03 seconds
+      
+
+
+WARNING: 516 observations omitted due to missing ID values.
+NOTE: There were 5676 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET3 has 516 observations and 11 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+1390        /*******************************************************************
+1390     ! ***
+1391        *   PRODUCT:   SAS
+1392        *   VERSION:   9.4
+1393        *   CREATOR:   External File Interface
+1394        *   DATE:      22DEC19
+1395        *   DESC:      Generated SAS Datastep Code
+1396        *   TEMPLATE SOURCE:  (None Specified.)
+1397        ********************************************************************
+1397     ! ***/
+1398           data _null_;
+1399           %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+1400           %let _EFIREC_ = 0;     /* clear export record count macro
+1400     ! variable */
+1401           file 'vwret3_port_beta.csv' delimiter=',' DSD DROPOVER
+1401     ! lrecl=32767;
+1402           if _n_ = 1 then        /* write column names or labels */
+1403            do;
+1404              put
+1405                 "public_date"
+1406              ','
+1407                 "n_0"
+1408              ','
+1409                 "n_1"
+1410              ','
+1411                 "n_2"
+1412              ','
+1413                 "n_3"
+1414              ','
+1415                 "n_4"
+1416              ','
+1417                 "n_5"
+1418              ','
+1419                 "n_6"
+1420              ','
+1421                 "n_7"
+1422              ','
+1423                 "n_8"
+1424              ','
+1425                 "n_9"
+1426              ;
+1427            end;
+1428          set  VWRET3   end=EFIEOD;
+1429              format public_date yymmdd10. ;
+1430              format n_0 best12. ;
+1431              format n_1 best12. ;
+1432              format n_2 best12. ;
+1433              format n_3 best12. ;
+1434              format n_4 best12. ;
+1435              format n_5 best12. ;
+1436              format n_6 best12. ;
+1437              format n_7 best12. ;
+1438              format n_8 best12. ;
+1439              format n_9 best12. ;
+1440            do;
+1441              EFIOUT + 1;
+1442              put public_date @;
+1443              put n_0 @;
+1444              put n_1 @;
+1445              put n_2 @;
+1446              put n_3 @;
+1447              put n_4 @;
+1448              put n_5 @;
+1449              put n_6 @;
+1450              put n_7 @;
+1451              put n_8 @;
+1452              put n_9 ;
+1453              ;
+1454            end;
+1455           if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+1455     ! detection macro variable */
+1456           if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+1457           run;
+
+NOTE: The file 'vwret3_port_beta.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/vwret3_port_beta.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:55:19
+
+NOTE: 517 records were written to the file 'vwret3_port_beta.csv'.
+      The minimum record length was 30.
+      The maximum record length was 51.
+NOTE: There were 516 observations read from the data set WORK.VWRET3.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+516 records created in vwret3_port_beta.csv from VWRET3.
+  
+  
+NOTE: "vwret3_port_beta.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.01 seconds
+      
+
+NOTE: Table WORK.RATIOS has been dropped.
+NOTE: Table WORK.INDRATIOS has been dropped.
+NOTE: Table WORK.RETS has been dropped.
+WARNING: File WORK.INDRETS.DATA does not exist.
+WARNING: Table WORK.INDRETS has not been dropped.
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.22 seconds
+      cpu time            0.23 seconds
+      
+
+1458       %FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt,
+1458     ! label=FFI49_desc, AVR=mean, weight=weight_port, Input=eqchars,
+1458     ! vars=&rank_vars);
+
+NOTE: There were 2329747 observations read from the data set WORK.EQCHARS.
+      WHERE (public_date>='01JAN1976'D and public_date<='31DEC2018'D);
+NOTE: The data set WORK.RATIOS has 2329747 observations and 52 variables.
+NOTE: DATA statement used (Total process time):
+      real time           1.06 seconds
+      cpu time            1.07 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RATIOS.
+NOTE: The data set WORK.RATIOS has 2329747 observations and 52 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           2.35 seconds
+      cpu time            3.03 seconds
+      
+
+
+NOTE: There were 2296205 observations read from the data set WORK.RATIOS.
+      WHERE not MISSING(FFI49_desc);
+NOTE: The data set WORK.INDRATIOS has 25800 observations and 24 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           1.34 seconds
+      cpu time            1.34 seconds
+      
+
+
+NOTE: There were 25800 observations read from the data set WORK.INDRATIOS.
+NOTE: The data set WORK.INDRATIOS has 25800 observations and 24 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.02 seconds
+      
+
+
+NOTE: There were 25284 observations read from the data set WORK.INDRATIOS.
+      WHERE not MISSING(FFI49_desc);
+NOTE: The data set WORK.INDRATIOS has 25284 observations and 23 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+1459        /*******************************************************************
+1459     ! ***
+1460        *   PRODUCT:   SAS
+1461        *   VERSION:   9.4
+1462        *   CREATOR:   External File Interface
+1463        *   DATE:      22DEC19
+1464        *   DESC:      Generated SAS Datastep Code
+1465        *   TEMPLATE SOURCE:  (None Specified.)
+1466        ********************************************************************
+1466     ! ***/
+1467           data _null_;
+1468           %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+1469           %let _EFIREC_ = 0;     /* clear export record count macro
+1469     ! variable */
+1470           file 'indratios_FFI49_desc.csv' delimiter=',' DSD DROPOVER
+1470     ! lrecl=32767;
+1471           if _n_ = 1 then        /* write column names or labels */
+1472            do;
+1473              put
+1474                 "public_date"
+1475              ','
+1476                 "FFI49_desc"
+1477              ','
+1478                 "_FREQ_"
+1479              ','
+1480                 "rank_mom12m_Mean"
+1481              ','
+1482                 "rank_hxz_abr_Mean"
+1483              ','
+1484                 "rank_hxz_sue_Mean"
+1485              ','
+1486                 "rank_hxz_re_Mean"
+1487              ','
+1488                 "rank_bm_Mean"
+1489              ','
+1490                 "rank_ep_Mean"
+1491              ','
+1492                 "rank_cfp_Mean"
+1493              ','
+1494                 "rank_sp_Mean"
+1495              ','
+1496                 "rank_agr_Mean"
+1497              ','
+1498                 "rank_ni_Mean"
+1499              ','
+1500                 "rank_acc_Mean"
+1501              ','
+1502                 "rank_op_Mean"
+1503              ','
+1504                 "rank_roe_Mean"
+1505              ','
+1506                 "rank_seas1a_Mean"
+1507              ','
+1508                 "rank_adm_Mean"
+1509              ','
+1510                 "rank_rdm_Mean"
+1511              ','
+1512                 "rank_me_Mean"
+1513              ','
+1514                 "rank_svar_Mean"
+1515              ','
+1516                 "rank_beta_Mean"
+1517              ','
+1518                 "rank_mom1m_Mean"
+1519              ;
+1520            end;
+1521          set  INDRATIOS   end=EFIEOD;
+1522              format public_date mmddyyd10. ;
+1523              format FFI49_desc $5. ;
+1524              format _FREQ_ best12. ;
+1525              format rank_mom12m_Mean best12. ;
+1526              format rank_hxz_abr_Mean best12. ;
+1527              format rank_hxz_sue_Mean best12. ;
+1528              format rank_hxz_re_Mean best12. ;
+1529              format rank_bm_Mean best12. ;
+1530              format rank_ep_Mean best12. ;
+1531              format rank_cfp_Mean best12. ;
+1532              format rank_sp_Mean best12. ;
+1533              format rank_agr_Mean best12. ;
+1534              format rank_ni_Mean best12. ;
+1535              format rank_acc_Mean best12. ;
+1536              format rank_op_Mean best12. ;
+1537              format rank_roe_Mean best12. ;
+1538              format rank_seas1a_Mean best12. ;
+1539              format rank_adm_Mean best12. ;
+1540              format rank_rdm_Mean best12. ;
+1541              format rank_me_Mean best12. ;
+1542              format rank_svar_Mean best12. ;
+1543              format rank_beta_Mean best12. ;
+1544              format rank_mom1m_Mean best12. ;
+1545            do;
+1546              EFIOUT + 1;
+1547              put public_date @;
+1548              put FFI49_desc $ @;
+1549              put _FREQ_ @;
+1550              put rank_mom12m_Mean @;
+1551              put rank_hxz_abr_Mean @;
+1552              put rank_hxz_sue_Mean @;
+1553              put rank_hxz_re_Mean @;
+1554              put rank_bm_Mean @;
+1555              put rank_ep_Mean @;
+1556              put rank_cfp_Mean @;
+1557              put rank_sp_Mean @;
+1558              put rank_agr_Mean @;
+1559              put rank_ni_Mean @;
+1560              put rank_acc_Mean @;
+1561              put rank_op_Mean @;
+1562              put rank_roe_Mean @;
+1563              put rank_seas1a_Mean @;
+1564              put rank_adm_Mean @;
+1565              put rank_rdm_Mean @;
+1566              put rank_me_Mean @;
+1567              put rank_svar_Mean @;
+1568              put rank_beta_Mean @;
+1569              put rank_mom1m_Mean ;
+1570              ;
+1571            end;
+1572           if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+1572     ! detection macro variable */
+1573           if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+1574           run;
+
+NOTE: The file 'indratios_FFI49_desc.csv' is:
+      
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/indratios_FFI49_desc.cs
+      v,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:55:24
+
+NOTE: 25285 records were written to the file 'indratios_FFI49_desc.csv'.
+      The minimum record length was 249.
+      The maximum record length was 324.
+NOTE: There were 25284 observations read from the data set WORK.INDRATIOS.
+NOTE: DATA statement used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.08 seconds
+      
+
+25284 records created in indratios_FFI49_desc.csv from INDRATIOS.
+  
+  
+NOTE: "indratios_FFI49_desc.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.18 seconds
+      cpu time            0.11 seconds
+      
+
+NOTE: Table WORK.RETS created, with 2329747 rows and 53 columns.
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           8.62 seconds
+      cpu time            13.76 seconds
+      
+
+
+NOTE: Input data set is already sorted, no sorting done.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 2296205 observations read from the data set WORK.RETS.
+      WHERE not MISSING(FFI49_desc);
+NOTE: The data set WORK.VWRET has 25800 observations and 4 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.67 seconds
+      cpu time            0.67 seconds
+      
+
+
+NOTE: There were 25800 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET has 25800 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+
+WARNING: 516 observations omitted due to missing ID values.
+NOTE: There were 25800 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET2 has 516 observations and 50 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+1575        /*******************************************************************
+1575     ! ***
+1576        *   PRODUCT:   SAS
+1577        *   VERSION:   9.4
+1578        *   CREATOR:   External File Interface
+1579        *   DATE:      22DEC19
+1580        *   DESC:      Generated SAS Datastep Code
+1581        *   TEMPLATE SOURCE:  (None Specified.)
+1582        ********************************************************************
+1582     ! ***/
+1583           data _null_;
+1584           %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+1585           %let _EFIREC_ = 0;     /* clear export record count macro
+1585     ! variable */
+1586           file 'vwret2_FFI49_desc.csv' delimiter=',' DSD DROPOVER
+1586     ! lrecl=32767;
+1587           if _n_ = 1 then        /* write column names or labels */
+1588            do;
+1589              put
+1590                 "public_date"
+1591              ','
+1592                 "AERO"
+1593              ','
+1594                 "AGRIC"
+1595              ','
+1596                 "AUTOS"
+1597              ','
+1598                 "BANKS"
+1599              ','
+1600                 "BEER"
+1601              ','
+1602                 "BLDMT"
+1603              ','
+1604                 "BOOKS"
+1605              ','
+1606                 "BOXES"
+1607              ','
+1608                 "BUSSV"
+1609              ','
+1610                 "CHEMS"
+1611              ','
+1612                 "CHIPS"
+1613              ','
+1614                 "CLTHS"
+1615              ','
+1616                 "CNSTR"
+1617              ','
+1618                 "COAL"
+1619              ','
+1620                 "DRUGS"
+1621              ','
+1622                 "ELCEQ"
+1623              ','
+1624                 "FABPR"
+1625              ','
+1626                 "FIN"
+1627              ','
+1628                 "FOOD"
+1629              ','
+1630                 "FUN"
+1631              ','
+1632                 "GOLD"
+1633              ','
+1634                 "GUNS"
+1635              ','
+1636                 "HARDW"
+1637              ','
+1638                 "HLTH"
+1639              ','
+1640                 "HSHLD"
+1641              ','
+1642                 "INSUR"
+1643              ','
+1644                 "LABEQ"
+1645              ','
+1646                 "MACH"
+1647              ','
+1648                 "MEALS"
+1649              ','
+1650                 "MEDEQ"
+1651              ','
+1652                 "MINES"
+1653              ','
+1654                 "OIL"
+1655              ','
+1656                 "OTHER"
+1657              ','
+1658                 "PAPER"
+1659              ','
+1660                 "PERSV"
+1661              ','
+1662                 "RLEST"
+1663              ','
+1664                 "RTAIL"
+1665              ','
+1666                 "RUBBR"
+1667              ','
+1668                 "SHIPS"
+1669              ','
+1670                 "SMOKE"
+1671              ','
+1672                 "SODA"
+1673              ','
+1674                 "SOFTW"
+1675              ','
+1676                 "STEEL"
+1677              ','
+1678                 "TELCM"
+1679              ','
+1680                 "TOYS"
+1681              ','
+1682                 "TRANS"
+1683              ','
+1684                 "TXTLS"
+1685              ','
+1686                 "UTIL"
+1687              ','
+1688                 "WHLSL"
+1689              ;
+1690            end;
+1691          set  VWRET2   end=EFIEOD;
+1692              format public_date yymmdd10. ;
+1693              format AERO 11.6 ;
+1694              format AGRIC 11.6 ;
+1695              format AUTOS 11.6 ;
+1696              format BANKS 11.6 ;
+1697              format BEER 11.6 ;
+1698              format BLDMT 11.6 ;
+1699              format BOOKS 11.6 ;
+1700              format BOXES 11.6 ;
+1701              format BUSSV 11.6 ;
+1702              format CHEMS 11.6 ;
+1703              format CHIPS 11.6 ;
+1704              format CLTHS 11.6 ;
+1705              format CNSTR 11.6 ;
+1706              format COAL 11.6 ;
+1707              format DRUGS 11.6 ;
+1708              format ELCEQ 11.6 ;
+1709              format FABPR 11.6 ;
+1710              format FIN 11.6 ;
+1711              format FOOD 11.6 ;
+1712              format FUN 11.6 ;
+1713              format GOLD 11.6 ;
+1714              format GUNS 11.6 ;
+1715              format HARDW 11.6 ;
+1716              format HLTH 11.6 ;
+1717              format HSHLD 11.6 ;
+1718              format INSUR 11.6 ;
+1719              format LABEQ 11.6 ;
+1720              format MACH 11.6 ;
+1721              format MEALS 11.6 ;
+1722              format MEDEQ 11.6 ;
+1723              format MINES 11.6 ;
+1724              format OIL 11.6 ;
+1725              format OTHER 11.6 ;
+1726              format PAPER 11.6 ;
+1727              format PERSV 11.6 ;
+1728              format RLEST 11.6 ;
+1729              format RTAIL 11.6 ;
+1730              format RUBBR 11.6 ;
+1731              format SHIPS 11.6 ;
+1732              format SMOKE 11.6 ;
+1733              format SODA 11.6 ;
+1734              format SOFTW 11.6 ;
+1735              format STEEL 11.6 ;
+1736              format TELCM 11.6 ;
+1737              format TOYS 11.6 ;
+1738              format TRANS 11.6 ;
+1739              format TXTLS 11.6 ;
+1740              format UTIL 11.6 ;
+1741              format WHLSL 11.6 ;
+1742            do;
+1743              EFIOUT + 1;
+1744              put public_date @;
+1745              put AERO @;
+1746              put AGRIC @;
+1747              put AUTOS @;
+1748              put BANKS @;
+1749              put BEER @;
+1750              put BLDMT @;
+1751              put BOOKS @;
+1752              put BOXES @;
+1753              put BUSSV @;
+1754              put CHEMS @;
+1755              put CHIPS @;
+1756              put CLTHS @;
+1757              put CNSTR @;
+1758              put COAL @;
+1759              put DRUGS @;
+1760              put ELCEQ @;
+1761              put FABPR @;
+1762              put FIN @;
+1763              put FOOD @;
+1764              put FUN @;
+1765              put GOLD @;
+1766              put GUNS @;
+1767              put HARDW @;
+1768              put HLTH @;
+1769              put HSHLD @;
+1770              put INSUR @;
+1771              put LABEQ @;
+1772              put MACH @;
+1773              put MEALS @;
+1774              put MEDEQ @;
+1775              put MINES @;
+1776              put OIL @;
+1777              put OTHER @;
+1778              put PAPER @;
+1779              put PERSV @;
+1780              put RLEST @;
+1781              put RTAIL @;
+1782              put RUBBR @;
+1783              put SHIPS @;
+1784              put SMOKE @;
+1785              put SODA @;
+1786              put SOFTW @;
+1787              put STEEL @;
+1788              put TELCM @;
+1789              put TOYS @;
+1790              put TRANS @;
+1791              put TXTLS @;
+1792              put UTIL @;
+1793              put WHLSL ;
+1794              ;
+1795            end;
+1796           if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+1796     ! detection macro variable */
+1797           if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+1798           run;
+
+NOTE: The file 'vwret2_FFI49_desc.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/vwret2_FFI49_desc.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:55:33
+
+NOTE: 517 records were written to the file 'vwret2_FFI49_desc.csv'.
+      The minimum record length was 59.
+      The maximum record length was 500.
+NOTE: There were 516 observations read from the data set WORK.VWRET2.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+516 records created in vwret2_FFI49_desc.csv from VWRET2.
+  
+  
+NOTE: "vwret2_FFI49_desc.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.10 seconds
+      cpu time            0.04 seconds
+      
+
+
+WARNING: 516 observations omitted due to missing ID values.
+NOTE: There were 25800 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET3 has 516 observations and 50 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.03 seconds
+      
+
+
+1799        /*******************************************************************
+1799     ! ***
+1800        *   PRODUCT:   SAS
+1801        *   VERSION:   9.4
+1802        *   CREATOR:   External File Interface
+1803        *   DATE:      22DEC19
+1804        *   DESC:      Generated SAS Datastep Code
+1805        *   TEMPLATE SOURCE:  (None Specified.)
+1806        ********************************************************************
+1806     ! ***/
+1807           data _null_;
+1808           %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+1809           %let _EFIREC_ = 0;     /* clear export record count macro
+1809     ! variable */
+1810           file 'vwret3_FFI49_desc.csv' delimiter=',' DSD DROPOVER
+1810     ! lrecl=32767;
+1811           if _n_ = 1 then        /* write column names or labels */
+1812            do;
+1813              put
+1814                 "public_date"
+1815              ','
+1816                 "n_AERO"
+1817              ','
+1818                 "n_AGRIC"
+1819              ','
+1820                 "n_AUTOS"
+1821              ','
+1822                 "n_BANKS"
+1823              ','
+1824                 "n_BEER"
+1825              ','
+1826                 "n_BLDMT"
+1827              ','
+1828                 "n_BOOKS"
+1829              ','
+1830                 "n_BOXES"
+1831              ','
+1832                 "n_BUSSV"
+1833              ','
+1834                 "n_CHEMS"
+1835              ','
+1836                 "n_CHIPS"
+1837              ','
+1838                 "n_CLTHS"
+1839              ','
+1840                 "n_CNSTR"
+1841              ','
+1842                 "n_COAL"
+1843              ','
+1844                 "n_DRUGS"
+1845              ','
+1846                 "n_ELCEQ"
+1847              ','
+1848                 "n_FABPR"
+1849              ','
+1850                 "n_FIN"
+1851              ','
+1852                 "n_FOOD"
+1853              ','
+1854                 "n_FUN"
+1855              ','
+1856                 "n_GOLD"
+1857              ','
+1858                 "n_GUNS"
+1859              ','
+1860                 "n_HARDW"
+1861              ','
+1862                 "n_HLTH"
+1863              ','
+1864                 "n_HSHLD"
+1865              ','
+1866                 "n_INSUR"
+1867              ','
+1868                 "n_LABEQ"
+1869              ','
+1870                 "n_MACH"
+1871              ','
+1872                 "n_MEALS"
+1873              ','
+1874                 "n_MEDEQ"
+1875              ','
+1876                 "n_MINES"
+1877              ','
+1878                 "n_OIL"
+1879              ','
+1880                 "n_OTHER"
+1881              ','
+1882                 "n_PAPER"
+1883              ','
+1884                 "n_PERSV"
+1885              ','
+1886                 "n_RLEST"
+1887              ','
+1888                 "n_RTAIL"
+1889              ','
+1890                 "n_RUBBR"
+1891              ','
+1892                 "n_SHIPS"
+1893              ','
+1894                 "n_SMOKE"
+1895              ','
+1896                 "n_SODA"
+1897              ','
+1898                 "n_SOFTW"
+1899              ','
+1900                 "n_STEEL"
+1901              ','
+1902                 "n_TELCM"
+1903              ','
+1904                 "n_TOYS"
+1905              ','
+1906                 "n_TRANS"
+1907              ','
+1908                 "n_TXTLS"
+1909              ','
+1910                 "n_UTIL"
+1911              ','
+1912                 "n_WHLSL"
+1913              ;
+1914            end;
+1915          set  VWRET3   end=EFIEOD;
+1916              format public_date yymmdd10. ;
+1917              format n_AERO best12. ;
+1918              format n_AGRIC best12. ;
+1919              format n_AUTOS best12. ;
+1920              format n_BANKS best12. ;
+1921              format n_BEER best12. ;
+1922              format n_BLDMT best12. ;
+1923              format n_BOOKS best12. ;
+1924              format n_BOXES best12. ;
+1925              format n_BUSSV best12. ;
+1926              format n_CHEMS best12. ;
+1927              format n_CHIPS best12. ;
+1928              format n_CLTHS best12. ;
+1929              format n_CNSTR best12. ;
+1930              format n_COAL best12. ;
+1931              format n_DRUGS best12. ;
+1932              format n_ELCEQ best12. ;
+1933              format n_FABPR best12. ;
+1934              format n_FIN best12. ;
+1935              format n_FOOD best12. ;
+1936              format n_FUN best12. ;
+1937              format n_GOLD best12. ;
+1938              format n_GUNS best12. ;
+1939              format n_HARDW best12. ;
+1940              format n_HLTH best12. ;
+1941              format n_HSHLD best12. ;
+1942              format n_INSUR best12. ;
+1943              format n_LABEQ best12. ;
+1944              format n_MACH best12. ;
+1945              format n_MEALS best12. ;
+1946              format n_MEDEQ best12. ;
+1947              format n_MINES best12. ;
+1948              format n_OIL best12. ;
+1949              format n_OTHER best12. ;
+1950              format n_PAPER best12. ;
+1951              format n_PERSV best12. ;
+1952              format n_RLEST best12. ;
+1953              format n_RTAIL best12. ;
+1954              format n_RUBBR best12. ;
+1955              format n_SHIPS best12. ;
+1956              format n_SMOKE best12. ;
+1957              format n_SODA best12. ;
+1958              format n_SOFTW best12. ;
+1959              format n_STEEL best12. ;
+1960              format n_TELCM best12. ;
+1961              format n_TOYS best12. ;
+1962              format n_TRANS best12. ;
+1963              format n_TXTLS best12. ;
+1964              format n_UTIL best12. ;
+1965              format n_WHLSL best12. ;
+1966            do;
+1967              EFIOUT + 1;
+1968              put public_date @;
+1969              put n_AERO @;
+1970              put n_AGRIC @;
+1971              put n_AUTOS @;
+1972              put n_BANKS @;
+1973              put n_BEER @;
+1974              put n_BLDMT @;
+1975              put n_BOOKS @;
+1976              put n_BOXES @;
+1977              put n_BUSSV @;
+1978              put n_CHEMS @;
+1979              put n_CHIPS @;
+1980              put n_CLTHS @;
+1981              put n_CNSTR @;
+1982              put n_COAL @;
+1983              put n_DRUGS @;
+1984              put n_ELCEQ @;
+1985              put n_FABPR @;
+1986              put n_FIN @;
+1987              put n_FOOD @;
+1988              put n_FUN @;
+1989              put n_GOLD @;
+1990              put n_GUNS @;
+1991              put n_HARDW @;
+1992              put n_HLTH @;
+1993              put n_HSHLD @;
+1994              put n_INSUR @;
+1995              put n_LABEQ @;
+1996              put n_MACH @;
+1997              put n_MEALS @;
+1998              put n_MEDEQ @;
+1999              put n_MINES @;
+2000              put n_OIL @;
+2001              put n_OTHER @;
+2002              put n_PAPER @;
+2003              put n_PERSV @;
+2004              put n_RLEST @;
+2005              put n_RTAIL @;
+2006              put n_RUBBR @;
+2007              put n_SHIPS @;
+2008              put n_SMOKE @;
+2009              put n_SODA @;
+2010              put n_SOFTW @;
+2011              put n_STEEL @;
+2012              put n_TELCM @;
+2013              put n_TOYS @;
+2014              put n_TRANS @;
+2015              put n_TXTLS @;
+2016              put n_UTIL @;
+2017              put n_WHLSL ;
+2018              ;
+2019            end;
+2020           if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+2020     ! detection macro variable */
+2021           if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+2022           run;
+
+NOTE: The file 'vwret3_FFI49_desc.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/vwret3_FFI49_desc.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:55:33
+
+NOTE: 517 records were written to the file 'vwret3_FFI49_desc.csv'.
+      The minimum record length was 108.
+      The maximum record length was 386.
+NOTE: There were 516 observations read from the data set WORK.VWRET3.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.01 seconds
+      
+
+516 records created in vwret3_FFI49_desc.csv from VWRET3.
+  
+  
+NOTE: "vwret3_FFI49_desc.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.09 seconds
+      cpu time            0.03 seconds
+      
+
+NOTE: Table WORK.RATIOS has been dropped.
+NOTE: Table WORK.INDRATIOS has been dropped.
+NOTE: Table WORK.RETS has been dropped.
+WARNING: File WORK.INDRETS.DATA does not exist.
+WARNING: Table WORK.INDRETS has not been dropped.
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.22 seconds
+      cpu time            0.23 seconds
+      
+
+2023       %FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt,
+2023     ! label=DGTW_PORT, AVR=mean, weight=weight_port, Input=eqchars,
+2023     ! vars=&rank_vars);
+
+NOTE: There were 2329747 observations read from the data set WORK.EQCHARS.
+      WHERE (public_date>='01JAN1976'D and public_date<='31DEC2018'D);
+NOTE: The data set WORK.RATIOS has 2329747 observations and 52 variables.
+NOTE: DATA statement used (Total process time):
+      real time           1.06 seconds
+      cpu time            1.07 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RATIOS.
+NOTE: The data set WORK.RATIOS has 2329747 observations and 52 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           1.89 seconds
+      cpu time            3.04 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RATIOS.
+      WHERE not MISSING(DGTW_PORT);
+NOTE: The data set WORK.INDRATIOS has 64985 observations and 24 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           1.40 seconds
+      cpu time            1.40 seconds
+      
+
+
+NOTE: There were 64985 observations read from the data set WORK.INDRATIOS.
+NOTE: The data set WORK.INDRATIOS has 64985 observations and 24 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.04 seconds
+      
+
+
+NOTE: There were 64469 observations read from the data set WORK.INDRATIOS.
+      WHERE not MISSING(DGTW_PORT);
+NOTE: The data set WORK.INDRATIOS has 64469 observations and 23 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.02 seconds
+      cpu time            0.02 seconds
+      
+
+
+2024        /*******************************************************************
+2024     ! ***
+2025        *   PRODUCT:   SAS
+2026        *   VERSION:   9.4
+2027        *   CREATOR:   External File Interface
+2028        *   DATE:      22DEC19
+2029        *   DESC:      Generated SAS Datastep Code
+2030        *   TEMPLATE SOURCE:  (None Specified.)
+2031        ********************************************************************
+2031     ! ***/
+2032           data _null_;
+2033           %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+2034           %let _EFIREC_ = 0;     /* clear export record count macro
+2034     ! variable */
+2035           file 'indratios_DGTW_PORT.csv' delimiter=',' DSD DROPOVER
+2035     ! lrecl=32767;
+2036           if _n_ = 1 then        /* write column names or labels */
+2037            do;
+2038              put
+2039                 "public_date"
+2040              ','
+2041                 "DGTW_PORT"
+2042              ','
+2043                 "_FREQ_"
+2044              ','
+2045                 "rank_mom12m_Mean"
+2046              ','
+2047                 "rank_hxz_abr_Mean"
+2048              ','
+2049                 "rank_hxz_sue_Mean"
+2050              ','
+2051                 "rank_hxz_re_Mean"
+2052              ','
+2053                 "rank_bm_Mean"
+2054              ','
+2055                 "rank_ep_Mean"
+2056              ','
+2057                 "rank_cfp_Mean"
+2058              ','
+2059                 "rank_sp_Mean"
+2060              ','
+2061                 "rank_agr_Mean"
+2062              ','
+2063                 "rank_ni_Mean"
+2064              ','
+2065                 "rank_acc_Mean"
+2066              ','
+2067                 "rank_op_Mean"
+2068              ','
+2069                 "rank_roe_Mean"
+2070              ','
+2071                 "rank_seas1a_Mean"
+2072              ','
+2073                 "rank_adm_Mean"
+2074              ','
+2075                 "rank_rdm_Mean"
+2076              ','
+2077                 "rank_me_Mean"
+2078              ','
+2079                 "rank_svar_Mean"
+2080              ','
+2081                 "rank_beta_Mean"
+2082              ','
+2083                 "rank_mom1m_Mean"
+2084              ;
+2085            end;
+2086          set  INDRATIOS   end=EFIEOD;
+2087              format public_date mmddyyd10. ;
+2088              format DGTW_PORT $3. ;
+2089              format _FREQ_ best12. ;
+2090              format rank_mom12m_Mean best12. ;
+2091              format rank_hxz_abr_Mean best12. ;
+2092              format rank_hxz_sue_Mean best12. ;
+2093              format rank_hxz_re_Mean best12. ;
+2094              format rank_bm_Mean best12. ;
+2095              format rank_ep_Mean best12. ;
+2096              format rank_cfp_Mean best12. ;
+2097              format rank_sp_Mean best12. ;
+2098              format rank_agr_Mean best12. ;
+2099              format rank_ni_Mean best12. ;
+2100              format rank_acc_Mean best12. ;
+2101              format rank_op_Mean best12. ;
+2102              format rank_roe_Mean best12. ;
+2103              format rank_seas1a_Mean best12. ;
+2104              format rank_adm_Mean best12. ;
+2105              format rank_rdm_Mean best12. ;
+2106              format rank_me_Mean best12. ;
+2107              format rank_svar_Mean best12. ;
+2108              format rank_beta_Mean best12. ;
+2109              format rank_mom1m_Mean best12. ;
+2110            do;
+2111              EFIOUT + 1;
+2112              put public_date @;
+2113              put DGTW_PORT $ @;
+2114              put _FREQ_ @;
+2115              put rank_mom12m_Mean @;
+2116              put rank_hxz_abr_Mean @;
+2117              put rank_hxz_sue_Mean @;
+2118              put rank_hxz_re_Mean @;
+2119              put rank_bm_Mean @;
+2120              put rank_ep_Mean @;
+2121              put rank_cfp_Mean @;
+2122              put rank_sp_Mean @;
+2123              put rank_agr_Mean @;
+2124              put rank_ni_Mean @;
+2125              put rank_acc_Mean @;
+2126              put rank_op_Mean @;
+2127              put rank_roe_Mean @;
+2128              put rank_seas1a_Mean @;
+2129              put rank_adm_Mean @;
+2130              put rank_rdm_Mean @;
+2131              put rank_me_Mean @;
+2132              put rank_svar_Mean @;
+2133              put rank_beta_Mean @;
+2134              put rank_mom1m_Mean ;
+2135              ;
+2136            end;
+2137           if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+2137     ! detection macro variable */
+2138           if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+2139           run;
+
+NOTE: The file 'indratios_DGTW_PORT.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/indratios_DGTW_PORT.csv
+      ,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:55:38
+
+NOTE: 64470 records were written to the file 'indratios_DGTW_PORT.csv'.
+      The minimum record length was 209.
+      The maximum record length was 323.
+NOTE: There were 64469 observations read from the data set WORK.INDRATIOS.
+NOTE: DATA statement used (Total process time):
+      real time           0.20 seconds
+      cpu time            0.17 seconds
+      
+
+64469 records created in indratios_DGTW_PORT.csv from INDRATIOS.
+  
+  
+NOTE: "indratios_DGTW_PORT.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.29 seconds
+      cpu time            0.22 seconds
+      
+
+NOTE: Table WORK.RETS created, with 2329747 rows and 53 columns.
+
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           8.55 seconds
+      cpu time            13.65 seconds
+      
+
+
+NOTE: Input data set is already sorted, no sorting done.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+
+NOTE: There were 2329747 observations read from the data set WORK.RETS.
+      WHERE not MISSING(DGTW_PORT);
+NOTE: The data set WORK.VWRET has 64985 observations and 4 variables.
+NOTE: PROCEDURE MEANS used (Total process time):
+      real time           0.69 seconds
+      cpu time            0.69 seconds
+      
+
+
+NOTE: There were 64985 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET has 64985 observations and 4 variables.
+NOTE: PROCEDURE SORT used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+
+WARNING: 516 observations omitted due to missing ID values.
+NOTE: There were 64985 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET2 has 516 observations and 126 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.08 seconds
+      
+
+2140        /*******************************************************************
+2140     ! ***
+2141        *   PRODUCT:   SAS
+2142        *   VERSION:   9.4
+2143        *   CREATOR:   External File Interface
+2144        *   DATE:      22DEC19
+2145        *   DESC:      Generated SAS Datastep Code
+2146        *   TEMPLATE SOURCE:  (None Specified.)
+2147        ********************************************************************
+2147     ! ***/
+2148           data _null_;
+2149           %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+2150           %let _EFIREC_ = 0;     /* clear export record count macro
+2150     ! variable */
+2151           file 'vwret2_DGTW_PORT.csv' delimiter=',' DSD DROPOVER
+2151     ! lrecl=32767;
+2152           if _n_ = 1 then        /* write column names or labels */
+2153            do;
+2154              put
+2155                 "public_date"
+2156              ','
+2157                 "_111"
+2158              ','
+2159                 "_112"
+2160              ','
+2161                 "_113"
+2162              ','
+2163                 "_114"
+2164              ','
+2165                 "_115"
+2166              ','
+2167                 "_121"
+2168              ','
+2169                 "_122"
+2170              ','
+2171                 "_123"
+2172              ','
+2173                 "_124"
+2174              ','
+2175                 "_125"
+2176              ','
+2177                 "_131"
+2178              ','
+2179                 "_132"
+2180              ','
+2181                 "_133"
+2182              ','
+2183                 "_134"
+2184              ','
+2185                 "_135"
+2186              ','
+2187                 "_141"
+2188              ','
+2189                 "_142"
+2190              ','
+2191                 "_143"
+2192              ','
+2193                 "_144"
+2194              ','
+2195                 "_145"
+2196              ','
+2197                 "_151"
+2198              ','
+2199                 "_152"
+2200              ','
+2201                 "_153"
+2202              ','
+2203                 "_154"
+2204              ','
+2205                 "_155"
+2206              ','
+2207                 "_211"
+2208              ','
+2209                 "_212"
+2210              ','
+2211                 "_213"
+2212              ','
+2213                 "_214"
+2214              ','
+2215                 "_215"
+2216              ','
+2217                 "_221"
+2218              ','
+2219                 "_222"
+2220              ','
+2221                 "_223"
+2222              ','
+2223                 "_224"
+2224              ','
+2225                 "_225"
+2226              ','
+2227                 "_231"
+2228              ','
+2229                 "_232"
+2230              ','
+2231                 "_233"
+2232              ','
+2233                 "_234"
+2234              ','
+2235                 "_235"
+2236              ','
+2237                 "_241"
+2238              ','
+2239                 "_242"
+2240              ','
+2241                 "_243"
+2242              ','
+2243                 "_244"
+2244              ','
+2245                 "_245"
+2246              ','
+2247                 "_251"
+2248              ','
+2249                 "_252"
+2250              ','
+2251                 "_253"
+2252              ','
+2253                 "_254"
+2254              ','
+2255                 "_255"
+2256              ','
+2257                 "_311"
+2258              ','
+2259                 "_312"
+2260              ','
+2261                 "_313"
+2262              ','
+2263                 "_314"
+2264              ','
+2265                 "_315"
+2266              ','
+2267                 "_321"
+2268              ','
+2269                 "_322"
+2270              ','
+2271                 "_323"
+2272              ','
+2273                 "_324"
+2274              ','
+2275                 "_325"
+2276              ','
+2277                 "_331"
+2278              ','
+2279                 "_332"
+2280              ','
+2281                 "_333"
+2282              ','
+2283                 "_334"
+2284              ','
+2285                 "_335"
+2286              ','
+2287                 "_341"
+2288              ','
+2289                 "_342"
+2290              ','
+2291                 "_343"
+2292              ','
+2293                 "_344"
+2294              ','
+2295                 "_345"
+2296              ','
+2297                 "_351"
+2298              ','
+2299                 "_352"
+2300              ','
+2301                 "_353"
+2302              ','
+2303                 "_354"
+2304              ','
+2305                 "_355"
+2306              ','
+2307                 "_411"
+2308              ','
+2309                 "_412"
+2310              ','
+2311                 "_413"
+2312              ','
+2313                 "_414"
+2314              ','
+2315                 "_415"
+2316              ','
+2317                 "_421"
+2318              ','
+2319                 "_422"
+2320              ','
+2321                 "_423"
+2322              ','
+2323                 "_424"
+2324              ','
+2325                 "_425"
+2326              ','
+2327                 "_431"
+2328              ','
+2329                 "_432"
+2330              ','
+2331                 "_433"
+2332              ','
+2333                 "_434"
+2334              ','
+2335                 "_435"
+2336              ','
+2337                 "_441"
+2338              ','
+2339                 "_442"
+2340              ','
+2341                 "_443"
+2342              ','
+2343                 "_444"
+2344              ','
+2345                 "_445"
+2346              ','
+2347                 "_451"
+2348              ','
+2349                 "_452"
+2350              ','
+2351                 "_453"
+2352              ','
+2353                 "_454"
+2354              ','
+2355                 "_455"
+2356              ','
+2357                 "_511"
+2358              ','
+2359                 "_512"
+2360              ','
+2361                 "_513"
+2362              ','
+2363                 "_514"
+2364              ','
+2365                 "_515"
+2366              ','
+2367                 "_521"
+2368              ','
+2369                 "_522"
+2370              ','
+2371                 "_523"
+2372              ','
+2373                 "_524"
+2374              ','
+2375                 "_525"
+2376              ','
+2377                 "_531"
+2378              ','
+2379                 "_532"
+2380              ','
+2381                 "_533"
+2382              ','
+2383                 "_534"
+2384              ','
+2385                 "_535"
+2386              ','
+2387                 "_541"
+2388              ','
+2389                 "_542"
+2390              ','
+2391                 "_543"
+2392              ','
+2393                 "_544"
+2394              ','
+2395                 "_545"
+2396              ','
+2397                 "_551"
+2398              ','
+2399                 "_552"
+2400              ','
+2401                 "_553"
+2402              ','
+2403                 "_554"
+2404              ','
+2405                 "_555"
+2406              ;
+2407            end;
+2408          set  VWRET2   end=EFIEOD;
+2409              format public_date yymmdd10. ;
+2410              format _111 11.6 ;
+2411              format _112 11.6 ;
+2412              format _113 11.6 ;
+2413              format _114 11.6 ;
+2414              format _115 11.6 ;
+2415              format _121 11.6 ;
+2416              format _122 11.6 ;
+2417              format _123 11.6 ;
+2418              format _124 11.6 ;
+2419              format _125 11.6 ;
+2420              format _131 11.6 ;
+2421              format _132 11.6 ;
+2422              format _133 11.6 ;
+2423              format _134 11.6 ;
+2424              format _135 11.6 ;
+2425              format _141 11.6 ;
+2426              format _142 11.6 ;
+2427              format _143 11.6 ;
+2428              format _144 11.6 ;
+2429              format _145 11.6 ;
+2430              format _151 11.6 ;
+2431              format _152 11.6 ;
+2432              format _153 11.6 ;
+2433              format _154 11.6 ;
+2434              format _155 11.6 ;
+2435              format _211 11.6 ;
+2436              format _212 11.6 ;
+2437              format _213 11.6 ;
+2438              format _214 11.6 ;
+2439              format _215 11.6 ;
+2440              format _221 11.6 ;
+2441              format _222 11.6 ;
+2442              format _223 11.6 ;
+2443              format _224 11.6 ;
+2444              format _225 11.6 ;
+2445              format _231 11.6 ;
+2446              format _232 11.6 ;
+2447              format _233 11.6 ;
+2448              format _234 11.6 ;
+2449              format _235 11.6 ;
+2450              format _241 11.6 ;
+2451              format _242 11.6 ;
+2452              format _243 11.6 ;
+2453              format _244 11.6 ;
+2454              format _245 11.6 ;
+2455              format _251 11.6 ;
+2456              format _252 11.6 ;
+2457              format _253 11.6 ;
+2458              format _254 11.6 ;
+2459              format _255 11.6 ;
+2460              format _311 11.6 ;
+2461              format _312 11.6 ;
+2462              format _313 11.6 ;
+2463              format _314 11.6 ;
+2464              format _315 11.6 ;
+2465              format _321 11.6 ;
+2466              format _322 11.6 ;
+2467              format _323 11.6 ;
+2468              format _324 11.6 ;
+2469              format _325 11.6 ;
+2470              format _331 11.6 ;
+2471              format _332 11.6 ;
+2472              format _333 11.6 ;
+2473              format _334 11.6 ;
+2474              format _335 11.6 ;
+2475              format _341 11.6 ;
+2476              format _342 11.6 ;
+2477              format _343 11.6 ;
+2478              format _344 11.6 ;
+2479              format _345 11.6 ;
+2480              format _351 11.6 ;
+2481              format _352 11.6 ;
+2482              format _353 11.6 ;
+2483              format _354 11.6 ;
+2484              format _355 11.6 ;
+2485              format _411 11.6 ;
+2486              format _412 11.6 ;
+2487              format _413 11.6 ;
+2488              format _414 11.6 ;
+2489              format _415 11.6 ;
+2490              format _421 11.6 ;
+2491              format _422 11.6 ;
+2492              format _423 11.6 ;
+2493              format _424 11.6 ;
+2494              format _425 11.6 ;
+2495              format _431 11.6 ;
+2496              format _432 11.6 ;
+2497              format _433 11.6 ;
+2498              format _434 11.6 ;
+2499              format _435 11.6 ;
+2500              format _441 11.6 ;
+2501              format _442 11.6 ;
+2502              format _443 11.6 ;
+2503              format _444 11.6 ;
+2504              format _445 11.6 ;
+2505              format _451 11.6 ;
+2506              format _452 11.6 ;
+2507              format _453 11.6 ;
+2508              format _454 11.6 ;
+2509              format _455 11.6 ;
+2510              format _511 11.6 ;
+2511              format _512 11.6 ;
+2512              format _513 11.6 ;
+2513              format _514 11.6 ;
+2514              format _515 11.6 ;
+2515              format _521 11.6 ;
+2516              format _522 11.6 ;
+2517              format _523 11.6 ;
+2518              format _524 11.6 ;
+2519              format _525 11.6 ;
+2520              format _531 11.6 ;
+2521              format _532 11.6 ;
+2522              format _533 11.6 ;
+2523              format _534 11.6 ;
+2524              format _535 11.6 ;
+2525              format _541 11.6 ;
+2526              format _542 11.6 ;
+2527              format _543 11.6 ;
+2528              format _544 11.6 ;
+2529              format _545 11.6 ;
+2530              format _551 11.6 ;
+2531              format _552 11.6 ;
+2532              format _553 11.6 ;
+2533              format _554 11.6 ;
+2534              format _555 11.6 ;
+2535            do;
+2536              EFIOUT + 1;
+2537              put public_date @;
+2538              put _111 @;
+2539              put _112 @;
+2540              put _113 @;
+2541              put _114 @;
+2542              put _115 @;
+2543              put _121 @;
+2544              put _122 @;
+2545              put _123 @;
+2546              put _124 @;
+2547              put _125 @;
+2548              put _131 @;
+2549              put _132 @;
+2550              put _133 @;
+2551              put _134 @;
+2552              put _135 @;
+2553              put _141 @;
+2554              put _142 @;
+2555              put _143 @;
+2556              put _144 @;
+2557              put _145 @;
+2558              put _151 @;
+2559              put _152 @;
+2560              put _153 @;
+2561              put _154 @;
+2562              put _155 @;
+2563              put _211 @;
+2564              put _212 @;
+2565              put _213 @;
+2566              put _214 @;
+2567              put _215 @;
+2568              put _221 @;
+2569              put _222 @;
+2570              put _223 @;
+2571              put _224 @;
+2572              put _225 @;
+2573              put _231 @;
+2574              put _232 @;
+2575              put _233 @;
+2576              put _234 @;
+2577              put _235 @;
+2578              put _241 @;
+2579              put _242 @;
+2580              put _243 @;
+2581              put _244 @;
+2582              put _245 @;
+2583              put _251 @;
+2584              put _252 @;
+2585              put _253 @;
+2586              put _254 @;
+2587              put _255 @;
+2588              put _311 @;
+2589              put _312 @;
+2590              put _313 @;
+2591              put _314 @;
+2592              put _315 @;
+2593              put _321 @;
+2594              put _322 @;
+2595              put _323 @;
+2596              put _324 @;
+2597              put _325 @;
+2598              put _331 @;
+2599              put _332 @;
+2600              put _333 @;
+2601              put _334 @;
+2602              put _335 @;
+2603              put _341 @;
+2604              put _342 @;
+2605              put _343 @;
+2606              put _344 @;
+2607              put _345 @;
+2608              put _351 @;
+2609              put _352 @;
+2610              put _353 @;
+2611              put _354 @;
+2612              put _355 @;
+2613              put _411 @;
+2614              put _412 @;
+2615              put _413 @;
+2616              put _414 @;
+2617              put _415 @;
+2618              put _421 @;
+2619              put _422 @;
+2620              put _423 @;
+2621              put _424 @;
+2622              put _425 @;
+2623              put _431 @;
+2624              put _432 @;
+2625              put _433 @;
+2626              put _434 @;
+2627              put _435 @;
+2628              put _441 @;
+2629              put _442 @;
+2630              put _443 @;
+2631              put _444 @;
+2632              put _445 @;
+2633              put _451 @;
+2634              put _452 @;
+2635              put _453 @;
+2636              put _454 @;
+2637              put _455 @;
+2638              put _511 @;
+2639              put _512 @;
+2640              put _513 @;
+2641              put _514 @;
+2642              put _515 @;
+2643              put _521 @;
+2644              put _522 @;
+2645              put _523 @;
+2646              put _524 @;
+2647              put _525 @;
+2648              put _531 @;
+2649              put _532 @;
+2650              put _533 @;
+2651              put _534 @;
+2652              put _535 @;
+2653              put _541 @;
+2654              put _542 @;
+2655              put _543 @;
+2656              put _544 @;
+2657              put _545 @;
+2658              put _551 @;
+2659              put _552 @;
+2660              put _553 @;
+2661              put _554 @;
+2662              put _555 ;
+2663              ;
+2664            end;
+2665           if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+2665     ! detection macro variable */
+2666           if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+2667           run;
+
+NOTE: The file 'vwret2_DGTW_PORT.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/vwret2_DGTW_PORT.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:55:48
+
+NOTE: 517 records were written to the file 'vwret2_DGTW_PORT.csv'.
+      The minimum record length was 135.
+      The maximum record length was 1260.
+NOTE: There were 516 observations read from the data set WORK.VWRET2.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+516 records created in vwret2_DGTW_PORT.csv from VWRET2.
+  
+  
+NOTE: "vwret2_DGTW_PORT.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.12 seconds
+      cpu time            0.05 seconds
+      
+
+
+WARNING: 516 observations omitted due to missing ID values.
+NOTE: There were 64985 observations read from the data set WORK.VWRET.
+NOTE: The data set WORK.VWRET3 has 516 observations and 126 variables.
+NOTE: PROCEDURE TRANSPOSE used (Total process time):
+      real time           0.08 seconds
+      cpu time            0.10 seconds
+      
+
+
+2668        /*******************************************************************
+2668     ! ***
+2669        *   PRODUCT:   SAS
+2670        *   VERSION:   9.4
+2671        *   CREATOR:   External File Interface
+2672        *   DATE:      22DEC19
+2673        *   DESC:      Generated SAS Datastep Code
+2674        *   TEMPLATE SOURCE:  (None Specified.)
+2675        ********************************************************************
+2675     ! ***/
+2676           data _null_;
+2677           %let _EFIERR_ = 0; /* set the ERROR detection macro variable */
+2678           %let _EFIREC_ = 0;     /* clear export record count macro
+2678     ! variable */
+2679           file 'vwret3_DGTW_PORT.csv' delimiter=',' DSD DROPOVER
+2679     ! lrecl=32767;
+2680           if _n_ = 1 then        /* write column names or labels */
+2681            do;
+2682              put
+2683                 "public_date"
+2684              ','
+2685                 "n_111"
+2686              ','
+2687                 "n_112"
+2688              ','
+2689                 "n_113"
+2690              ','
+2691                 "n_114"
+2692              ','
+2693                 "n_115"
+2694              ','
+2695                 "n_121"
+2696              ','
+2697                 "n_122"
+2698              ','
+2699                 "n_123"
+2700              ','
+2701                 "n_124"
+2702              ','
+2703                 "n_125"
+2704              ','
+2705                 "n_131"
+2706              ','
+2707                 "n_132"
+2708              ','
+2709                 "n_133"
+2710              ','
+2711                 "n_134"
+2712              ','
+2713                 "n_135"
+2714              ','
+2715                 "n_141"
+2716              ','
+2717                 "n_142"
+2718              ','
+2719                 "n_143"
+2720              ','
+2721                 "n_144"
+2722              ','
+2723                 "n_145"
+2724              ','
+2725                 "n_151"
+2726              ','
+2727                 "n_152"
+2728              ','
+2729                 "n_153"
+2730              ','
+2731                 "n_154"
+2732              ','
+2733                 "n_155"
+2734              ','
+2735                 "n_211"
+2736              ','
+2737                 "n_212"
+2738              ','
+2739                 "n_213"
+2740              ','
+2741                 "n_214"
+2742              ','
+2743                 "n_215"
+2744              ','
+2745                 "n_221"
+2746              ','
+2747                 "n_222"
+2748              ','
+2749                 "n_223"
+2750              ','
+2751                 "n_224"
+2752              ','
+2753                 "n_225"
+2754              ','
+2755                 "n_231"
+2756              ','
+2757                 "n_232"
+2758              ','
+2759                 "n_233"
+2760              ','
+2761                 "n_234"
+2762              ','
+2763                 "n_235"
+2764              ','
+2765                 "n_241"
+2766              ','
+2767                 "n_242"
+2768              ','
+2769                 "n_243"
+2770              ','
+2771                 "n_244"
+2772              ','
+2773                 "n_245"
+2774              ','
+2775                 "n_251"
+2776              ','
+2777                 "n_252"
+2778              ','
+2779                 "n_253"
+2780              ','
+2781                 "n_254"
+2782              ','
+2783                 "n_255"
+2784              ','
+2785                 "n_311"
+2786              ','
+2787                 "n_312"
+2788              ','
+2789                 "n_313"
+2790              ','
+2791                 "n_314"
+2792              ','
+2793                 "n_315"
+2794              ','
+2795                 "n_321"
+2796              ','
+2797                 "n_322"
+2798              ','
+2799                 "n_323"
+2800              ','
+2801                 "n_324"
+2802              ','
+2803                 "n_325"
+2804              ','
+2805                 "n_331"
+2806              ','
+2807                 "n_332"
+2808              ','
+2809                 "n_333"
+2810              ','
+2811                 "n_334"
+2812              ','
+2813                 "n_335"
+2814              ','
+2815                 "n_341"
+2816              ','
+2817                 "n_342"
+2818              ','
+2819                 "n_343"
+2820              ','
+2821                 "n_344"
+2822              ','
+2823                 "n_345"
+2824              ','
+2825                 "n_351"
+2826              ','
+2827                 "n_352"
+2828              ','
+2829                 "n_353"
+2830              ','
+2831                 "n_354"
+2832              ','
+2833                 "n_355"
+2834              ','
+2835                 "n_411"
+2836              ','
+2837                 "n_412"
+2838              ','
+2839                 "n_413"
+2840              ','
+2841                 "n_414"
+2842              ','
+2843                 "n_415"
+2844              ','
+2845                 "n_421"
+2846              ','
+2847                 "n_422"
+2848              ','
+2849                 "n_423"
+2850              ','
+2851                 "n_424"
+2852              ','
+2853                 "n_425"
+2854              ','
+2855                 "n_431"
+2856              ','
+2857                 "n_432"
+2858              ','
+2859                 "n_433"
+2860              ','
+2861                 "n_434"
+2862              ','
+2863                 "n_435"
+2864              ','
+2865                 "n_441"
+2866              ','
+2867                 "n_442"
+2868              ','
+2869                 "n_443"
+2870              ','
+2871                 "n_444"
+2872              ','
+2873                 "n_445"
+2874              ','
+2875                 "n_451"
+2876              ','
+2877                 "n_452"
+2878              ','
+2879                 "n_453"
+2880              ','
+2881                 "n_454"
+2882              ','
+2883                 "n_455"
+2884              ','
+2885                 "n_511"
+2886              ','
+2887                 "n_512"
+2888              ','
+2889                 "n_513"
+2890              ','
+2891                 "n_514"
+2892              ','
+2893                 "n_515"
+2894              ','
+2895                 "n_521"
+2896              ','
+2897                 "n_522"
+2898              ','
+2899                 "n_523"
+2900              ','
+2901                 "n_524"
+2902              ','
+2903                 "n_525"
+2904              ','
+2905                 "n_531"
+2906              ','
+2907                 "n_532"
+2908              ','
+2909                 "n_533"
+2910              ','
+2911                 "n_534"
+2912              ','
+2913                 "n_535"
+2914              ','
+2915                 "n_541"
+2916              ','
+2917                 "n_542"
+2918              ','
+2919                 "n_543"
+2920              ','
+2921                 "n_544"
+2922              ','
+2923                 "n_545"
+2924              ','
+2925                 "n_551"
+2926              ','
+2927                 "n_552"
+2928              ','
+2929                 "n_553"
+2930              ','
+2931                 "n_554"
+2932              ','
+2933                 "n_555"
+2934              ;
+2935            end;
+2936          set  VWRET3   end=EFIEOD;
+2937              format public_date yymmdd10. ;
+2938              format n_111 best12. ;
+2939              format n_112 best12. ;
+2940              format n_113 best12. ;
+2941              format n_114 best12. ;
+2942              format n_115 best12. ;
+2943              format n_121 best12. ;
+2944              format n_122 best12. ;
+2945              format n_123 best12. ;
+2946              format n_124 best12. ;
+2947              format n_125 best12. ;
+2948              format n_131 best12. ;
+2949              format n_132 best12. ;
+2950              format n_133 best12. ;
+2951              format n_134 best12. ;
+2952              format n_135 best12. ;
+2953              format n_141 best12. ;
+2954              format n_142 best12. ;
+2955              format n_143 best12. ;
+2956              format n_144 best12. ;
+2957              format n_145 best12. ;
+2958              format n_151 best12. ;
+2959              format n_152 best12. ;
+2960              format n_153 best12. ;
+2961              format n_154 best12. ;
+2962              format n_155 best12. ;
+2963              format n_211 best12. ;
+2964              format n_212 best12. ;
+2965              format n_213 best12. ;
+2966              format n_214 best12. ;
+2967              format n_215 best12. ;
+2968              format n_221 best12. ;
+2969              format n_222 best12. ;
+2970              format n_223 best12. ;
+2971              format n_224 best12. ;
+2972              format n_225 best12. ;
+2973              format n_231 best12. ;
+2974              format n_232 best12. ;
+2975              format n_233 best12. ;
+2976              format n_234 best12. ;
+2977              format n_235 best12. ;
+2978              format n_241 best12. ;
+2979              format n_242 best12. ;
+2980              format n_243 best12. ;
+2981              format n_244 best12. ;
+2982              format n_245 best12. ;
+2983              format n_251 best12. ;
+2984              format n_252 best12. ;
+2985              format n_253 best12. ;
+2986              format n_254 best12. ;
+2987              format n_255 best12. ;
+2988              format n_311 best12. ;
+2989              format n_312 best12. ;
+2990              format n_313 best12. ;
+2991              format n_314 best12. ;
+2992              format n_315 best12. ;
+2993              format n_321 best12. ;
+2994              format n_322 best12. ;
+2995              format n_323 best12. ;
+2996              format n_324 best12. ;
+2997              format n_325 best12. ;
+2998              format n_331 best12. ;
+2999              format n_332 best12. ;
+3000              format n_333 best12. ;
+3001              format n_334 best12. ;
+3002              format n_335 best12. ;
+3003              format n_341 best12. ;
+3004              format n_342 best12. ;
+3005              format n_343 best12. ;
+3006              format n_344 best12. ;
+3007              format n_345 best12. ;
+3008              format n_351 best12. ;
+3009              format n_352 best12. ;
+3010              format n_353 best12. ;
+3011              format n_354 best12. ;
+3012              format n_355 best12. ;
+3013              format n_411 best12. ;
+3014              format n_412 best12. ;
+3015              format n_413 best12. ;
+3016              format n_414 best12. ;
+3017              format n_415 best12. ;
+3018              format n_421 best12. ;
+3019              format n_422 best12. ;
+3020              format n_423 best12. ;
+3021              format n_424 best12. ;
+3022              format n_425 best12. ;
+3023              format n_431 best12. ;
+3024              format n_432 best12. ;
+3025              format n_433 best12. ;
+3026              format n_434 best12. ;
+3027              format n_435 best12. ;
+3028              format n_441 best12. ;
+3029              format n_442 best12. ;
+3030              format n_443 best12. ;
+3031              format n_444 best12. ;
+3032              format n_445 best12. ;
+3033              format n_451 best12. ;
+3034              format n_452 best12. ;
+3035              format n_453 best12. ;
+3036              format n_454 best12. ;
+3037              format n_455 best12. ;
+3038              format n_511 best12. ;
+3039              format n_512 best12. ;
+3040              format n_513 best12. ;
+3041              format n_514 best12. ;
+3042              format n_515 best12. ;
+3043              format n_521 best12. ;
+3044              format n_522 best12. ;
+3045              format n_523 best12. ;
+3046              format n_524 best12. ;
+3047              format n_525 best12. ;
+3048              format n_531 best12. ;
+3049              format n_532 best12. ;
+3050              format n_533 best12. ;
+3051              format n_534 best12. ;
+3052              format n_535 best12. ;
+3053              format n_541 best12. ;
+3054              format n_542 best12. ;
+3055              format n_543 best12. ;
+3056              format n_544 best12. ;
+3057              format n_545 best12. ;
+3058              format n_551 best12. ;
+3059              format n_552 best12. ;
+3060              format n_553 best12. ;
+3061              format n_554 best12. ;
+3062              format n_555 best12. ;
+3063            do;
+3064              EFIOUT + 1;
+3065              put public_date @;
+3066              put n_111 @;
+3067              put n_112 @;
+3068              put n_113 @;
+3069              put n_114 @;
+3070              put n_115 @;
+3071              put n_121 @;
+3072              put n_122 @;
+3073              put n_123 @;
+3074              put n_124 @;
+3075              put n_125 @;
+3076              put n_131 @;
+3077              put n_132 @;
+3078              put n_133 @;
+3079              put n_134 @;
+3080              put n_135 @;
+3081              put n_141 @;
+3082              put n_142 @;
+3083              put n_143 @;
+3084              put n_144 @;
+3085              put n_145 @;
+3086              put n_151 @;
+3087              put n_152 @;
+3088              put n_153 @;
+3089              put n_154 @;
+3090              put n_155 @;
+3091              put n_211 @;
+3092              put n_212 @;
+3093              put n_213 @;
+3094              put n_214 @;
+3095              put n_215 @;
+3096              put n_221 @;
+3097              put n_222 @;
+3098              put n_223 @;
+3099              put n_224 @;
+3100              put n_225 @;
+3101              put n_231 @;
+3102              put n_232 @;
+3103              put n_233 @;
+3104              put n_234 @;
+3105              put n_235 @;
+3106              put n_241 @;
+3107              put n_242 @;
+3108              put n_243 @;
+3109              put n_244 @;
+3110              put n_245 @;
+3111              put n_251 @;
+3112              put n_252 @;
+3113              put n_253 @;
+3114              put n_254 @;
+3115              put n_255 @;
+3116              put n_311 @;
+3117              put n_312 @;
+3118              put n_313 @;
+3119              put n_314 @;
+3120              put n_315 @;
+3121              put n_321 @;
+3122              put n_322 @;
+3123              put n_323 @;
+3124              put n_324 @;
+3125              put n_325 @;
+3126              put n_331 @;
+3127              put n_332 @;
+3128              put n_333 @;
+3129              put n_334 @;
+3130              put n_335 @;
+3131              put n_341 @;
+3132              put n_342 @;
+3133              put n_343 @;
+3134              put n_344 @;
+3135              put n_345 @;
+3136              put n_351 @;
+3137              put n_352 @;
+3138              put n_353 @;
+3139              put n_354 @;
+3140              put n_355 @;
+3141              put n_411 @;
+3142              put n_412 @;
+3143              put n_413 @;
+3144              put n_414 @;
+3145              put n_415 @;
+3146              put n_421 @;
+3147              put n_422 @;
+3148              put n_423 @;
+3149              put n_424 @;
+3150              put n_425 @;
+3151              put n_431 @;
+3152              put n_432 @;
+3153              put n_433 @;
+3154              put n_434 @;
+3155              put n_435 @;
+3156              put n_441 @;
+3157              put n_442 @;
+3158              put n_443 @;
+3159              put n_444 @;
+3160              put n_445 @;
+3161              put n_451 @;
+3162              put n_452 @;
+3163              put n_453 @;
+3164              put n_454 @;
+3165              put n_455 @;
+3166              put n_511 @;
+3167              put n_512 @;
+3168              put n_513 @;
+3169              put n_514 @;
+3170              put n_515 @;
+3171              put n_521 @;
+3172              put n_522 @;
+3173              put n_523 @;
+3174              put n_524 @;
+3175              put n_525 @;
+3176              put n_531 @;
+3177              put n_532 @;
+3178              put n_533 @;
+3179              put n_534 @;
+3180              put n_535 @;
+3181              put n_541 @;
+3182              put n_542 @;
+3183              put n_543 @;
+3184              put n_544 @;
+3185              put n_545 @;
+3186              put n_551 @;
+3187              put n_552 @;
+3188              put n_553 @;
+3189              put n_554 @;
+3190              put n_555 ;
+3191              ;
+3192            end;
+3193           if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR
+3193     ! detection macro variable */
+3194           if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+3195           run;
+
+NOTE: The file 'vwret3_DGTW_PORT.csv' is:
+      Filename=/home/cityuhk/xinhe97/ECsas/rankport/rank/vwret3_DGTW_PORT.csv,
+      Owner Name=xinhe97,Group Name=cityuhk,
+      Access Permission=-rw-------,
+      Last Modified=22Dec2019:10:55:48
+
+NOTE: 517 records were written to the file 'vwret3_DGTW_PORT.csv'.
+      The minimum record length was 260.
+      The maximum record length was 761.
+NOTE: There were 516 observations read from the data set WORK.VWRET3.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+516 records created in vwret3_DGTW_PORT.csv from VWRET3.
+  
+  
+NOTE: "vwret3_DGTW_PORT.csv" file was successfully created.
+NOTE: PROCEDURE EXPORT used (Total process time):
+      real time           0.11 seconds
+      cpu time            0.03 seconds
+      
+
+NOTE: Table WORK.RATIOS has been dropped.
+NOTE: Table WORK.INDRATIOS has been dropped.
+NOTE: Table WORK.RETS has been dropped.
+WARNING: File WORK.INDRETS.DATA does not exist.
+WARNING: Table WORK.INDRETS has not been dropped.
+NOTE: PROCEDURE SQL used (Total process time):
+      real time           0.22 seconds
+      cpu time            0.23 seconds
+      
+
+
+NOTE: SAS Institute Inc., SAS Campus Drive, Cary, NC USA 27513-2414
+NOTE: The SAS System used:
+      real time           1:37.15
+      cpu time            2:01.42
+      
