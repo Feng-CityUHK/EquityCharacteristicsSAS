@@ -97,14 +97,13 @@ and day(a.date)<= day(b.date)
 order by a.permno, a.date;
 quit;
 
-/* lag hxz_sue 3 month, Feb 5 2020 */
 proc sql;
 create table temp7 as
 select a.*, b.hxz_sue as z_hxz_sue from
 temp7 a left join work.out_ds_sue b
 on
 a.permno = b.permno
-and intnx('month',a.date,0,'End') = intnx('month',b.date,3,'End')
+and intnx('month',a.date,0,'End') = intnx('month',b.date,0,'End')
 order by a.permno, a.date;
 quit;
 
