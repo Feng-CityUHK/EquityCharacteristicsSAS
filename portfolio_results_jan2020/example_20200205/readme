@@ -1,0 +1,36 @@
+This folder contains equity portfolio characteristics, individual firm characteristics, macroeconomic variables, and R code examples on how to use the data.
+
+The date range is 1976 to 2018. The stock universe is top 3 exchanges in US.
+
+The portfolio classification includes:
+- Fama French Industry classification 49
+- Univariate sorted portfolio on Market Beta, 10 buckets, monthly sorting
+- Univariate sorted portfolio on Market Equity, 10 buckets, monthly sorting
+- Univariate sorted portfolio on Stock Variance, 10 buckets, monthly sorting
+- DGTW 125 sorte portfolio, dependent sorting on Market Equity, Book-to-market, Momentum, annual sorting
+
+These portfolio labels are included in the individual firm data.
+
+20 Equity Characteristics: 
+(- category: variable name)
+- Momentum:          mom12m hxz_abr hxz_sue hxz_re
+- Value vs Growth:   bm ep cfp sp
+- Investment:        agr ni acc
+- Profitability:     op roe
+- Intangibles:       seas1a adm rdm
+- Frictions:         me svar beta mom1m
+
+We provide a raw version of the characteristics, as well as a standardised version, which is uniform distribution from -1 to 1 in the cross-section.
+
+Here are the file names:
+(1) Portfolio Characteristics:
+raw_20zt_port.RData contains raw characteristics of portfolios;
+rank_20zt_port.RData contains standardized characteristics of portfolios.
+(2)
+rank_final_jingyu.csv contains individual firm identities, data date, raw characteristics, standardized characteristics (rank_*), and portfolio labels.
+(3)
+example_10me_raw.R is an example, predicting next month portfolio returns with raw characteristics;
+example_10me_rank.R is another example, but uses standardized characteristics.
+You can see the two .pdf files are the output of the examples.
+(4)
+xt_1963_2018_v1.csv are the macroeconomic variables, which can be used to predict equity returns, but not used in the example.
