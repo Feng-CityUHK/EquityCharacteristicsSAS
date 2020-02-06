@@ -1,4 +1,7 @@
 /data/*
 /portfolio_results/*
-/portfolio_results_jan2020/*
+<<<<<<< HEAD
+/portfolio_result_jan2020/*
+=======
+>>>>>>> parent of 8590b59... modification
 /sortport/*
