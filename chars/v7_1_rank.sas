@@ -269,3 +269,20 @@ outfile="/scratch/cityuhk/xinhe/eqchars/rank_final_jingyu.csv" dbms=csv replace;
 
 proc export data=da(where=(year(public_date)=2018))
 outfile="/scratch/cityuhk/xinhe/eqchars/rank_final_jingyu2018.csv" dbms=csv replace; run;
+
+/* merge_returns */
+
+proc sql;
+creat table da1 as
+select a.*, b.ret from
+da a left join crsp.msf b on
+a.permno = b.permno and
+intnx('month',a.public_date,0,'E') = intnx('month',b.date,-1,'E')
+order by public_date, permno;
+quit;
+
+proc export data=da1
+outfile="/scratch/cityuhk/xinhe/eqchars/eqchars_final.csv" dbms=csv replace; run;
+
+proc export data=da1(where=(year(public_date)=2018))
+outfile="/scratch/cityuhk/xinhe/eqchars/eqchars_final_2018.csv" dbms=csv replace; run;
