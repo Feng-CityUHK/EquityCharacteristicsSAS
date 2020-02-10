@@ -26,6 +26,22 @@ data chars.v7_1_rank_label;
 set da;
 run;
 
+/* merge_returns */
+
+proc sql;
+creat table da as
+select a.*, b.ret, b.date from
+da a left join crsp.msf b on
+a.permno = b.permno and
+intnx('month',a.public_date,0,'E') = intnx('month',b.date,-1,'E')
+order by public_date, permno;
+quit;
+
+data da;
+set da;
+if missing(ret) then delete;
+run;
+
 /* ********************************************* */
 /*  Loop function                   */
 /* ********************************************* */
@@ -232,6 +248,7 @@ rank_me rank_svar rank_beta rank_mom1m
 data da;
 set chars.v7_1_rank_label;
 keep
+    ret date
     public_date   permno   gvkey   sic  cusip
     &vars
     &rank_vars
@@ -239,13 +256,6 @@ keep
     DGTW_PORT
     port_me port_beta port_svar;
 run;
-
-proc export data=da
-outfile="/scratch/cityuhk/xinhe/eqchars/rank_final.csv" dbms=csv replace; run;
-
-proc export data=da(where=(year(public_date)=2018))
-outfile="/scratch/cityuhk/xinhe/eqchars/rank_final2018.csv" dbms=csv replace; run;
-
 
 data da;
 set da;
@@ -255,6 +265,7 @@ run;
 data eqchars;
 set da;
 keep
+    ret date
     public_date   permno   gvkey   sic  cusip
     weight_port
     &vars
@@ -265,24 +276,7 @@ keep
 run;
 
 proc export data=da
-outfile="/scratch/cityuhk/xinhe/eqchars/rank_final_jingyu.csv" dbms=csv replace; run;
-
-proc export data=da(where=(year(public_date)=2018))
-outfile="/scratch/cityuhk/xinhe/eqchars/rank_final_jingyu2018.csv" dbms=csv replace; run;
-
-/* merge_returns */
-
-proc sql;
-creat table da1 as
-select a.*, b.ret from
-da a left join crsp.msf b on
-a.permno = b.permno and
-intnx('month',a.public_date,0,'E') = intnx('month',b.date,-1,'E')
-order by public_date, permno;
-quit;
-
-proc export data=da1
 outfile="/scratch/cityuhk/xinhe/eqchars/eqchars_final.csv" dbms=csv replace; run;
 
-proc export data=da1(where=(year(public_date)=2018))
-outfile="/scratch/cityuhk/xinhe/eqchars/eqchars_final_2018.csv" dbms=csv replace; run;
+proc export data=da(where=(year(date)>=2015))
+outfile="/scratch/cityuhk/xinhe/eqchars/eqchars_final_2015_2018.csv" dbms=csv replace; run;
