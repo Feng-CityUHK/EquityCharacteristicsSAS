@@ -18,14 +18,15 @@ This folder is to calculate equity characteristics in individual level.
 
 The most important part is **accounting**, which is modified from Green Han Zhang 2017 RFS code. Then, **rvar_mean** is for stock total variance, **rvar_capm** is residual variance based on CAPM, **rvar_ff3** is residual variance based on Fama French three-factor model, **beta** is for CAPM beta, **abr sue re** is from Hou Xue Zhang's Replicating Anormalies.
 
-In **combine**, I combine the tables. In **output**, I do winsorization. In **rank**, I give a standardized version of the variables in uniform distribution.
+In **combine**, I combine the tables. In **output**, I do winsorization. In **imputation**, I fill-in the missing values in individual characteristics with FFI49 Industry Median, if still missing, then fill-in with all stock median.  In **rank**, I give a standardized version of the variables in uniform distribution.
 
 You may run the sas files in the following order:
 
 1. **parallel**: accounting, rvar_mean, rvar_capm, rvar_ff3, beta, abr, sue, re
 2. combine
 3. output
-4. rank
+4. Imputation
+5. rank
 
 ### sortport
 
