@@ -1508,7 +1508,7 @@ proc sort data=temp4;
 
         data momcrsp;
         set momcrsp;
-        z_mom60m = (   (1+lag13(ret))*(1+lag14(ret))*(1+lag15(ret))*(1+lag16(ret))*(1+lag17(ret))*(1+lag18(ret))   *
+        z_mom60m = (   (1+lag12(ret))*(1+lag13(ret))*(1+lag14(ret))*(1+lag15(ret))*(1+lag16(ret))*(1+lag17(ret))*(1+lag18(ret))   *
                         (1+lag19(ret))*(1+lag20(ret))*(1+lag21(ret))*(1+lag22(ret))*(1+lag23(ret))*(1+lag24(ret))*
                         (1+lag25(ret))*(1+lag26(ret))*(1+lag27(ret))*(1+lag28(ret))*(1+lag29(ret))*(1+lag30(ret))     *
                         (1+lag31(ret))*(1+lag32(ret))*(1+lag33(ret))*(1+lag34(ret))*(1+lag35(ret))*(1+lag36(ret))     *
@@ -1516,18 +1516,18 @@ proc sort data=temp4;
                         (1+lag41(ret))*(1+lag42(ret))*(1+lag43(ret))*(1+lag44(ret))*(1+lag45(ret))*(1+lag46(ret))     *
                         (1+lag47(ret))*(1+lag48(ret))*(1+lag49(ret))*(1+lag50(ret))     *
                         (1+lag51(ret))*(1+lag52(ret))*(1+lag53(ret))*(1+lag54(ret))*(1+lag55(ret))*(1+lag56(ret))     *
-                        (1+lag57(ret))*(1+lag58(ret))*(1+lag59(ret))*(1+lag60(ret))
+                        (1+lag57(ret))*(1+lag58(ret))*(1+lag59(ret))
                         ) - 1;                                                                  /* v4 */
-        z_mom12m =  (   (1+lag2(ret))*(1+lag3(ret))*(1+lag4(ret))*(1+lag5(ret))*(1+lag6(ret))*
-                    (1+lag7(ret))*(1+lag8(ret))*(1+lag9(ret))*(1+lag10(ret))*(1+lag11(ret))*(1+lag12(ret))   ) - 1;
-        z_mom1m =	lag(ret);
-        z_mom6m=  (  (1+lag2(ret))*(1+lag3(ret))*(1+lag4(ret))*(1+lag5(ret))*(1+lag6(ret)) ) - 1;
-        z_mom36m=(   (1+lag13(ret))*(1+lag14(ret))*(1+lag15(ret))*(1+lag16(ret))*(1+lag17(ret))*(1+lag18(ret))   *
+        z_mom12m =  (   (1+lag1(ret))*(1+lag2(ret))*(1+lag3(ret))*(1+lag4(ret))*(1+lag5(ret))*(1+lag6(ret))*
+                    (1+lag7(ret))*(1+lag8(ret))*(1+lag9(ret))*(1+lag10(ret))*(1+lag11(ret))   ) - 1;
+        z_mom1m =	ret;
+        z_mom6m=  (  (1+lag1(ret))*(1+lag2(ret))*(1+lag3(ret))*(1+lag4(ret))*(1+lag5(ret)) ) - 1;
+        z_mom36m=(   (1+lag12(ret))*(1+lag13(ret))*(1+lag14(ret))*(1+lag15(ret))*(1+lag16(ret))*(1+lag17(ret))*(1+lag18(ret))   *
             (1+lag19(ret))*(1+lag20(ret))*(1+lag21(ret))*(1+lag22(ret))*(1+lag23(ret))*(1+lag24(ret))*
             (1+lag25(ret))*(1+lag26(ret))*(1+lag27(ret))*(1+lag28(ret))*(1+lag29(ret))*(1+lag30(ret))     *
-            (1+lag31(ret))*(1+lag32(ret))*(1+lag33(ret))*(1+lag34(ret))*(1+lag35(ret))*(1+lag36(ret))  ) - 1;
+            (1+lag31(ret))*(1+lag32(ret))*(1+lag33(ret))*(1+lag34(ret))*(1+lag35(ret))  ) - 1;
         z_moms12m=(lag(ret)+lag2(ret)+lag3(ret)+lag4(ret)+lag5(ret)+lag6(ret)+lag7(ret)+lag8(ret)+lag9(ret)+lag10(ret)+lag11(ret))/11.0;
-				z_seas1a = lag12(ret);
+				z_seas1a = lag11(ret);
 
         if permno ne lag60(permno) then z_mom60m=.;
         if permno ne lag12(permno) then z_mom12m=.;

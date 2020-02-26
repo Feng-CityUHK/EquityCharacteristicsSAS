@@ -173,3 +173,49 @@ proc sql; drop table ratios, indratios, rets, indrets;
 quit;
 
 %mend FINRATIO_ind_label;
+
+
+
+/* ********************************************************************************* */
+/* MACRO 6            */
+%MACRO FINRATIO_ind_label2 (begdate=, enddate=, label=, avr=, weight=, input=, vars=, output=);
+
+%let allvars=&vars;
+%let indclass = &label;
+
+data ratios;
+set &INPUT;
+/*set time frame*/
+where "&begdate"d<=public_date<="&enddate"d;
+run;
+
+/* proc export data=ratios outfile="firm_ratios_indclass_&indclass._.csv" */
+/* dbms=csv replace; */
+
+/* average zt */
+proc sort data = ratios; by public_date &indclass; run;
+/*Computing Industry-level average financial ratios in a given month*/
+proc means data=ratios noprint;
+  where not missing(&indclass);
+    by public_date; class &indclass;
+     var &allvars;
+     weight &weight;                       /* value-weight */
+    output out=indratios &avr=/autoname;
+run;
+proc sort data=indratios; by public_date &indclass;run;
+
+data indratios; set indratios;
+where not missing(&indclass);
+drop _type_;
+format public_date MMDDYYD10.;
+run;
+
+/* check */
+proc export data=indratios outfile="indratios_&indclass..csv"
+dbms=csv replace;
+
+/* clean house */
+proc sql; drop table ratios, indratios;
+quit;
+
+%mend FINRATIO_ind_label2;

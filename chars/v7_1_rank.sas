@@ -14,7 +14,7 @@ libname chars '/scratch/cityuhk/xinhe/eqchars';
 /* ********************************************* */
 
 data da;
-set chars.firmchars_v7_1_final;
+set chars.firmchars_v7_2_final;
 keep
   public_date   permno   gvkey   sic  cusip
   FFI5_desc   FFI5   FFI10_desc   FFI10   FFI12_desc   FFI12   FFI17_desc   FFI17
@@ -252,9 +252,19 @@ keep
     public_date   permno   gvkey   sic  cusip
     &vars
     &rank_vars
+
+    FFI10 FFI10_desc
+    FFI30 FFI30_desc
     FFI49 FFI49_desc
+
     DGTW_PORT
-    port_me port_beta port_svar;
+
+    port_mom12m port_hxz_abr port_hxz_sue port_hxz_re
+    port_bm port_ep port_cfp port_sp
+    port_agr port_ni port_acc
+    port_op port_roe
+    port_seas1a port_adm port_rdm
+    port_me port_svar port_beta port_mom1m;
 run;
 
 data da;
@@ -270,9 +280,19 @@ keep
     weight_port
     &vars
     &rank_vars
+
+    FFI10 FFI10_desc
+    FFI30 FFI30_desc
     FFI49 FFI49_desc
+
     DGTW_PORT
-    port_me port_beta port_svar;
+
+    port_mom12m port_hxz_abr port_hxz_sue port_hxz_re
+    port_bm port_ep port_cfp port_sp
+    port_agr port_ni port_acc
+    port_op port_roe
+    port_seas1a port_adm port_rdm
+    port_me port_svar port_beta port_mom1m;
 run;
 
 proc export data=da
@@ -280,3 +300,14 @@ outfile="/scratch/cityuhk/xinhe/eqchars/eqchars_final.csv" dbms=csv replace; run
 
 proc export data=da(where=(year(date)>=2015))
 outfile="/scratch/cityuhk/xinhe/eqchars/eqchars_final_2015_2018.csv" dbms=csv replace; run;
+
+proc export data=da(where=(1970<=year(date)<1980))
+outfile="/scratch/cityuhk/xinhe/eqchars/eqchars_final_1970s.csv" dbms=csv replace; run;
+proc export data=da(where=(1980<=year(date)<1990))
+outfile="/scratch/cityuhk/xinhe/eqchars/eqchars_final_1980s.csv" dbms=csv replace; run;
+proc export data=da(where=(1990<=year(date)<2000))
+outfile="/scratch/cityuhk/xinhe/eqchars/eqchars_final_1990s.csv" dbms=csv replace; run;
+proc export data=da(where=(2000<=year(date)<2010))
+outfile="/scratch/cityuhk/xinhe/eqchars/eqchars_final_2000s.csv" dbms=csv replace; run;
+proc export data=da(where=(2010<=year(date)<2020))
+outfile="/scratch/cityuhk/xinhe/eqchars/eqchars_final_2010s.csv" dbms=csv replace; run;

@@ -1,4 +1,4 @@
-%include 'portfolio_chars.sas';
+%include 'portfolio_chars_feb2020.sas';
 
 %let uni_begdt = 01JAN1976;
 %let uni_enddt = 31DEC2018;
@@ -30,20 +30,24 @@ rank_me rank_svar rank_beta rank_mom1m
 data da;
 set chars.v7_1_rank_label;
 keep
+    ret date
     public_date   permno   gvkey   sic  cusip
     &vars
     &rank_vars
+
+    FFI10 FFI10_desc
+    FFI30 FFI30_desc
     FFI49 FFI49_desc
+
     DGTW_PORT
-    port_me port_beta port_svar;
+
+    port_mom12m port_hxz_abr port_hxz_sue port_hxz_re
+    port_bm port_ep port_cfp port_sp
+    port_agr port_ni port_acc
+    port_op port_roe
+    port_seas1a port_adm port_rdm
+    port_me port_svar port_beta port_mom1m;
 run;
-
-proc export data=da
-outfile="/scratch/cityuhk/xinhe/eqchars/rank_final.csv" dbms=csv replace; run;
-
-proc export data=da(where=(year(public_date)=2018))
-outfile="/scratch/cityuhk/xinhe/eqchars/rank_final2018.csv" dbms=csv replace; run;
-
 
 data da;
 set da;
@@ -53,20 +57,50 @@ run;
 data eqchars;
 set da;
 keep
+    ret date
     public_date   permno   gvkey   sic  cusip
     weight_port
     &vars
     &rank_vars
+
+    FFI10 FFI10_desc
+    FFI30 FFI30_desc
     FFI49 FFI49_desc
+
     DGTW_PORT
-    port_me port_beta port_svar;
+
+    port_mom12m port_hxz_abr port_hxz_sue port_hxz_re
+    port_bm port_ep port_cfp port_sp
+    port_agr port_ni port_acc
+    port_op port_roe
+    port_seas1a port_adm port_rdm
+    port_me port_svar port_beta port_mom1m;
 run;
 
 /* ********************************************************************************* */
 
-
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_mom12m, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_hxz_re, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_hxz_sue, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_hxz_abr, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_bm, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_ep, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_cfp, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_sp, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_agr, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_ni, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_acc, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_op, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_roe, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_seas1a, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_adm, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_rdm, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
 %FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_me, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
 %FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_svar, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
 %FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_beta, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=port_mom1m, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=FFI10_desc, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
+%FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=FFI30_desc, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
 %FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=FFI49_desc, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
 %FINRATIO_ind_label  (BEGDATE=&uni_begdt, ENDDATE=&uni_enddt, label=DGTW_PORT, AVR=mean, weight=weight_port, Input=eqchars, vars=&rank_vars);
