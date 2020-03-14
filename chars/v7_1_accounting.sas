@@ -1054,7 +1054,7 @@ if gvkey ne lag4(gvkey) then z_depr=.;
 z_egr = ( (ceqq-lag4(ceqq))/lag4(ceqq)  );
 if gvkey ne lag4(gvkey) then z_egr=.;
 /*grltnoa*/
-z_grltnoa = ((rectq+invtq+ppentq+acoq+intanq+aoq-apq-lcoq-loq)-(lag4(rectq)+lag4(invtq)+lag4(ppentq)+lag4(acoq)+lag4(intanq)+lag4(aoq)-lag4(apq)-lag4(lcoq)-lag4(lcoq))
+z_grltnoa = ((rectq+invtq+ppentq+acoq+intanq+aoq-apq-lcoq-loq)-(lag4(rectq)+lag4(invtq)+lag4(ppentq)+lag4(acoq)+lag4(intanq)+lag4(aoq)-lag4(apq)-lag4(lcoq)-lag4(loq))
 		-( rectq-lag4(rectq)+invtq-lag4(invtq)+acoq-lag4(acoq)-(apq-lag4(apq)+lcoq-lag4(lcoq)) - %ttm4(dpq) ))/((atq+lag4(atq))/2);
 if gvkey ne lag4(gvkey) then z_grltnoa=.;
 /* chpm */
@@ -1063,7 +1063,7 @@ z_chpm=(%ttm4(ibq)/%ttm4(saleq))-(lag(%ttm4(ibq))/lag(%ttm4(saleq)));
 z_chato = (%ttm4(saleq)/((atq+lag4(atq))/2)) - (lag4(%ttm4(saleq))/((lag4(atq)+lag8(atq))/2));
 /* v5_3 */
 z_ala=cheq + 0.75*(actq - cheq) + 0.5*(atq - actq - gdwlq - intanq);
-z_alm=z_alaq/(atq + mveq - ceqq);
+z_alm=z_ala/(atq + mveq - ceqq);
 z_noa=(atq-cheq-coalesce(ivaoq,0)) - (atq-coalesce(dlcq,0)-coalesce(dlttq,0)-coalesce(mibq,0)-coalesce(pstkq,0)-ceqq)/lag4(atq);
 z_rna= oiadpq/lag4(z_noa);
 z_pm=oiadpq/saleq;
