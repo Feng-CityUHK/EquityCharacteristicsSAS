@@ -107,9 +107,12 @@ outfile='/scratch/cityuhk/xinhe/eqchars/ic2.csv' dbms=csv replace; run;
 data ic3;
 set ic2;
 hxz_re=.;
-if count=4 then hxz_re = ( lag1(monthly_revision) + lag2(monthly_revision) + lag3(monthly_revision) + lag4(monthly_revision) )/4;
-if count=5 then hxz_re = ( lag1(monthly_revision) + lag2(monthly_revision) + lag3(monthly_revision) + lag4(monthly_revision) + lag5(monthly_revision))/5;
-if count>=6 then hxz_re = ( lag1(monthly_revision) + lag2(monthly_revision) + lag3(monthly_revision) + lag4(monthly_revision) + lag5(monthly_revision) + lag6(monthly_revision))/6;
+if count=4 then hxz_re = ( lag1(monthly_revision) + lag2(monthly_revision) + lag3(monthly_revision)
+)/3;
+if count=5 then hxz_re = ( lag1(monthly_revision) + lag2(monthly_revision) + lag3(monthly_revision) + lag4(monthly_revision)
+)/4;
+if count=6 then hxz_re = ( lag1(monthly_revision) + lag2(monthly_revision) + lag3(monthly_revision) + lag4(monthly_revision) + lag5(monthly_revision) )/5;
+if count>=7 then hxz_re = ( lag1(monthly_revision) + lag2(monthly_revision) + lag3(monthly_revision) + lag4(monthly_revision) + lag5(monthly_revision) + lag6(monthly_revision) )/6;
 run;
 
 proc export data = ic3
