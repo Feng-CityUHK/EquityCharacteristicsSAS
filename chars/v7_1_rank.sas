@@ -16,7 +16,7 @@ libname chars '/scratch/cityuhk/xinhe/eqchars';
 data da;
 set chars.firmchars_v7_2_final;
 keep
-  public_date   permno   gvkey   sic  cusip
+  public_date   permno   gvkey   sic  cusip exchcd
   FFI5_desc   FFI5   FFI10_desc   FFI10   FFI12_desc   FFI12   FFI17_desc   FFI17
   FFI30_desc   FFI30   FFI38_desc   FFI38   FFI48_desc   FFI48  FFI49_desc   FFI49
   &vars_rank;
@@ -249,7 +249,7 @@ data da;
 set chars.v7_1_rank_label;
 keep
     ret date
-    public_date   permno   gvkey   sic  cusip
+    public_date   permno   gvkey   sic  cusip exchcd
     &vars
     &rank_vars
 
@@ -276,7 +276,7 @@ data eqchars;
 set da;
 keep
     ret date
-    public_date   permno   gvkey   sic  cusip
+    public_date   permno   gvkey   sic  cusip exchcd
     weight_port
     &vars
     &rank_vars
