@@ -128,7 +128,7 @@ FFI49_desc   FFI49
 data da;
 set chars.firmchars_v7_1_final;
 keep
-  public_date   permno   gvkey   sic  cusip
+  public_date   permno   gvkey   sic  cusip exchcd
   &vars_industry  &vars;
 run;
 
